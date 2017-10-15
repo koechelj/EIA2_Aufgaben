@@ -6,6 +6,12 @@ console.log (canvas);
 //Zeichnung
 letcrc2:CanvasRenderingContext2D=canvas.getContext("2d");
 console.log(crc2); 
+   
+//Gondel Linie   
+  crc2.beginPath();
+  crc2.moveTo(0,50);
+  crc2.lineTo (650,250);
+  crc2.stroke(); 
     
 //Linie 1 Piste  
   crc2.beginPath();//Starte mit neuem Pfad
