@@ -15,38 +15,41 @@ console.log(crc2);
     
 //Linie 1 Piste  
   crc2.beginPath();//Starte mit neuem Pfad
-  crc2.moveTo(0,40);//gehe hierhin
-  crc2.lineTo (400,300);//ziehe Linie bis
+  crc2.moveTo(200,200);//gehe hierhin
+  crc2.lineTo (620,320);//ziehe Linie bis
   crc2.stroke(); //Ende des Pfads
     
 //Linie 2 Piste  
   crc2.beginPath();
-  crc2.moveTo(0,90);
-  crc2.lineTo (400,300);
+  crc2.moveTo(170,350);
+  crc2.lineTo (600,520);
   crc2.stroke(); 
     
 //Baum 1
  crc2.beginPath();
- crc2.moveto(100,100);
-    crc2.lineTo(120,130);
-    crc2.lineTo(80,130);
-    crc2.stroke(); //schlieﬂe das Dreieck
-    crc2.fillstyle="green";
-    crc2.fill();
-
-//Baum 2
- crc2.beginPath();
- crc2.moveto(300,200);
-    crc2.lineTo(320,230);
-    crc2.lineTo(80,130);
+ crc2.moveto(150,380);
+    crc2.lineTo(120,440);
+    crc2.lineTo(180,440);
     crc2.stroke(); //schlieﬂe das Dreieck
     crc2.fillstyle="green";
     crc2.fill();
     
+//Baumstamm 1
+    crc2.fillstyle="maroon";
+    crc2.fillRect(130,440,10,30);
 
-//Baumstamm
-crc2.fillstyle="";
-crc2.fillRect(100,100,100,300);
+//Baum 2
+ crc2.beginPath();
+ crc2.moveto(680,80);
+    crc2.lineTo(650,140);
+    crc2.lineTo(710,140);
+    crc2.stroke(); //schlieﬂe das Dreieck
+    crc2.fillstyle="green";
+    crc2.fill();
+    
+//Baumstamm 2
+    crc2.fillstyle="";
+    crc2.fillRect(660,140,10,30);
     
     
     }
