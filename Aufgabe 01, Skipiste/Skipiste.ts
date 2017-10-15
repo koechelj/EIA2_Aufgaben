@@ -51,5 +51,24 @@ console.log(crc2);
     crc2.fillstyle="";
     crc2.fillRect(660,140,10,30);
     
+    //Berg 1
+    crc2.beginPath();
+    crc2.moveto(400,50);
+    crc2.lineTo(420,15);
+    crc2.lineTo(440,50);
+   
+     //Berg 2
+    crc2.beginPath();
+    crc2.moveto(440,50);
+    crc2.lineTo(460,15);
+    crc2.lineTo(480,50);
+    
+    
+     //Berg 3
+    crc2.beginPath();
+    crc2.moveto(470,35);
+    crc2.lineTo(500,15);
+    crc2.lineTo(520,50);
+    
     
     }
