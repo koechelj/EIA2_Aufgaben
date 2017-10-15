@@ -13,6 +13,22 @@ console.log(crc2);
   crc2.lineTo (650,250);
   crc2.stroke(); 
     
+  //Gondel 1   
+  crc2.beginPath();
+  crc2.moveTo(180,65);
+  crc2.lineTo (195,90);
+  crc2.lineTo (180,120);
+  crc2.stroke();  
+    
+    
+    //Gondel 2   
+  crc2.beginPath();
+  crc2.moveTo(420,130);
+  crc2.lineTo (435,155);
+  crc2.lineTo (420,185);
+  crc2.stroke();    
+    
+    
 //Linie 1 Piste  
   crc2.beginPath();//Starte mit neuem Pfad
   crc2.moveTo(200,200);//gehe hierhin
@@ -56,12 +72,14 @@ console.log(crc2);
     crc2.moveto(400,50);
     crc2.lineTo(420,15);
     crc2.lineTo(440,50);
+    crc2.stroke(); //Ende des Pfads
    
      //Berg 2
     crc2.beginPath();
     crc2.moveto(440,50);
     crc2.lineTo(460,15);
     crc2.lineTo(480,50);
+    crc2.stroke(); //Ende des Pfads
     
     
      //Berg 3
@@ -69,6 +87,7 @@ console.log(crc2);
     crc2.moveto(470,35);
     crc2.lineTo(500,15);
     crc2.lineTo(520,50);
+    crc2.stroke(); //Ende des Pfads
     
     
     }
