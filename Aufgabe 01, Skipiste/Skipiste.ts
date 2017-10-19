@@ -54,7 +54,7 @@ console.log(crc2);
     
 //Baumstamm 1
     crc2.fillStyle="maroon";
-    crc2.fillRect(130,440,25,30);
+    crc2.fillRect(130,440,30,50);
 
 //Baum 2
  crc2.beginPath();
@@ -67,7 +67,7 @@ console.log(crc2);
     
 //Baumstamm 2
     crc2.fillStyle="maroon";
-    crc2.fillRect(660,140,25,30);
+    crc2.fillRect(660,140,30,50);
     
     //Berg 1
     crc2.beginPath();

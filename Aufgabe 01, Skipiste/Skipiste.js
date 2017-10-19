@@ -44,7 +44,7 @@ var ersteAufgabe;
         crc2.fill();
         //Baumstamm 1
         crc2.fillStyle = "maroon";
-        crc2.fillRect(130, 440, 25, 30);
+        crc2.fillRect(130, 440, 30, 50);
         //Baum 2
         crc2.beginPath();
         crc2.moveTo(680, 80);
@@ -55,7 +55,7 @@ var ersteAufgabe;
         crc2.fill();
         //Baumstamm 2
         crc2.fillStyle = "maroon";
-        crc2.fillRect(660, 140, 25, 30);
+        crc2.fillRect(660, 140, 30, 50);
         //Berg 1
         crc2.beginPath();
         crc2.moveTo(400, 50);
