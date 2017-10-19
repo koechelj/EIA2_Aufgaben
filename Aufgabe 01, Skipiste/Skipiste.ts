@@ -29,7 +29,7 @@ console.log(crc2);
     
 //Linie 2 Piste  
   crc2.beginPath();
-  crc2.moveTo(50,350);
+  crc2.moveTo(50,300);
   crc2.lineTo (600,520);
   crc2.stroke(); 
     
