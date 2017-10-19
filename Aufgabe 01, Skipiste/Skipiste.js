@@ -12,18 +12,9 @@ var ersteAufgabe;
         crc2.moveTo(0, 50);
         crc2.lineTo(650, 250);
         crc2.stroke();
-        //Gondel 1   
-        crc2.beginPath();
-        crc2.moveTo(180, 65);
-        crc2.lineTo(195, 90);
-        crc2.lineTo(180, 120);
-        crc2.stroke();
-        //Gondel 2   
-        crc2.beginPath();
-        crc2.moveTo(420, 130);
-        crc2.lineTo(435, 155);
-        crc2.lineTo(420, 185);
-        crc2.stroke();
+        //Gondel   
+        crc2.fillStyle = "black";
+        crc2.fillRect(180, 65, 40, 70);
         //Linie 1 Piste  
         crc2.beginPath(); //Starte mit neuem Pfad
         crc2.moveTo(200, 200); //gehe hierhin
@@ -70,16 +61,12 @@ var ersteAufgabe;
         crc2.lineTo(460, 15);
         crc2.lineTo(480, 50);
         crc2.stroke(); //Ende des Pfads
-        crc2.fillStyle = "grey";
-        crc2.fill();
         //Berg 3
         crc2.beginPath();
         crc2.moveTo(470, 35);
         crc2.lineTo(500, 15);
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
-        crc2.fillStyle = "grey";
-        crc2.fill();
     }
 })(ersteAufgabe || (ersteAufgabe = {}));
 //# sourceMappingURL=Skipiste.js.map
