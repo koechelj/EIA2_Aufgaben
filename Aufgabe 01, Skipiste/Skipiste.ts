@@ -17,21 +17,15 @@ console.log(crc2);
     
   //Gondel   
     crc2.fillStyle="black";
-    crc2.fillRect(180,65,70,40);
+    crc2.fillRect(180,80,65,40);
      
+
     
-    
-//Linie 1 Piste  
-  crc2.beginPath();//Starte mit neuem Pfad
-  crc2.moveTo(50,100);//gehe hierhin
-  crc2.lineTo (620,320);//ziehe Linie bis
-  crc2.stroke(); //Ende des Pfads
-    
-//Linie 2 Piste  
+//Linie Piste  
   crc2.beginPath();
-  crc2.moveTo(50,300);
+  crc2.moveTo(50,300); //Beginne hier den Pfad
   crc2.lineTo (600,520);
-  crc2.stroke(); 
+  crc2.stroke(); //Ende des Pfads
     
 //Baum 1
  crc2.beginPath();
