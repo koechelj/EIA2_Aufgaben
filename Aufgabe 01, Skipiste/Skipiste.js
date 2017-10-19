@@ -62,6 +62,8 @@ var ersteAufgabe;
         crc2.lineTo(420, 15);
         crc2.lineTo(440, 50);
         crc2.stroke(); //Ende des Pfads
+        crc2.fillStyle = "grey";
+        crc2.fill();
         //Berg 2
         crc2.beginPath();
         crc2.moveTo(440, 50);
