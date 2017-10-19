@@ -17,12 +17,12 @@ var ersteAufgabe;
         crc2.fillRect(180, 65, 40, 70);
         //Linie 1 Piste  
         crc2.beginPath(); //Starte mit neuem Pfad
-        crc2.moveTo(200, 200); //gehe hierhin
+        crc2.moveTo(50, 100); //gehe hierhin
         crc2.lineTo(620, 320); //ziehe Linie bis
         crc2.stroke(); //Ende des Pfads
         //Linie 2 Piste  
         crc2.beginPath();
-        crc2.moveTo(170, 350);
+        crc2.moveTo(50, 350);
         crc2.lineTo(600, 520);
         crc2.stroke();
         //Baum 1
@@ -35,7 +35,7 @@ var ersteAufgabe;
         crc2.fill();
         //Baumstamm 1
         crc2.fillStyle = "maroon";
-        crc2.fillRect(130, 440, 30, 50);
+        crc2.fillRect(130, 440, 30, 40);
         //Baum 2
         crc2.beginPath();
         crc2.moveTo(680, 80);
@@ -46,7 +46,7 @@ var ersteAufgabe;
         crc2.fill();
         //Baumstamm 2
         crc2.fillStyle = "maroon";
-        crc2.fillRect(660, 140, 30, 50);
+        crc2.fillRect(660, 140, 30, 40);
         //Berg 1
         crc2.beginPath();
         crc2.moveTo(400, 50);
