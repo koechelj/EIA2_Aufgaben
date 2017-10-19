@@ -17,7 +17,7 @@ console.log(crc2);
     
   //Gondel   
     crc2.fillStyle="black";
-    crc2.fillRect(180,65,40,70);
+    crc2.fillRect(180,65,70,40);
      
     
     
@@ -65,8 +65,7 @@ console.log(crc2);
     crc2.lineTo(420,15);
     crc2.lineTo(440,50);
     crc2.stroke(); //Ende des Pfads
-      crc2.fillStyle="grey";
-    crc2.fill();
+  
    
      //Berg 2
     crc2.beginPath();

@@ -14,7 +14,7 @@ var ersteAufgabe;
         crc2.stroke();
         //Gondel   
         crc2.fillStyle = "black";
-        crc2.fillRect(180, 65, 40, 70);
+        crc2.fillRect(180, 65, 70, 40);
         //Linie 1 Piste  
         crc2.beginPath(); //Starte mit neuem Pfad
         crc2.moveTo(50, 100); //gehe hierhin
@@ -53,8 +53,6 @@ var ersteAufgabe;
         crc2.lineTo(420, 15);
         crc2.lineTo(440, 50);
         crc2.stroke(); //Ende des Pfads
-        crc2.fillStyle = "grey";
-        crc2.fill();
         //Berg 2
         crc2.beginPath();
         crc2.moveTo(440, 50);
