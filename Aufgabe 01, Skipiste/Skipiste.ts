@@ -17,7 +17,7 @@ console.log(crc2);
     
   //Gondel   
     crc2.fillStyle="black";
-    crc2.fillRect(180,80,65,40);
+    crc2.fillRect(180,95,65,40);
      
 //Linie Piste  
   crc2.beginPath();
