@@ -71,12 +71,10 @@ console.log(crc2);
     
     //Berg 1
     crc2.beginPath();
-    crc2.moveTo(400,50);
+    crc2.moveTo(400,100);
     crc2.lineTo(420,15);
     crc2.lineTo(440,50);
     crc2.stroke(); //Ende des Pfads
-      crc2.fillStyle="grey";
-    crc2.fill();
    
      //Berg 2
     crc2.beginPath();
@@ -90,7 +88,7 @@ console.log(crc2);
     crc2.beginPath();
     crc2.moveTo(470,35);
     crc2.lineTo(500,15);
-    crc2.lineTo(520,50);
+    crc2.lineTo(520,100);
     crc2.stroke(); //Ende des Pfads
     
     }
