@@ -1,11 +1,12 @@
 var zweiteAufgabe;
 (function (zweiteAufgabe) {
     window.addEventListener("load", init);
+    let crc2;
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         //Zeichnung
-        let crc2 = canvas.getContext("2d");
+        crc2 = canvas.getContext("2d");
         console.log(crc2);
         //Gondel Linie   
         crc2.beginPath();
@@ -60,6 +61,19 @@ var zweiteAufgabe;
         crc2.lineTo(500, 15);
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
+        //Aufruf der drawTree Funktion
+        drawTree(550, 120, "green");
+    }
+    function drawTree(_x, _y, _color) {
+        //Baum 
+        crc2.beginPath();
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 10, _y + 10);
+        crc2.lineTo(_x - 10, _y - 10);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fillStyle = _color;
+        crc2.fill();
     }
 })(zweiteAufgabe || (zweiteAufgabe = {}));
 //# sourceMappingURL=Functions-Skipiste.js.map
