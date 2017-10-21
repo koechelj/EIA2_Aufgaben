@@ -70,21 +70,21 @@ namespace zweiteAufgabe {
 
 
         //Aufruf der drawTree Funktion
-        drawTree(200, 100, "green");
+        drawTree(680, 80, "green");
 
     }
 
 
 
-    function drawTree(_x: number, _y: number, _color: string): void {
+    function drawTree(x: number, y: number, color: string): void {
         //Baum 
         crc2.beginPath();
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 30, _y + 20);
-        crc2.lineTo(_x - 30, _y - 20);
+        crc2.moveTo(x, y);
+        crc2.lineTo(x + 30, y + 20);
+        crc2.lineTo(x - 30, y - 20);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = _color;
+        crc2.fillStyle = color;
         crc2.fill();
     }
     //Baum 2
