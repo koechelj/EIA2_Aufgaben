@@ -39,6 +39,9 @@ var zweiteAufgabe;
         crc2.lineTo(500, 15);
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
+        //konstant platzierte B�ume
+        drawTree(680, 80, "green");
+        drawTree(150, 380, "green");
     }
     function drawTree(x, y, color) {
         crc2.beginPath();
@@ -50,9 +53,6 @@ var zweiteAufgabe;
         crc2.fillStyle = color;
         crc2.fill();
     }
-    //konstant platzierte B�ume
-    drawTree(680, 80, "green");
-    drawTree(150, 380, "green");
     //6 B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
     for (let i = 0; i < 6; i++) {
         let x = 190 + Math.random() * 700;

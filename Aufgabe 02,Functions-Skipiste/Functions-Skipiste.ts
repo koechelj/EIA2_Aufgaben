@@ -53,6 +53,12 @@ namespace zweiteAufgabe {
         crc2.stroke(); //Ende des Pfads
 
 
+        
+      
+        //konstant platzierte Bäume
+       drawTree(680, 80, "green");
+        drawTree(150, 380, "green");
+
     }
 
    
@@ -68,11 +74,8 @@ namespace zweiteAufgabe {
     }
     
     
-        //konstant platzierte Bäume
-        drawTree(680, 80, "green");
-        drawTree(150, 380, "green");
 
-
+    
     //6 Bäume an zufälliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
     for (let i: number = 0; i < 6; i++) {
         let x: number = 190 + Math.random() * 700;
