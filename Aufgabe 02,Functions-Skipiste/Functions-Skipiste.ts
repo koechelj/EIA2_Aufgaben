@@ -97,16 +97,7 @@ namespace zweiteAufgabe {
         crc2.fill();
 
 
-    
-    
-    
-    
-    // konstante Bäume per Funktion platzieren
-    
-     for (let i:number=0; i<3; i++) {
-    
-    drawTree(680 +i *30, 80, "green");  //30 ist der Abstand zw. den Bäumen
-    
+ 
     }
     
     
@@ -114,4 +105,4 @@ namespace zweiteAufgabe {
 
 
 
-}
+

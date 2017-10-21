@@ -77,9 +77,6 @@ var zweiteAufgabe;
     crc2.stroke(); //schlie�e das Dreieck
     crc2.fillStyle = "green";
     crc2.fill();
-    // konstante B�ume per Funktion platzieren
-    for (let i = 0; i < 3; i++) {
-        drawTree(680 + i * 30, 80, "green"); //30 ist der Abstand zw. den B�umen
-    }
 })(zweiteAufgabe || (zweiteAufgabe = {}));
+//3 B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
 //# sourceMappingURL=Functions-Skipiste.js.map
