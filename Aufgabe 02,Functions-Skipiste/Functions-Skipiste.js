@@ -21,22 +21,6 @@ var zweiteAufgabe;
         crc2.moveTo(50, 300); //Beginne hier den Pfad
         crc2.lineTo(600, 520);
         crc2.stroke(); //Ende des Pfads
-        //Baum 1
-        crc2.beginPath();
-        crc2.moveTo(150, 380);
-        crc2.lineTo(100, 480);
-        crc2.lineTo(200, 480);
-        crc2.stroke(); //schlie�e das Dreieck
-        crc2.fillStyle = "green";
-        crc2.fill();
-        //Baum 2
-        crc2.beginPath();
-        crc2.moveTo(680, 80);
-        crc2.lineTo(630, 180);
-        crc2.lineTo(730, 180);
-        crc2.stroke(); //schlie�e das Dreieck
-        crc2.fillStyle = "green";
-        crc2.fill();
         //Berg 1
         crc2.beginPath();
         crc2.moveTo(400, 50);
@@ -55,8 +39,9 @@ var zweiteAufgabe;
         crc2.lineTo(500, 15);
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
-        //Aufruf der drawTree Funktion
-        drawTree(200, 100, "green");
+        //Aufruf der drawTree Funktion (konstant platzierte B�ume)
+        drawTree(680, 80, "green");
+        drawTree(150, 380, "green");
     }
     function drawTree(x, y, color) {
         crc2.beginPath();
@@ -68,7 +53,11 @@ var zweiteAufgabe;
         crc2.fillStyle = color;
         crc2.fill();
     }
-    drawTree(680, 80, "green");
+    //6 B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
+    for (let i = 0; i < 6; i++) {
+        let x = 190 + Math.random() * 700;
+        let y = 520 + Math.random() * 580;
+        drawTree(x, y, "green");
+    }
 })(zweiteAufgabe || (zweiteAufgabe = {}));
-//3 B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
 //# sourceMappingURL=Functions-Skipiste.js.map

@@ -26,23 +26,7 @@ namespace zweiteAufgabe {
         crc2.lineTo(600, 520);
         crc2.stroke(); //Ende des Pfads
 
-        //Baum 1
-        crc2.beginPath();
-        crc2.moveTo(150, 380);
-        crc2.lineTo(100, 480);
-        crc2.lineTo(200, 480);
-        crc2.stroke(); //schlieﬂe das Dreieck
-        crc2.fillStyle = "green";
-        crc2.fill();
-
-        //Baum 2
-        crc2.beginPath();
-        crc2.moveTo(680, 80);
-        crc2.lineTo(630, 180);
-        crc2.lineTo(730, 180);
-        crc2.stroke(); //schlieﬂe das Dreieck
-        crc2.fillStyle = "green";
-        crc2.fill();
+       
 
         //Berg 1
         crc2.beginPath();
@@ -69,8 +53,9 @@ namespace zweiteAufgabe {
         crc2.stroke(); //Ende des Pfads
 
 
-        //Aufruf der drawTree Funktion
-        drawTree(200, 100, "green");
+        //Aufruf der drawTree Funktion (konstant platzierte B‰ume)
+        drawTree(680, 80, "green");
+        drawTree(150, 380, "green");
 
     }
 
@@ -87,17 +72,15 @@ namespace zweiteAufgabe {
         crc2.fill();
     }
 
-    drawTree(680, 80, "green");
+
+    //6 B‰ume an zuf‰lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
+    for (let i: number = 0; i < 6; i++) {
+        let x: number = 190 + Math.random() * 700;
+        let y: number = 520 + Math.random() * 580;
+
+        drawTree(x, y, "green")
+
+    }
+
 
 }
-
-
-
-
-
-
-    //3 B‰ume an zuf‰lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
-
-
-
-
