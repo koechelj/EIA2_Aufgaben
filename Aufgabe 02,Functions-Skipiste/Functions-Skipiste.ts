@@ -77,7 +77,7 @@ namespace zweiteAufgabe {
     
 
     
-    //6 Bäume an zufälliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
+    //6 Bäume an zufälliger Stelle zwischen X 190-700 und Y 400-550 (for Schleife)
     for (let i: number = 0; i < 6; i++) {
         let x: number = 190 + Math.random() * 700;
         let y: number = 520 + Math.random() * 580;
