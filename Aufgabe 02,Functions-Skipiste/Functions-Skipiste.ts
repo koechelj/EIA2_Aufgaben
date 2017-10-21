@@ -77,7 +77,6 @@ namespace zweiteAufgabe {
 
 
     function drawTree(x: number, y: number, color: string): void {
-        //Baum 
         crc2.beginPath();
         crc2.moveTo(x, y);
         crc2.lineTo(x + 30, y + 20);
@@ -87,20 +86,16 @@ namespace zweiteAufgabe {
         crc2.fillStyle = color;
         crc2.fill();
     }
-    //Baum 2
-        crc2.beginPath();
-        crc2.moveTo(680, 80);
-        crc2.lineTo(630, 180);
-        crc2.lineTo(730, 180);
-        crc2.stroke(); //schlieﬂe das Dreieck
-        crc2.fillStyle = "green";
-        crc2.fill();
+
+    drawTree(680, 80, "green");
+
+}
 
 
- 
-    }
-    
-    
+
+
+
+
     //3 B‰ume an zuf‰lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
 
 
