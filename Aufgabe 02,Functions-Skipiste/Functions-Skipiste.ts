@@ -30,7 +30,7 @@ namespace zweiteAufgabe {
         crc2.beginPath();
         crc2.moveTo(150, 380);
         crc2.lineTo(100, 480);
-        crc2.lineTo(180, 480);
+        crc2.lineTo(200, 480);
         crc2.stroke(); //schlieﬂe das Dreieck
         crc2.fillStyle = "green";
         crc2.fill();
@@ -39,7 +39,7 @@ namespace zweiteAufgabe {
         crc2.beginPath();
         crc2.moveTo(680, 80);
         crc2.lineTo(630, 180);
-        crc2.lineTo(710, 180);
+        crc2.lineTo(730, 180);
         crc2.stroke(); //schlieﬂe das Dreieck
         crc2.fillStyle = "green";
         crc2.fill();
@@ -70,7 +70,7 @@ namespace zweiteAufgabe {
 
 
         //Aufruf der drawTree Funktion
-        drawTree(680, 80, "green");
+        drawTree(630, 180, "green");
 
     }
 
@@ -80,8 +80,8 @@ namespace zweiteAufgabe {
         //Baum 
         crc2.beginPath();
         crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 20, _y + 30);
-        crc2.lineTo(_x - 20, _y - 30);
+        crc2.lineTo(_x - 20, _y - 20);
+        crc2.lineTo(_x + 20, _y + 20);
         crc2.stroke();
         crc2.fillStyle = _color;
         crc2.fill();
