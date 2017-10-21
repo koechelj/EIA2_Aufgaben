@@ -53,7 +53,7 @@ var zweiteAufgabe;
             crc2.fillStyle = color;
             crc2.fill();
         }
-        //B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 400-550 (for Schleife)
+        //B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 200-500 (for Schleife)
         for (let i = 0; i < 8; i++) {
             let x = 190 + Math.random() * 700;
             let y = 520 + Math.random() * 580;
