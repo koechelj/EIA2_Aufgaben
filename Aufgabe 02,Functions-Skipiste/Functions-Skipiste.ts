@@ -55,7 +55,7 @@ namespace zweiteAufgabe {
 
         
       
-        //konstant platzierte Bäume
+        //Aufruf konstant platzierte Bäume
        drawTree(680, 80, "green");
         drawTree(150, 380, "green");
 
@@ -68,6 +68,7 @@ namespace zweiteAufgabe {
         crc2.lineTo(x + 30, y + 20);
         crc2.lineTo(x - 30, y - 20);
         crc2.closePath();
+        crc2.strokeStyle=color;
         crc2.stroke();
         crc2.fillStyle = color;
         crc2.fill();

@@ -39,7 +39,7 @@ var zweiteAufgabe;
         crc2.lineTo(500, 15);
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
-        //konstant platzierte B�ume
+        //Aufruf konstant platzierte B�ume
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
     }
@@ -49,6 +49,7 @@ var zweiteAufgabe;
         crc2.lineTo(x + 30, y + 20);
         crc2.lineTo(x - 30, y - 20);
         crc2.closePath();
+        crc2.strokeStyle = color;
         crc2.stroke();
         crc2.fillStyle = color;
         crc2.fill();
