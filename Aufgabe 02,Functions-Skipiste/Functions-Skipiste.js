@@ -69,7 +69,7 @@ var zweiteAufgabe;
         for (let i = 0; i < 250; i++) {
             let x = 0 + Math.random() * 790; //x und y Position der Flocken ist zuf�llig, irgendwo im Bereich 600px X 790px
             let y = 0 + Math.random() * 600;
-            Schneesturm(x, y, 5, 0, 5 * Math.PI, "#F2F2F2");
+            Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
         }
     }
 })(zweiteAufgabe || (zweiteAufgabe = {}));
