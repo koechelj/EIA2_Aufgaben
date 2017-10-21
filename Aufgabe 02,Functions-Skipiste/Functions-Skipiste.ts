@@ -53,14 +53,9 @@ namespace zweiteAufgabe {
         crc2.stroke(); //Ende des Pfads
 
 
-        //Aufruf der drawTree Funktion (konstant platzierte Bäume)
-        drawTree(680, 80, "green");
-        drawTree(150, 380, "green");
-
     }
 
-
-
+   
     function drawTree(x: number, y: number, color: string): void {
         crc2.beginPath();
         crc2.moveTo(x, y);
@@ -71,6 +66,11 @@ namespace zweiteAufgabe {
         crc2.fillStyle = color;
         crc2.fill();
     }
+    
+    
+        //konstant platzierte Bäume
+        drawTree(680, 80, "green");
+        drawTree(150, 380, "green");
 
 
     //6 Bäume an zufälliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
