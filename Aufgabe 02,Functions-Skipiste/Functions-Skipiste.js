@@ -45,16 +45,16 @@ var zweiteAufgabe;
         function drawTree(x, y, color) {
             crc2.beginPath();
             crc2.moveTo(x, y);
-            crc2.lineTo(x + 30, y + 20);
-            crc2.lineTo(x - 30, y - 20);
+            crc2.lineTo(x + 30, y + 5);
+            crc2.lineTo(x - 30, y - 5);
             crc2.closePath();
             crc2.strokeStyle = color;
             crc2.stroke();
             crc2.fillStyle = color;
             crc2.fill();
         }
-        //6 B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 400-550 (for Schleife)
-        for (let i = 0; i < 6; i++) {
+        //B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 400-550 (for Schleife)
+        for (let i = 0; i < 8; i++) {
             let x = 190 + Math.random() * 700;
             let y = 520 + Math.random() * 580;
             drawTree(x, y, "green");

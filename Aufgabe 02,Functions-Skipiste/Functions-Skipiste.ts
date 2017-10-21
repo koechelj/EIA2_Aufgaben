@@ -65,8 +65,8 @@ namespace zweiteAufgabe {
     function drawTree(x: number, y: number, color: string): void {
         crc2.beginPath();
         crc2.moveTo(x, y);
-        crc2.lineTo(x + 30, y + 20);
-        crc2.lineTo(x - 30, y - 20);
+        crc2.lineTo(x + 30, y + 5);
+        crc2.lineTo(x - 30, y - 5);
         crc2.closePath();
         crc2.strokeStyle=color;
         crc2.stroke();
@@ -77,8 +77,8 @@ namespace zweiteAufgabe {
     
 
     
-    //6 Bäume an zufälliger Stelle zwischen X 190-700 und Y 400-550 (for Schleife)
-    for (let i: number = 0; i < 6; i++) {
+    //Bäume an zufälliger Stelle zwischen X 190-700 und Y 400-550 (for Schleife)
+    for (let i: number = 0; i < 8; i++) {
         let x: number = 190 + Math.random() * 700;
         let y: number = 520 + Math.random() * 580;
 
