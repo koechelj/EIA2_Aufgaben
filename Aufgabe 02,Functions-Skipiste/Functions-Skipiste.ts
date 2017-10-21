@@ -60,8 +60,6 @@ namespace zweiteAufgabe {
         drawTree(150, 380, "green");
 
 
-
-
         function drawTree(x: number, y: number, color: string): void {
             crc2.beginPath();
             crc2.moveTo(x, y);
