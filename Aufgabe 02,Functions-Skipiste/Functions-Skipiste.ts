@@ -7,6 +7,7 @@ namespace zweiteAufgabe {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         //Zeichnung
+        crc2 = canvas.getContext("2d");
         console.log(crc2);
 
         //Gondel Linie   
@@ -66,14 +67,10 @@ namespace zweiteAufgabe {
             crc2.moveTo(x, y);
             crc2.lineTo(x + 30, y + 5);
             crc2.lineTo(x - 30, y - 5);
-            crc2.closePath();
-            crc2.strokeStyle = color;
             crc2.stroke();
             crc2.fillStyle = color;
             crc2.fill();
         }
-
-
 
 
         //Bäume an zufälliger Position zwischen X 190-700 und Y 350-500 (for Schleife)
