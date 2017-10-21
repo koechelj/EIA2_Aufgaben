@@ -6,7 +6,6 @@ var zweiteAufgabe;
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         //Zeichnung
-        crc2 = canvas.getContext("2d");
         console.log(crc2);
         //Gondel Linie   
         crc2.beginPath();
@@ -53,13 +52,13 @@ var zweiteAufgabe;
             crc2.fillStyle = color;
             crc2.fill();
         }
-        //B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 350-500 (for Schleife)
+        //B�ume an zuf�lliger Position zwischen X 190-700 und Y 350-500 (for Schleife)
         for (let i = 0; i < 8; i++) {
-            let x = 190 + Math.random() * 700;
+            let x = 190 + Math.random() * 700; //zuf�llige x und y Werte
             let y = 350 + Math.random() * 500;
             drawTree(x, y, "green");
         }
-        //Schneeflocken, die zuf�llig im ganzen Canvas auftauchen 
+        //Schneeflocken, die zuf�llig im ganzen Canvas erscheinen 
         function Schneesturm(x, y, radius, winkel, circle, color) {
             crc2.beginPath();
             crc2.arc(x, y, radius, winkel, circle);

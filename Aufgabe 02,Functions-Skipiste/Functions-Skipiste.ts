@@ -7,7 +7,6 @@ namespace zweiteAufgabe {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         //Zeichnung
-        crc2 = canvas.getContext("2d");
         console.log(crc2);
 
         //Gondel Linie   
@@ -77,9 +76,9 @@ namespace zweiteAufgabe {
 
 
 
-        //Bäume an zufälliger Stelle zwischen X 190-700 und Y 350-500 (for Schleife)
+        //Bäume an zufälliger Position zwischen X 190-700 und Y 350-500 (for Schleife)
         for (let i: number = 0; i < 8; i++) {
-            let x: number = 190 + Math.random() * 700;
+            let x: number = 190 + Math.random() * 700; //zufällige x und y Werte
             let y: number = 350 + Math.random() * 500;
 
             drawTree(x, y, "green")
@@ -87,7 +86,7 @@ namespace zweiteAufgabe {
         }
 
 
-        //Schneeflocken, die zufällig im ganzen Canvas auftauchen 
+        //Schneeflocken, die zufällig im ganzen Canvas erscheinen 
         function Schneesturm(x: number, y: number, radius: number, winkel: number, circle: number, color: string): void {
             crc2.beginPath();
             crc2.arc(x, y, radius, winkel, circle);
