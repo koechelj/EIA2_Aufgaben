@@ -29,7 +29,7 @@ namespace zweiteAufgabe {
         //Baum 1
         crc2.beginPath();
         crc2.moveTo(150, 380);
-        crc2.lineTo(100, 460);
+        crc2.lineTo(100, 480);
         crc2.lineTo(180, 480);
         crc2.stroke(); //schlieﬂe das Dreieck
         crc2.fillStyle = "green";
@@ -38,7 +38,7 @@ namespace zweiteAufgabe {
         //Baum 2
         crc2.beginPath();
         crc2.moveTo(680, 80);
-        crc2.lineTo(630, 160);
+        crc2.lineTo(630, 180);
         crc2.lineTo(710, 180);
         crc2.stroke(); //schlieﬂe das Dreieck
         crc2.fillStyle = "green";
