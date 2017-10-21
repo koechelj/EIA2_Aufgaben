@@ -67,9 +67,9 @@ var zweiteAufgabe;
             crc2.fill();
         }
         for (let i = 0; i < 250; i++) {
-            let x = 0 + Math.random() * 800; //x und y Position der Flocken ist zuf�llig, irgendwo im Bereich 600px X 800px
+            let x = 0 + Math.random() * 790; //x und y Position der Flocken ist zuf�llig, irgendwo im Bereich 600px X 790px
             let y = 0 + Math.random() * 600;
-            Schneesturm(x, y, 6, 0, 6 * Math.PI, "grey");
+            Schneesturm(x, y, 6, 0, 6 * Math.PI, "#F2F2F2");
         }
     }
 })(zweiteAufgabe || (zweiteAufgabe = {}));

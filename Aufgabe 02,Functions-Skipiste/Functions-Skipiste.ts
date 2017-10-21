@@ -98,10 +98,10 @@ namespace zweiteAufgabe {
 
         for (let i: number = 0; i < 250; i++) {
 
-            let x: number = 0 + Math.random() * 800; //x und y Position der Flocken ist zufällig, irgendwo im Bereich 600px X 800px
+            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zufällig, irgendwo im Bereich 600px X 790px
             let y: number = 0 + Math.random() * 600;
 
-            Schneesturm(x, y, 6, 0, 6 * Math.PI, "grey");
+            Schneesturm(x, y, 6, 0, 6 * Math.PI, "#F2F2F2");
         }
 
 
