@@ -26,7 +26,7 @@ namespace zweiteAufgabe {
         crc2.lineTo(600, 520);
         crc2.stroke(); //Ende des Pfads
 
-       
+
 
         //Berg 1
         crc2.beginPath();
@@ -53,42 +53,59 @@ namespace zweiteAufgabe {
         crc2.stroke(); //Ende des Pfads
 
 
-        
-      
+
+
         //Aufruf konstant platzierte Bäume
-       drawTree(680, 80, "green");
+        drawTree(680, 80, "green");
         drawTree(150, 380, "green");
 
-        
-        
-     
-    function drawTree(x: number, y: number, color: string): void {
-        crc2.beginPath();
-        crc2.moveTo(x, y);
-        crc2.lineTo(x + 30, y + 5);
-        crc2.lineTo(x - 30, y - 5);
-        crc2.closePath();
-        crc2.strokeStyle=color;
-        crc2.stroke();
-        crc2.fillStyle = color;
-        crc2.fill();
+
+
+
+        function drawTree(x: number, y: number, color: string): void {
+            crc2.beginPath();
+            crc2.moveTo(x, y);
+            crc2.lineTo(x + 30, y + 5);
+            crc2.lineTo(x - 30, y - 5);
+            crc2.closePath();
+            crc2.strokeStyle = color;
+            crc2.stroke();
+            crc2.fillStyle = color;
+            crc2.fill();
+        }
+
+
+
+
+        //Bäume an zufälliger Stelle zwischen X 190-700 und Y 350-500 (for Schleife)
+        for (let i: number = 0; i < 8; i++) {
+            let x: number = 190 + Math.random() * 700;
+            let y: number = 350 + Math.random() * 500;
+
+            drawTree(x, y, "green")
+
+        }
+
+
+        //Schneeflocken, die zufällig im ganzen Canvas auftauchen 
+        function Schneesturm(x: number, y: number, radius: number, winkel: number, circle: number, color: string): void {
+            crc2.beginPath();
+            crc2.arc(x, y, radius, winkel, circle);
+            crc2.fillStyle = color;
+            crc2.fill();
+
+        }
+
+        for (let i: number = 0; i < 250; i++) {
+
+            let x: number = 0 + Math.random() * 800; //x und y Position der Flocken ist zufällig, irgendwo im Bereich 600px X 800px
+            let y: number = 0 + Math.random() * 600;
+
+            Schneesturm(x, y, 6, 0, 6 * Math.PI, "grey");
+        }
+
+
+
     }
-    
-    
-
-    
-    //Bäume an zufälliger Stelle zwischen X 190-700 und Y 200-500 (for Schleife)
-    for (let i: number = 0; i < 8; i++) {
-        let x: number = 190 + Math.random() * 700;
-        let y: number = 200 + Math.random() * 500;
-
-        drawTree(x, y, "green")
-
-    }   
-        
-    }
-
-   
-
 
 }

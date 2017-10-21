@@ -53,11 +53,23 @@ var zweiteAufgabe;
             crc2.fillStyle = color;
             crc2.fill();
         }
-        //B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 200-500 (for Schleife)
+        //B�ume an zuf�lliger Stelle zwischen X 190-700 und Y 350-500 (for Schleife)
         for (let i = 0; i < 8; i++) {
             let x = 190 + Math.random() * 700;
-            let y = 200 + Math.random() * 500;
+            let y = 350 + Math.random() * 500;
             drawTree(x, y, "green");
+        }
+        //Schneeflocken, die zuf�llig im ganzen Canvas auftauchen 
+        function Schneesturm(x, y, radius, winkel, circle, color) {
+            crc2.beginPath();
+            crc2.arc(x, y, radius, winkel, circle);
+            crc2.fillStyle = color;
+            crc2.fill();
+        }
+        for (let i = 0; i < 250; i++) {
+            let x = 0 + Math.random() * 800; //x und y Position der Flocken ist zuf�llig, irgendwo im Bereich 600px X 800px
+            let y = 0 + Math.random() * 600;
+            Schneesturm(x, y, 6, 0, 6 * Math.PI, "grey");
         }
     }
 })(zweiteAufgabe || (zweiteAufgabe = {}));
