@@ -7,6 +7,7 @@ namespace zweiteAufgabe {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         //Zeichnung
+        crc2 = canvas.getContext("2d");
         console.log(crc2);
 
         //Gondel Linie   
@@ -68,7 +69,12 @@ namespace zweiteAufgabe {
         crc2.stroke(); //Ende des Pfads
 
 
+        //Aufruf der drawTree Funktion
+        drawTree(200, 100, "green");
+
     }
+
+
 
     function drawTree(x: number, y: number, color: string): void {
         //Baum 
@@ -81,17 +87,29 @@ namespace zweiteAufgabe {
         crc2.fillStyle = color;
         crc2.fill();
     }
+    //Baum 2
+        crc2.beginPath();
+        crc2.moveTo(680, 80);
+        crc2.lineTo(630, 180);
+        crc2.lineTo(730, 180);
+        crc2.stroke(); //schlieﬂe das Dreieck
+        crc2.fillStyle = "green";
+        crc2.fill();
+
+
     
-   //Konstante B‰ume per Funktion platzieren
     
-    for (let i:number=0; i<3; i++) {
+    
+    
+    // konstante B‰ume per Funktion platzieren
+    
+     for (let i:number=0; i<3; i++) {
     
     drawTree(680 +i *30, 80, "green");  //30 ist der Abstand zw. den B‰umen
     
     }
     
     
-
     //3 B‰ume an zuf‰lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
 
 

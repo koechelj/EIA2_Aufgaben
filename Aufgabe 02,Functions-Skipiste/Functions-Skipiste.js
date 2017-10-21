@@ -6,6 +6,7 @@ var zweiteAufgabe;
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         //Zeichnung
+        crc2 = canvas.getContext("2d");
         console.log(crc2);
         //Gondel Linie   
         crc2.beginPath();
@@ -54,6 +55,8 @@ var zweiteAufgabe;
         crc2.lineTo(500, 15);
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
+        //Aufruf der drawTree Funktion
+        drawTree(200, 100, "green");
     }
     function drawTree(x, y, color) {
         //Baum 
@@ -66,7 +69,15 @@ var zweiteAufgabe;
         crc2.fillStyle = color;
         crc2.fill();
     }
-    //Konstante B�ume per Funktion platzieren
+    //Baum 2
+    crc2.beginPath();
+    crc2.moveTo(680, 80);
+    crc2.lineTo(630, 180);
+    crc2.lineTo(730, 180);
+    crc2.stroke(); //schlie�e das Dreieck
+    crc2.fillStyle = "green";
+    crc2.fill();
+    // konstante B�ume per Funktion platzieren
     for (let i = 0; i < 3; i++) {
         drawTree(680 + i * 30, 80, "green"); //30 ist der Abstand zw. den B�umen
     }
