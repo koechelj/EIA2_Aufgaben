@@ -56,17 +56,26 @@ var zweiteAufgabe;
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
         //Aufruf der drawTree Funktion
-        drawTree(630, 180, "green");
+        drawTree(200, 100, "green");
     }
     function drawTree(_x, _y, _color) {
         //Baum 
         crc2.beginPath();
         crc2.moveTo(_x, _y);
-        crc2.lineTo(_x - 20, _y - 20);
-        crc2.lineTo(_x + 20, _y + 20);
+        crc2.lineTo(_x + 30, _y + 20);
+        crc2.lineTo(_x - 30, _y - 20);
+        crc2.closePath();
         crc2.stroke();
         crc2.fillStyle = _color;
         crc2.fill();
     }
+    //Baum 2
+    crc2.beginPath();
+    crc2.moveTo(680, 80);
+    crc2.lineTo(630, 180);
+    crc2.lineTo(730, 180);
+    crc2.stroke(); //schlie�e das Dreieck
+    crc2.fillStyle = "green";
+    crc2.fill();
 })(zweiteAufgabe || (zweiteAufgabe = {}));
 //# sourceMappingURL=Functions-Skipiste.js.map
