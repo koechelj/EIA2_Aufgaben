@@ -29,9 +29,6 @@ var zweiteAufgabe;
         crc2.stroke(); //schlie�e das Dreieck
         crc2.fillStyle = "green";
         crc2.fill();
-        //Baumstamm 1
-        crc2.fillStyle = "maroon";
-        crc2.fillRect(130, 440, 30, 40);
         //Baum 2
         crc2.beginPath();
         crc2.moveTo(680, 80);
@@ -40,9 +37,6 @@ var zweiteAufgabe;
         crc2.stroke(); //schlie�e das Dreieck
         crc2.fillStyle = "green";
         crc2.fill();
-        //Baumstamm 2
-        crc2.fillStyle = "maroon";
-        crc2.fillRect(660, 140, 30, 40);
         //Berg 1
         crc2.beginPath();
         crc2.moveTo(400, 50);
@@ -62,14 +56,14 @@ var zweiteAufgabe;
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
         //Aufruf der drawTree Funktion
-        drawTree(550, 120, "green");
+        drawTree(680, 80, "green");
     }
     function drawTree(_x, _y, _color) {
         //Baum 
         crc2.beginPath();
         crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 10, _y + 10);
-        crc2.lineTo(_x - 10, _y - 10);
+        crc2.lineTo(_x + 20, _y + 30);
+        crc2.lineTo(_x - 20, _y - 30);
         crc2.closePath();
         crc2.stroke();
         crc2.fillStyle = _color;

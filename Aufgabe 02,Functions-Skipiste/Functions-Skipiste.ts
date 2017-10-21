@@ -1,13 +1,13 @@
 namespace zweiteAufgabe {
-    
+
     window.addEventListener("load", init);
-let crc2: CanvasRenderingContext2D;
+    let crc2: CanvasRenderingContext2D;
 
     function init(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         //Zeichnung
-        crc2=canvas.getContext("2d");
+        crc2 = canvas.getContext("2d");
         console.log(crc2);
 
         //Gondel Linie   
@@ -35,10 +35,6 @@ let crc2: CanvasRenderingContext2D;
         crc2.fillStyle = "green";
         crc2.fill();
 
-        //Baumstamm 1
-        crc2.fillStyle = "maroon";
-        crc2.fillRect(130, 440, 30, 40);
-
         //Baum 2
         crc2.beginPath();
         crc2.moveTo(680, 80);
@@ -47,10 +43,6 @@ let crc2: CanvasRenderingContext2D;
         crc2.stroke(); //schlieﬂe das Dreieck
         crc2.fillStyle = "green";
         crc2.fill();
-
-        //Baumstamm 2
-        crc2.fillStyle = "maroon";
-        crc2.fillRect(660, 140, 30, 40);
 
         //Berg 1
         crc2.beginPath();
@@ -78,18 +70,18 @@ let crc2: CanvasRenderingContext2D;
 
 
         //Aufruf der drawTree Funktion
-        drawTree(550, 120, "green");
+        drawTree(680, 80, "green");
 
-   }
+    }
 
 
-    
+
     function drawTree(_x: number, _y: number, _color: string): void {
         //Baum 
         crc2.beginPath();
         crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 10, _y + 10);
-        crc2.lineTo(_x - 10, _y - 10);
+        crc2.lineTo(_x + 20, _y + 30);
+        crc2.lineTo(_x - 20, _y - 30);
         crc2.closePath();
         crc2.stroke();
         crc2.fillStyle = _color;
@@ -97,9 +89,8 @@ let crc2: CanvasRenderingContext2D;
     }
 
 
-   //3 B‰ume an zuf‰lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
+    //3 B‰ume an zuf‰lliger Stelle zwischen X 190-700 und Y 520-580 (for Schleife)
 
 
 
 }
-    
