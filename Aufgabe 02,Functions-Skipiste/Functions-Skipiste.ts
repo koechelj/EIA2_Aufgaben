@@ -26,8 +26,16 @@ namespace zweiteAufgabe {
         crc2.lineTo(600, 520);
         crc2.stroke(); //Ende des Pfads
 
+//Baum 
+ crc2.beginPath();
+ crc2.moveTo(680,80);
+    crc2.lineTo(630,180);
+    crc2.lineTo(730,180);
+    crc2.stroke(); //schlieﬂe das Dreieck
+    crc2.fillStyle="green";
+    crc2.fill();
 
-
+        
         //Berg 1
         crc2.beginPath();
         crc2.moveTo(400, 50);
@@ -58,6 +66,8 @@ namespace zweiteAufgabe {
         //Aufruf konstant platzierte B‰ume
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
+
+
 
 
         function drawTree(x: number, y: number, color: string): void {
