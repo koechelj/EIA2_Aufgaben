@@ -24,16 +24,16 @@ var zweiteAufgabe;
         //Baum 1
         crc2.beginPath();
         crc2.moveTo(150, 380);
-        crc2.lineTo(120, 440);
-        crc2.lineTo(180, 440);
+        crc2.lineTo(100, 460);
+        crc2.lineTo(180, 460);
         crc2.stroke(); //schlie�e das Dreieck
         crc2.fillStyle = "green";
         crc2.fill();
         //Baum 2
         crc2.beginPath();
         crc2.moveTo(680, 80);
-        crc2.lineTo(650, 140);
-        crc2.lineTo(710, 140);
+        crc2.lineTo(630, 160);
+        crc2.lineTo(710, 160);
         crc2.stroke(); //schlie�e das Dreieck
         crc2.fillStyle = "green";
         crc2.fill();
@@ -64,7 +64,6 @@ var zweiteAufgabe;
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x + 20, _y + 30);
         crc2.lineTo(_x - 20, _y - 30);
-        crc2.closePath();
         crc2.stroke();
         crc2.fillStyle = _color;
         crc2.fill();
