@@ -26,16 +26,16 @@ namespace zweiteAufgabe {
         crc2.lineTo(600, 520);
         crc2.stroke(); //Ende des Pfads
 
-//Baum 
- crc2.beginPath();
- crc2.moveTo(680,80);
-    crc2.lineTo(630,180);
-    crc2.lineTo(730,180);
-    crc2.stroke(); //schlieﬂe das Dreieck
-    crc2.fillStyle="green";
-    crc2.fill();
+        //Baum 
+        crc2.beginPath();
+        crc2.moveTo(680, 80);
+        crc2.lineTo(630, 180);
+        crc2.lineTo(730, 180);
+        crc2.stroke(); //schlieﬂe das Dreieck
+        crc2.fillStyle = "green";
+        crc2.fill();
 
-        
+
         //Berg 1
         crc2.beginPath();
         crc2.moveTo(400, 50);
@@ -68,14 +68,14 @@ namespace zweiteAufgabe {
         drawTree(150, 380, "green");
 
 
-
+}
 
         function drawTree(x: number, y: number, color: string): void {
             crc2.beginPath();
             crc2.moveTo(x, y);
             crc2.lineTo(x + 30, y + 5);
             crc2.lineTo(x - 30, y - 5);
-            crc2.strokeStyle= color;
+            crc2.strokeStyle = color;
             crc2.stroke();
             crc2.fillStyle = color;
             crc2.fill();
@@ -103,7 +103,7 @@ namespace zweiteAufgabe {
 
         for (let i: number = 0; i < 250; i++) {
 
-            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zuf‰llig, irgendwo im Bereich 600px X 790px
+            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zuf‰llig, irgendwo im Bereich 790X600
             let y: number = 0 + Math.random() * 600;
 
             Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
@@ -113,4 +113,4 @@ namespace zweiteAufgabe {
 
     }
 
-}
+
