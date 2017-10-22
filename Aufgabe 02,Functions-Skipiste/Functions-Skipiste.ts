@@ -73,10 +73,10 @@ namespace zweiteAufgabe {
         }
 
 
-        //Bäume an zufälliger Position zwischen X 70-620 und Y 350-500 (for Schleife)
+        //Bäume an zufälliger Position zwischen X 70-620 und Y 420-500 (for Schleife)
         for (let i: number = 0; i < 10; i++) {
             let x: number = 70 + Math.random() * 620; //zufällige x und y Werte
-            let y: number = 350 + Math.random() * 500;
+            let y: number = 420 + Math.random() * 500;
 
             drawTree(x, y, "green")
 

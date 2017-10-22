@@ -53,10 +53,10 @@ var zweiteAufgabe;
             crc2.fillStyle = color;
             crc2.fill();
         }
-        //B�ume an zuf�lliger Position zwischen X 70-620 und Y 350-500 (for Schleife)
+        //B�ume an zuf�lliger Position zwischen X 70-620 und Y 420-500 (for Schleife)
         for (let i = 0; i < 10; i++) {
             let x = 70 + Math.random() * 620; //zuf�llige x und y Werte
-            let y = 350 + Math.random() * 500;
+            let y = 420 + Math.random() * 500;
             drawTree(x, y, "green");
         }
         //Schneeflocken, die zuf�llig im ganzen Canvas erscheinen (Parameter Funktion)
