@@ -63,13 +63,13 @@ namespace zweiteAufgabe {
 
 
 
-        //Aufruf konstant platzierte Bäume
+        //Aufruf konstant platzierte Bäume (Parameter einsetzen)
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
 
 
 
-
+//Parameter Funktion
         function drawTree(x: number, y: number, color: string): void {
             crc2.beginPath();
             crc2.moveTo(x, y);
@@ -92,7 +92,7 @@ namespace zweiteAufgabe {
         }
 
 
-        //Schneeflocken, die zufällig im ganzen Canvas erscheinen 
+        //Schneeflocken, die zufällig im ganzen Canvas erscheinen (Parameter Funktion)
         function Schneesturm(x: number, y: number, radius: number, winkel: number, circle: number, color: string): void {
             crc2.beginPath();
             crc2.arc(x, y, radius, winkel, circle);
@@ -101,11 +101,12 @@ namespace zweiteAufgabe {
 
         }
 
+        //Zeichne Schneeflocken mit Schleife
         for (let i: number = 0; i < 250; i++) {
 
             let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zufällig, irgendwo im Bereich 600px X 790px
             let y: number = 0 + Math.random() * 600;
-
+            //Aufruf (Werte für Parameter einsetzen)
             Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
         }
 
