@@ -26,15 +26,6 @@ namespace zweiteAufgabe {
         crc2.lineTo(600, 520);
         crc2.stroke(); //Ende des Pfads
 
-        //Baum 
-        crc2.beginPath();
-        crc2.moveTo(680, 80);
-        crc2.lineTo(630, 180);
-        crc2.lineTo(730, 180);
-        crc2.stroke(); //schlieﬂe das Dreieck
-        crc2.fillStyle = "green";
-        crc2.fill();
-
 
         //Berg 1
         crc2.beginPath();
@@ -67,14 +58,14 @@ namespace zweiteAufgabe {
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
 
-}
+
 
 //Parameter Funktion
         function drawTree(x: number, y: number, color: string): void {
             crc2.beginPath();
             crc2.moveTo(x, y);
             crc2.lineTo(x + 30, y + 60);
-            crc2.lineTo(x + 60, y - 60);
+            crc2.lineTo(x + 60, y);
             crc2.strokeStyle = color;
             crc2.stroke();
             crc2.fillStyle = color;
@@ -110,5 +101,5 @@ namespace zweiteAufgabe {
             Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
         }
 
-
+}
 }
