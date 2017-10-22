@@ -46,7 +46,7 @@ var zweiteAufgabe;
         function drawTree(x, y, color) {
             crc2.beginPath();
             crc2.moveTo(x, y);
-            crc2.lineTo(x + 30, y + 60);
+            crc2.lineTo(x + 30, y - 60);
             crc2.lineTo(x + 60, y);
             crc2.strokeStyle = color;
             crc2.stroke();
