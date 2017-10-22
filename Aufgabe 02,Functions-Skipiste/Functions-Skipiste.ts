@@ -67,14 +67,14 @@ namespace zweiteAufgabe {
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
 
-
+}
 
 //Parameter Funktion
         function drawTree(x: number, y: number, color: string): void {
             crc2.beginPath();
             crc2.moveTo(x, y);
-            crc2.lineTo(x + 30, y + 5);
-            crc2.lineTo(x - 30, y - 5);
+            crc2.lineTo(x + 30, y + 60);
+            crc2.lineTo(x + 60, y - 60);
             crc2.strokeStyle = color;
             crc2.stroke();
             crc2.fillStyle = color;
@@ -110,8 +110,5 @@ namespace zweiteAufgabe {
             Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
         }
 
-
-
-    }
 
 }
