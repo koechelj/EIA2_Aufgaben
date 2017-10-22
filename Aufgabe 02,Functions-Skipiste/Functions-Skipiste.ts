@@ -68,7 +68,7 @@ namespace zweiteAufgabe {
         drawTree(150, 380, "green");
 
 
-}
+
 
         function drawTree(x: number, y: number, color: string): void {
             crc2.beginPath();
@@ -103,7 +103,7 @@ namespace zweiteAufgabe {
 
         for (let i: number = 0; i < 250; i++) {
 
-            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zufällig, irgendwo im Bereich 790X600
+            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zufällig, irgendwo im Bereich 600px X 790px
             let y: number = 0 + Math.random() * 600;
 
             Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
@@ -113,4 +113,4 @@ namespace zweiteAufgabe {
 
     }
 
-
+}

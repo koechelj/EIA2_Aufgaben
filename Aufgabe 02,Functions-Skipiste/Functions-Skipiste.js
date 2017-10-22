@@ -50,34 +50,34 @@ var zweiteAufgabe;
         //Aufruf konstant platzierte B�ume
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
-    }
-    function drawTree(x, y, color) {
-        crc2.beginPath();
-        crc2.moveTo(x, y);
-        crc2.lineTo(x + 30, y + 5);
-        crc2.lineTo(x - 30, y - 5);
-        crc2.strokeStyle = color;
-        crc2.stroke();
-        crc2.fillStyle = color;
-        crc2.fill();
-    }
-    //B�ume an zuf�lliger Position zwischen X 190-700 und Y 350-500 (for Schleife)
-    for (let i = 0; i < 8; i++) {
-        let x = 190 + Math.random() * 700; //zuf�llige x und y Werte
-        let y = 350 + Math.random() * 500;
-        drawTree(x, y, "green");
-    }
-    //Schneeflocken, die zuf�llig im ganzen Canvas erscheinen 
-    function Schneesturm(x, y, radius, winkel, circle, color) {
-        crc2.beginPath();
-        crc2.arc(x, y, radius, winkel, circle);
-        crc2.fillStyle = color;
-        crc2.fill();
-    }
-    for (let i = 0; i < 250; i++) {
-        let x = 0 + Math.random() * 790; //x und y Position der Flocken ist zuf�llig, irgendwo im Bereich 790X600
-        let y = 0 + Math.random() * 600;
-        Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
+        function drawTree(x, y, color) {
+            crc2.beginPath();
+            crc2.moveTo(x, y);
+            crc2.lineTo(x + 30, y + 5);
+            crc2.lineTo(x - 30, y - 5);
+            crc2.strokeStyle = color;
+            crc2.stroke();
+            crc2.fillStyle = color;
+            crc2.fill();
+        }
+        //B�ume an zuf�lliger Position zwischen X 190-700 und Y 350-500 (for Schleife)
+        for (let i = 0; i < 8; i++) {
+            let x = 190 + Math.random() * 700; //zuf�llige x und y Werte
+            let y = 350 + Math.random() * 500;
+            drawTree(x, y, "green");
+        }
+        //Schneeflocken, die zuf�llig im ganzen Canvas erscheinen 
+        function Schneesturm(x, y, radius, winkel, circle, color) {
+            crc2.beginPath();
+            crc2.arc(x, y, radius, winkel, circle);
+            crc2.fillStyle = color;
+            crc2.fill();
+        }
+        for (let i = 0; i < 250; i++) {
+            let x = 0 + Math.random() * 790; //x und y Position der Flocken ist zuf�llig, irgendwo im Bereich 600px X 790px
+            let y = 0 + Math.random() * 600;
+            Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
+        }
     }
 })(zweiteAufgabe || (zweiteAufgabe = {}));
 //# sourceMappingURL=Functions-Skipiste.js.map
