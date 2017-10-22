@@ -53,9 +53,9 @@ var zweiteAufgabe;
             crc2.fillStyle = color;
             crc2.fill();
         }
-        //B�ume an zuf�lliger Position zwischen X 190-700 und Y 350-500 (for Schleife)
-        for (let i = 0; i < 8; i++) {
-            let x = 190 + Math.random() * 700; //zuf�llige x und y Werte
+        //B�ume an zuf�lliger Position zwischen X 70-700 und Y 350-500 (for Schleife)
+        for (let i = 0; i < 10; i++) {
+            let x = 70 + Math.random() * 700; //zuf�llige x und y Werte
             let y = 350 + Math.random() * 500;
             drawTree(x, y, "green");
         }
