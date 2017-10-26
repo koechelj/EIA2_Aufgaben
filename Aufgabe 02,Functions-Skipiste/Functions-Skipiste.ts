@@ -18,7 +18,7 @@ namespace zweiteAufgabe {
 
         //Gondel   
         crc2.fillStyle = "black";
-        crc2.fillRect(180, 95, 65, 40);
+        crc2.fillRect(180, 95, 65, 40); //Position x,y, Breite, Höhe des Rechtecks
 
         //Linie Piste  
         crc2.beginPath();
@@ -63,8 +63,8 @@ namespace zweiteAufgabe {
         //Parameter Funktion für zufällige Bäume
         function drawTree(x: number, y: number, color: string): void {
             crc2.beginPath();
-            crc2.moveTo(x, y);
-            crc2.lineTo(x + 30, y - 60);
+            crc2.moveTo(x, y);   //Position x und y sind variabel
+            crc2.lineTo(x + 30, y - 60); 
             crc2.lineTo(x + 60, y);
             crc2.strokeStyle = color;
             crc2.stroke();
@@ -95,7 +95,7 @@ namespace zweiteAufgabe {
         //Zeichne Schneeflocken mithilfe einer Schleife
         for (let i: number = 0; i < 250; i++) {
 
-            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zufällig, irgendwo im Bereich 600px X 790px
+            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zufällig, irgendwo im Bereich x bis 790 und y bis 600
             let y: number = 0 + Math.random() * 600;
             //Aufruf (Werte für Parameter einsetzen)
             Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
