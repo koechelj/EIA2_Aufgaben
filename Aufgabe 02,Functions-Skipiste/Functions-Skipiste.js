@@ -42,7 +42,7 @@ var zweiteAufgabe;
         //Aufruf konstant platzierte B�ume (Parameter einsetzen)
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
-        //Parameter Funktion
+        //Parameter Funktion f�r zuf�llige B�ume
         function drawTree(x, y, color) {
             crc2.beginPath();
             crc2.moveTo(x, y);
@@ -53,10 +53,11 @@ var zweiteAufgabe;
             crc2.fillStyle = color;
             crc2.fill();
         }
-        //B�ume an zuf�lliger Position zwischen X 70-620 und Y 420-500 (for Schleife)
+        //B�ume an zuf�lliger Position zwischen X 70-620 und Y 450-500 (for Schleife)
         for (let i = 0; i < 10; i++) {
             let x = 70 + Math.random() * 620; //zuf�llige x und y Werte
-            let y = 420 + Math.random() * 500;
+            let y = 450 + Math.random() * 500;
+            //Aufruf der drawTree Funktion
             drawTree(x, y, "green");
         }
         //Schneeflocken, die zuf�llig im ganzen Canvas erscheinen (Parameter Funktion)

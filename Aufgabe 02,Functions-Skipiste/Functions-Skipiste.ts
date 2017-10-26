@@ -60,7 +60,7 @@ namespace zweiteAufgabe {
 
 
 
-        //Parameter Funktion
+        //Parameter Funktion für zufällige Bäume
         function drawTree(x: number, y: number, color: string): void {
             crc2.beginPath();
             crc2.moveTo(x, y);
@@ -73,11 +73,11 @@ namespace zweiteAufgabe {
         }
 
 
-        //Bäume an zufälliger Position zwischen X 70-620 und Y 420-500 (for Schleife)
+        //Bäume an zufälliger Position zwischen X 70-620 und Y 450-500 (for Schleife)
         for (let i: number = 0; i < 10; i++) {
             let x: number = 70 + Math.random() * 620; //zufällige x und y Werte
-            let y: number = 420 + Math.random() * 500;
-
+            let y: number = 450 + Math.random() * 500;
+            //Aufruf der drawTree Funktion
             drawTree(x, y, "green")
 
         }
