@@ -58,7 +58,7 @@ namespace zweiteAufgabe {
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
 
-
+}
 
         //Parameter Funktion
         function drawTree(x: number, y: number, color: string): void {
@@ -102,4 +102,4 @@ namespace zweiteAufgabe {
         }
 
     }
-}
+
