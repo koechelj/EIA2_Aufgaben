@@ -58,37 +58,12 @@ namespace zweiteAufgabe {
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
 
-}
-
-        //Parameter Funktion für zufällige Bäume
-        function drawTree(x: number, y: number, color: string): void {
-            crc2.beginPath();
-            crc2.moveTo(x, y);   //Position x und y sind variabel
-            crc2.lineTo(x + 30, y - 60); 
-            crc2.lineTo(x + 60, y);
-            crc2.strokeStyle = color;
-            crc2.stroke();
-            crc2.fillStyle = color;
-            crc2.fill();
-        }
-
-
         //Bäume an zufälliger Position zwischen X 70-620 und Y 450-500 (for Schleife)
         for (let i: number = 0; i < 10; i++) {
             let x: number = 70 + Math.random() * 620; //zufällige x und y Werte
             let y: number = 450 + Math.random() * 500;
             //Aufruf der drawTree Funktion
-            drawTree(x, y, "green")
-
-        }
-
-
-        //Schneeflocken, die zufällig im ganzen Canvas erscheinen (Parameter Funktion)
-        function Schneesturm(x: number, y: number, radius: number, winkel: number, circle: number, color: string): void {
-            crc2.beginPath();
-            crc2.arc(x, y, radius, winkel, circle);
-            crc2.fillStyle = color;
-            crc2.fill();
+            drawTree(x, y, "green");
 
         }
 
@@ -102,4 +77,33 @@ namespace zweiteAufgabe {
         }
 
     }
+
+    //Parameter Funktion für zufällige Bäume
+    function drawTree(x: number, y: number, color: string): void {
+        crc2.beginPath();
+        crc2.moveTo(x, y);   //Position x und y sind variabel
+        crc2.lineTo(x + 30, y - 60);
+        crc2.lineTo(x + 60, y);
+        crc2.strokeStyle = color;
+        crc2.stroke();
+        crc2.fillStyle = color;
+        crc2.fill(); 
+    }
+
+
+
+
+
+    //Schneeflocken, die zufällig im ganzen Canvas erscheinen (Parameter Funktion)
+    function Schneesturm(x: number, y: number, radius: number, winkel: number, circle: number, color: string): void {
+        crc2.beginPath();
+        crc2.arc(x, y, radius, winkel, circle);
+        crc2.fillStyle = color;
+        crc2.fill();
+
+    }
+
+
+
+}
 
