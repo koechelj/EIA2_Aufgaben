@@ -157,8 +157,8 @@ namespace dritteAufgabe {
                 arraySkifahrerY[i] = 180;
             }
             //x und y Wert einer Skala
-            arraySkifahrerX[i] += 3;
-            arraySkifahrerY[i] += 1;
+            arraySkifahrerX[i] += 4; //Geschwindigkeit des Skifahrers
+            arraySkifahrerY[i] += 0.8; //Winkel in dem er nach unten fährt
             Skifahrer(arraySkifahrerX[i], arraySkifahrerY[i]);
         }
 
@@ -167,7 +167,7 @@ namespace dritteAufgabe {
             if (arraySchneeX[i] > 800) { //Bereich, in dem die Schneeflocken fallen
                arraySchneeX[i] = 0;
             }
-            arraySchneeY[i] += Math.random();
+            arraySchneeY[i] += 0.6; //Geschwindigkeit des Schnees
             Schneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2");
         }
 
