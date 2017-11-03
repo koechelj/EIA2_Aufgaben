@@ -1,10 +1,21 @@
-namespace zweiteAufgabe {
+namespace dritteAufgabe {
 
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
-    //Information für die X und Y Position muss global gehalten werden, damit immer darauf zugegriffen werden kann
-    let arrayX: number[] = [];
-    let arrayY: number[]= [];
+
+    //Array für Skifahrer
+    let arraySkifahrerX: number[] = [10];
+    let arraySkifahrerY: number[] = [190];
+
+    //Array für Schneeflocken
+    let arraySchneeX: number[] = []; 
+    let arraySchneeY: number[] = [];
+
+
+
+    let Background: ImageData;
+
+
 
     function init(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -12,6 +23,9 @@ namespace zweiteAufgabe {
         //Zeichnung
         crc2 = canvas.getContext("2d");
         console.log(crc2);
+
+
+
 
         //Gondel Linie   
         crc2.beginPath();
@@ -23,7 +37,7 @@ namespace zweiteAufgabe {
         crc2.fillStyle = "black";
         crc2.fillRect(180, 95, 65, 40); //Position x,y, Breite, Höhe des Rechtecks
 
-        //Linie Piste  
+        //Piste Linie 
         crc2.beginPath();
         crc2.moveTo(50, 300); //Beginne hier den Pfad
         crc2.lineTo(600, 520);
@@ -55,55 +69,111 @@ namespace zweiteAufgabe {
         crc2.stroke(); //Ende des Pfads
 
 
-
-
         //Aufruf konstant platzierte Bäume (Parameter einsetzen)
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
 
 
 
-        //Parameter Funktion für zufällige Bäume
-        function drawTree(x: number, y: number, color: string): void {
-            crc2.beginPath();
-            crc2.moveTo(x, y);   //Position x und y sind variabel
-            crc2.lineTo(x + 30, y - 60); 
-            crc2.lineTo(x + 60, y);
-            crc2.strokeStyle = color;
-            crc2.stroke();
-            crc2.fillStyle = color;
-            crc2.fill();
-        }
-
-
-        //Bäume an zufälliger Position zwischen X 70-620 und Y 450-500 (for Schleife)
-        for (let i: number = 0; i < 10; i++) {
-            let x: number = 70 + Math.random() * 620; //zufällige x und y Werte, Math.random() nimmt Wert zwischen 0 und 1 an
-            let y: number = 450 + Math.random() * 500;
+        //Bäume an zufälliger Position 
+        for (let i: number = 0; i < 7; i++) {
+            let x: number = 70 + Math.random() * 620; //zufällige x und y Werte
+            let y: number = 450 + Math.random() * 100;
             //Aufruf der drawTree Funktion
-            drawTree(x, y, "green")
+            drawTree(x, y, "green");
 
         }
 
 
-        //Schneeflocken, die zufällig im ganzen Canvas erscheinen (Parameter Funktion)
-        function Schneesturm(x: number, y: number, radius: number, winkel: number, circle: number, color: string): void {
-            crc2.beginPath();
-            crc2.arc(x, y, radius, winkel, circle);
-            crc2.fillStyle = color;
-            crc2.fill();
+        //Hintergrund speichern
+        Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        }
 
-        //Zeichne Schneeflocken mithilfe einer Schleife
-        for (let i: number = 0; i < 250; i++) {
+        //Aufruf der Animationsfunktion
+        animate();
 
-            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zufällig, irgendwo im Bereich x bis 790 und y bis 600
-            let y: number = 0 + Math.random() * 600;
-            //Aufruf (Werte für Parameter einsetzen)
-            Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
+
+        for (let i: number = 0; i < 50; i++) {
+            arraySchneeX[i] = 800 * Math.random();
+            arraySchneeY[i] = 600 * Math.random();
         }
 
     }
 
+
+
+    //Parameter Funktion für zufällige Bäume
+    function drawTree(x: number, y: number, color: string): void {
+        crc2.beginPath();
+        crc2.moveTo(x, y);   //Position x und y sind variabel
+        crc2.lineTo(x + 30, y - 60);
+        crc2.lineTo(x + 60, y);
+        crc2.strokeStyle = color;
+        crc2.stroke();
+        crc2.fillStyle = color;
+        crc2.fill();
+    }
+
+    //Schneeflocken
+    function Schneeflocken(x: number, y: number, radius: number, winkel: number, circle: number, color: string): void {
+        crc2.beginPath();
+        crc2.arc(x, y, 5, 0, 5 * Math.PI);
+        crc2.fillStyle = color;
+        crc2.fill();
+
+    }
+
+    //Skifahrer
+    function Skifahrer(x: number, y: number): void {
+        //Kopf
+        crc2.beginPath();
+        crc2.arc(x, y, 10, 0, 4 * Math.PI);
+        crc2.fillStyle = "orange";
+        crc2.fill();
+        //Körper
+        crc2.fillStyle = "blue";
+        crc2.fillRect(x - 8, y + 8, 10, 15);
+        //Skibretter
+        crc2.beginPath();
+        crc2.moveTo(x - 7, y + 21);
+        crc2.lineTo(x - 7, y + 23);
+        crc2.lineTo(x + 12, y + 30);
+        crc2.lineTo(x + 12, y + 28);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fillStyle = "black";
+        crc2.fill();
+    }
+
+
+    //Animation des Skifahrers und der Schneeflocken
+    function animate(): void {
+        console.log("Timeout");
+        crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
+
+        //Skifahrer bewegen
+        for (let i: number = 0; i < arraySkifahrerX.length; i++) { //Hier muss das X oder Y Array verwendet werden
+            if (arraySkifahrerX[i] > 800) {  //Bereich, in dem der Skifahrer sich bewegt:
+                arraySkifahrerX[i] = 0;
+                arraySkifahrerY[i] = 180;
+            }
+            //x und y Wert einer Skala
+            arraySkifahrerX[i] += 3;
+            arraySkifahrerY[i] += 1;
+            Skifahrer(arraySkifahrerX[i], arraySkifahrerY[i]);
+        }
+
+        //Schneeflocken bewegen
+        for (let i: number = 0; i < arraySchneeY.length; i++) {
+            if (arraySchneeY[i] > 600) {
+                arraySchneeY[i] = 0;
+            }
+            arraySchneeY[i] += Math.random();
+            Schneeflocken(arraySchneeX[i], arraySchneeY[i]);
+        }
+
+        window.setTimeout(animate, 20);
+    }
+
 }
+
