@@ -76,14 +76,14 @@ var dritteAufgabe;
         crc2.fillStyle = color;
         crc2.fill();
     }
-    //Schneeflocken
+    //Schneeflocken zeichnen
     function Schneeflocken(x, y, radius, winkel, circle, color) {
         crc2.beginPath();
-        crc2.arc(x, y, 5, 0, 5 * Math.PI);
+        crc2.arc(x, y, 4, 0, 4 * Math.PI);
         crc2.fillStyle = color;
         crc2.fill();
     }
-    //Skifahrer
+    //Skifahrer zeichnen
     function Skifahrer(x, y) {
         //Kopf
         crc2.beginPath();
@@ -92,7 +92,7 @@ var dritteAufgabe;
         crc2.fill();
         //K�rper
         crc2.fillStyle = "blue";
-        crc2.fillRect(x - 6, y + 8, 10, 15);
+        crc2.fillRect(x - 8, y + 8, 10, 15);
         //Skibretter
         crc2.beginPath();
         crc2.moveTo(x - 7, y + 21);
@@ -108,7 +108,7 @@ var dritteAufgabe;
     function animate() {
         console.log("Timeout");
         crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
-        //Schleife, die den Skifahrer vorbeifahren l�sst 
+        //Skifahrer bewegen
         for (let i = 0; i < arraySkifahrerX.length; i++) {
             if (arraySkifahrerX[i] > 800) {
                 arraySkifahrerX[i] = 0;
@@ -118,6 +118,14 @@ var dritteAufgabe;
             arraySkifahrerX[i] += 3;
             arraySkifahrerY[i] += 1;
             Skifahrer(arraySkifahrerX[i], arraySkifahrerY[i]);
+        }
+        //Schneeflocken bewegen
+        for (let i = 0; i < arraySchneeY.length; i++) {
+            if (arraySchneeX[i] > 800) {
+                arraySchneeX[i] = 0;
+            }
+            arraySchneeY[i] += Math.random();
+            Schneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2");
         }
         window.setTimeout(animate, 20);
     }

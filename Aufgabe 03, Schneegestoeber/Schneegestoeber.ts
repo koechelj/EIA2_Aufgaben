@@ -8,7 +8,7 @@ namespace dritteAufgabe {
     let arraySkifahrerY: number[] = [190];
 
     //Array für Schneeflocken
-    let arraySchneeX: number[] = []; 
+    let arraySchneeX: number[] = [];
     let arraySchneeY: number[] = [];
 
 
@@ -101,7 +101,6 @@ namespace dritteAufgabe {
     }
 
 
-
     //Parameter Funktion für zufällige Bäume
     function drawTree(x: number, y: number, color: string): void {
         crc2.beginPath();
@@ -114,16 +113,16 @@ namespace dritteAufgabe {
         crc2.fill();
     }
 
-    //Schneeflocken
+    //Schneeflocken zeichnen
     function Schneeflocken(x: number, y: number, radius: number, winkel: number, circle: number, color: string): void {
         crc2.beginPath();
-        crc2.arc(x, y, 5, 0, 5 * Math.PI);
+        crc2.arc(x, y, 4, 0, 4 * Math.PI);
         crc2.fillStyle = color;
         crc2.fill();
 
     }
 
-    //Skifahrer
+    //Skifahrer zeichnen
     function Skifahrer(x: number, y: number): void {
         //Kopf
         crc2.beginPath();
@@ -165,11 +164,11 @@ namespace dritteAufgabe {
 
         //Schneeflocken bewegen
         for (let i: number = 0; i < arraySchneeY.length; i++) {
-            if (arraySchneeY[i] > 600) {
-                arraySchneeY[i] = 0;
+            if (arraySchneeX[i] > 800) { //Bereich, in dem die Schneeflocken fallen
+               arraySchneeX[i] = 0;
             }
             arraySchneeY[i] += Math.random();
-            Schneeflocken(arraySchneeX[i], arraySchneeY[i]);
+            Schneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2");
         }
 
         window.setTimeout(animate, 20);
