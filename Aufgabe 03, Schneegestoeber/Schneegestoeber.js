@@ -46,8 +46,6 @@ var dritteAufgabe;
         crc2.lineTo(500, 15);
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
-        //Hintergrund speichern
-        Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
         //Aufruf konstant platzierte B�ume (Parameter einsetzen)
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
@@ -63,6 +61,8 @@ var dritteAufgabe;
             arraySchneeX[i] = 800 * Math.random();
             arraySchneeY[i] = 600 * Math.random();
         }
+        //Hintergrund speichern
+        Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
         //Aufruf der Animationsfunktion
         animate();
     }

@@ -25,8 +25,6 @@ namespace dritteAufgabe {
         console.log(crc2);
 
 
-
-
         //Gondel Linie   
         crc2.beginPath();
         crc2.moveTo(0, 50);
@@ -69,9 +67,6 @@ namespace dritteAufgabe {
         crc2.stroke(); //Ende des Pfads
 
 
-        //Hintergrund speichern
-        Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
-
 
         //Aufruf konstant platzierte Bäume (Parameter einsetzen)
         drawTree(680, 80, "green");
@@ -95,6 +90,11 @@ namespace dritteAufgabe {
             arraySchneeY[i] = 600 * Math.random();
         }
 
+         //Hintergrund speichern
+        Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
+
+        
+        
         //Aufruf der Animationsfunktion
         animate();
 
