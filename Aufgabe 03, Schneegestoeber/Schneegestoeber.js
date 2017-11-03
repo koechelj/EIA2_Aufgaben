@@ -46,6 +46,8 @@ var dritteAufgabe;
         crc2.lineTo(500, 15);
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
+        //Hintergrund speichern
+        Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
         //Aufruf konstant platzierte B�ume (Parameter einsetzen)
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
@@ -56,14 +58,13 @@ var dritteAufgabe;
             //Aufruf der drawTree Funktion
             drawTree(x, y, "green");
         }
-        //Hintergrund speichern
-        Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        //Aufruf der Animationsfunktion
-        animate();
+        //Schnee an zuf�lliger Position
         for (let i = 0; i < 50; i++) {
             arraySchneeX[i] = 800 * Math.random();
             arraySchneeY[i] = 600 * Math.random();
         }
+        //Aufruf der Animationsfunktion
+        animate();
     }
     //Parameter Funktion f�r zuf�llige B�ume
     function drawTree(x, y, color) {
@@ -104,11 +105,11 @@ var dritteAufgabe;
         crc2.fillStyle = "black";
         crc2.fill();
     }
-    //Animation des Skifahrers und der Schneeflocken
+    //Animation des Skifahrers und der Schneeflocken (Bewegungsmuster hier angeben)
     function animate() {
         console.log("Timeout");
         crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
-        //Skifahrer bewegen
+        //Skifahrer Bewegungsmuster
         for (let i = 0; i < arraySkifahrerX.length; i++) {
             if (arraySkifahrerX[i] > 800) {
                 arraySkifahrerX[i] = 0;
@@ -117,15 +118,15 @@ var dritteAufgabe;
             //x und y Wert einer Skala
             arraySkifahrerX[i] += 4; //Geschwindigkeit des Skifahrers
             arraySkifahrerY[i] += 0.8; //Winkel in dem er nach unten f�hrt
-            Skifahrer(arraySkifahrerX[i], arraySkifahrerY[i]);
+            Skifahrer(arraySkifahrerX[i], arraySkifahrerY[i]); //Aufruf
         }
-        //Schneeflocken bewegen
+        //Schneeflocken Bewegungsmuster
         for (let i = 0; i < arraySchneeY.length; i++) {
             if (arraySchneeX[i] > 800) {
                 arraySchneeX[i] = 0;
             }
-            arraySchneeY[i] += 0.6; //Geschwindigkeit des Schnees
-            Schneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2");
+            arraySchneeY[i] += 0.6; //Geschwindigkeit der Flocken
+            Schneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
         }
         window.setTimeout(animate, 20);
     }

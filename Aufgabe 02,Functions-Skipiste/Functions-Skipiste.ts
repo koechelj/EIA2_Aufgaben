@@ -70,7 +70,7 @@ namespace zweiteAufgabe {
         //Zeichne Schneeflocken mithilfe einer Schleife
         for (let i: number = 0; i < 250; i++) {
 
-            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zufällig, irgendwo im Bereich x bis 790 und y bis 600
+            let x: number = 0 + Math.random() * 790; //x und y Position der Flocken ist zufällig
             let y: number = 0 + Math.random() * 600;
             //Aufruf (Werte für Parameter einsetzen)
             Schneesturm(x, y, 5, 0, 5 * Math.PI, "#CEF6F5");
