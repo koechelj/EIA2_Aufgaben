@@ -3,8 +3,7 @@ var vierteAufgabe;
     window.addEventListener("load", init);
     let crc2;
     //Array f�r Skifahrer
-    let arraySkifahrerX = [10];
-    let arraySkifahrerY = [190];
+    let Fahrer = [];
     //Array f�r Schneeflocken
     let arraySchneeX = [];
     let arraySchneeY = [];
@@ -61,6 +60,16 @@ var vierteAufgabe;
             arraySchneeX[i] = 800 * Math.random();
             arraySchneeY[i] = 600 * Math.random();
         }
+        //Skifahrer
+        for (let i = 0; i < 1; i++) {
+            Fahrer[i] = {
+                x: 0,
+                y: 180,
+                Kopffarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+                Koerperfarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+                Skifarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+            };
+        }
         //Hintergrund speichern
         Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
         //Aufruf der Animationsfunktion
@@ -84,41 +93,67 @@ var vierteAufgabe;
         crc2.fillStyle = color;
         crc2.fill();
     }
-    //Skifahrer zeichnen
-    function Skifahrer(x, y) {
+    //erster Skifahrer zeichnen (Angaben aus dem Interface SkifahrerInfo einsetzen)
+    function ersterSkifahrer(Info) {
         //Kopf
         crc2.beginPath();
-        crc2.arc(x, y, 10, 0, 4 * Math.PI);
-        crc2.fillStyle = "orange";
+        crc2.arc(Info.x, Info.y, 10, 0, 4 * Math.PI);
+        crc2.fillStyle = Info.Kopffarbe;
         crc2.fill();
         //K�rper
-        crc2.fillStyle = "blue";
-        crc2.fillRect(x - 8, y + 8, 10, 15);
+        crc2.fillStyle = Info.Koerperfarbe;
+        crc2.fillRect(Info.x - 8, Info.y + 8, 10, 15);
         //Skibretter
         crc2.beginPath();
-        crc2.moveTo(x - 7, y + 21);
-        crc2.lineTo(x - 7, y + 23);
-        crc2.lineTo(x + 12, y + 30);
-        crc2.lineTo(x + 12, y + 28);
+        crc2.moveTo(Info.x - 7, Info.y + 21);
+        crc2.lineTo(Info.x - 7, Info.y + 23);
+        crc2.lineTo(Info.x + 12, Info.y + 30);
+        crc2.lineTo(Info.x + 12, Info.y + 28);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "black";
+        crc2.fillStyle = Info.Skifarbe;
+        crc2.fill();
+    }
+    //zweiter Skifahrer zeichnen (Angaben aus dem Interface SkifahrerInfo einsetzen)
+    function zweiterSkifahrer(Info) {
+        //Kopf
+        crc2.beginPath();
+        crc2.arc(Info.x, Info.y, 10, 0, 4 * Math.PI);
+        crc2.fillStyle = Info.Kopffarbe;
+        crc2.fill();
+        //K�rper
+        crc2.fillStyle = Info.Koerperfarbe;
+        crc2.fillRect(Info.x - 8, Info.y + 8, 10, 15);
+        //Skibretter
+        crc2.beginPath();
+        crc2.moveTo(Info.x - 7, Info.y + 21);
+        crc2.lineTo(Info.x - 7, Info.y + 23);
+        crc2.lineTo(Info.x + 12, Info.y + 30);
+        crc2.lineTo(Info.x + 12, Info.y + 28);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fillStyle = Info.Skifarbe;
         crc2.fill();
     }
     //Animation des Skifahrers und der Schneeflocken (Bewegungsmuster hier angeben)
     function animate() {
         console.log("Timeout");
+        crc2.clearRect(0, 0, 800, 600);
         crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
         //Skifahrer Bewegungsmuster
-        for (let i = 0; i < arraySkifahrerX.length; i++) {
-            if (arraySkifahrerX[i] > 800) {
-                arraySkifahrerX[i] = 0;
-                arraySkifahrerY[i] = 180;
+        for (let i = 0; i < Fahrer.length; i++) {
+            if (Fahrer[i].x > 800) {
+                Fahrer[i].x = 0;
+                Fahrer[i].y = 180;
+                Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+                Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+                Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
             //x und y Wert einer Skala
-            arraySkifahrerX[i] += 4; //Geschwindigkeit des Skifahrers
-            arraySkifahrerY[i] += 0.8; //Winkel in dem er nach unten f�hrt
-            Skifahrer(arraySkifahrerX[i], arraySkifahrerY[i]); //Aufruf
+            Fahrer[i].x += 4; //Geschwindigkeit des Skifahrers
+            Fahrer[i].y += 0.8; //Winkel in dem er nach unten f�hrt
+            ersterSkifahrer(Fahrer[i]); //Aufruf
+            zweiterSkifahrer(Fahrer[i]);
         }
         //Schneeflocken Bewegungsmuster
         for (let i = 0; i < arraySchneeY.length; i++) {
