@@ -96,12 +96,20 @@ namespace vierteAufgabe {
         }
 
         //Skifahrer
-        for (let i: number = 0; i < 1; i++) { //Hier muss das X oder Y Array verwendet werden
+        for (let i: number = 0; i < 1; i++) {
             Fahrer[i] = {
                 x: 0,
                 y: 180,
+                Kopffarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+                Koerperfarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+                Skifarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+            };
 
-
+//Skifahrer
+        for (let i: number = 0; i < 1; i++) {
+            Fahrer[i] = {
+                x: 0,
+                y: 180,
                 Kopffarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
                 Koerperfarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
                 Skifarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
@@ -142,8 +150,8 @@ namespace vierteAufgabe {
 
     }
 
-    //erster Skifahrer zeichnen (Angaben aus dem Interface SkifahrerInfo einsetzen)
-    function ersterSkifahrer(Info: SkifahrerInfo): void {
+    //function nimmt Daten aus Array entgegen und zeichnet die Skifahrer (allgemein, noch keine Werte einsetzen)
+    function zeichneSkifahrer(Info: SkifahrerInfo): void {
         //Kopf
         crc2.beginPath();
         crc2.arc(Info.x, Info.y, 10, 0, 4 * Math.PI);
@@ -164,30 +172,7 @@ namespace vierteAufgabe {
         crc2.fill();
     }
 
-     //zweiter Skifahrer zeichnen (Angaben aus Interface SkifahrerInfo einsetzen)
-    function zweiterSkifahrer(Info: SkifahrerInfo): void {
-        //Kopf
-        crc2.beginPath();
-        crc2.arc(Info.x, Info.y, 10, 0, 4 * Math.PI);
-        crc2.fillStyle = Info.Kopffarbe;
-        crc2.fill();
-        //Körper
-        crc2.fillStyle = Info.Koerperfarbe;
-        crc2.fillRect(Info.x - 8, Info.y + 8, 10, 15);
-        //Skibretter
-        crc2.beginPath();
-        crc2.moveTo(Info.x - 7, Info.y + 21);
-        crc2.lineTo(Info.x - 7, Info.y + 23);
-        crc2.lineTo(Info.x + 12, Info.y + 30);
-        crc2.lineTo(Info.x + 12, Info.y + 28);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = Info.Skifarbe;
-        crc2.fill();
-    }
-   
-    
-    
+
 
     //Animation des Skifahrers und der Schneeflocken (Bewegungsmuster hier angeben)
     function animate(): void {
@@ -195,21 +180,37 @@ namespace vierteAufgabe {
         crc2.clearRect(0, 0, 800, 600);
         crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
 
-        //Skifahrer Bewegungsmuster
-        for (let i: number = 0; i < Fahrer.length; i++) { //Hier muss das X oder Y Array verwendet werden
+        //erster Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft für den Skifahrer die function auf. Hier Werte für die Datensätze aus Array (x, y, Kopffarbe...)angeben)
+        for (let i: number = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {  //Bereich, in dem der Skifahrer sich bewegt:
-                Fahrer[i].x = 0;
+                Fahrer[i].x = Math.random();
                 Fahrer[i].y = 180;
                 Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
-            //x und y Wert einer Skala
-            Fahrer[i].x += 4; //Geschwindigkeit des Skifahrers
+            // 
+            Fahrer[i].x += Math.random(); //Geschwindigkeit des Skifahrers
             Fahrer[i].y += 0.8; //Winkel in dem er nach unten fährt
-            ersterSkifahrer(Fahrer[i]); //Aufruf
-            zweiterSkifahrer(Fahrer[i]);
+            zeichneSkifahrer(Fahrer[i]); //Aufruf der function
         }
+
+   //zweiter Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft für den Skifahrer die function auf. Hier Werte für die Datensätze aus Array (x, y, Kopffarbe...)angeben)
+        for (let i: number = 0; i < Fahrer.length; i++) {
+            if (Fahrer[i].x > 800) {  //Bereich, in dem der Skifahrer sich bewegt:
+                Fahrer[i].x = Math.random();
+                Fahrer[i].y = 180;
+                Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+                Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+                Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            }
+            // 
+            Fahrer[i].x += 3; //Geschwindigkeit des Skifahrers
+            Fahrer[i].y += 0.8; //Winkel in dem er nach unten fährt
+            zeichneSkifahrer(Fahrer[i]); //Aufruf der function
+        }
+
+
 
         //Schneeflocken Bewegungsmuster
         for (let i: number = 0; i < arraySchneeY.length; i++) {
