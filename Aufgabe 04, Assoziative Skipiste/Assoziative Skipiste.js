@@ -129,7 +129,7 @@ var vierteAufgabe;
                 Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
             // 
-            Fahrer[i].x += 3; //Geschwindigkeit des Skifahrers
+            Fahrer[i].x += Math.random(); //Geschwindigkeit des Skifahrers
             Fahrer[i].y += 0.8; //Winkel in dem er nach unten f�hrt
             zeichneSkifahrer(Fahrer[i]); //Aufruf der function
         }

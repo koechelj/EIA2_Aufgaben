@@ -104,16 +104,6 @@ namespace vierteAufgabe {
                 Koerperfarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
                 Skifarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
             };
-
-//Skifahrer
-        for (let i: number = 0; i < 1; i++) {
-            Fahrer[i] = {
-                x: 0,
-                y: 180,
-                Kopffarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-                Koerperfarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-                Skifarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-            };
         }
 
 
@@ -195,7 +185,7 @@ namespace vierteAufgabe {
             zeichneSkifahrer(Fahrer[i]); //Aufruf der function
         }
 
-   //zweiter Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft für den Skifahrer die function auf. Hier Werte für die Datensätze aus Array (x, y, Kopffarbe...)angeben)
+        //zweiter Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft für den Skifahrer die function auf. Hier Werte für die Datensätze aus Array (x, y, Kopffarbe...)angeben)
         for (let i: number = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {  //Bereich, in dem der Skifahrer sich bewegt:
                 Fahrer[i].x = Math.random();
