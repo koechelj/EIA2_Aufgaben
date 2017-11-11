@@ -114,7 +114,7 @@ var vierteAufgabe;
         crc2.fillStyle = Info.Skifarbe;
         crc2.fill();
     }
-    //zweiter Skifahrer zeichnen (Angaben aus dem Interface SkifahrerInfo einsetzen)
+    //zweiter Skifahrer zeichnen (Angaben aus Interface SkifahrerInfo einsetzen)
     function zweiterSkifahrer(Info) {
         //Kopf
         crc2.beginPath();

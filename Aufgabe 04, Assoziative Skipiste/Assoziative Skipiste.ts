@@ -164,7 +164,7 @@ namespace vierteAufgabe {
         crc2.fill();
     }
 
-     //zweiter Skifahrer zeichnen (Angaben aus dem Interface SkifahrerInfo einsetzen)
+     //zweiter Skifahrer zeichnen (Angaben aus Interface SkifahrerInfo einsetzen)
     function zweiterSkifahrer(Info: SkifahrerInfo): void {
         //Kopf
         crc2.beginPath();
