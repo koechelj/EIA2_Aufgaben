@@ -181,13 +181,13 @@ namespace vierteAufgabe {
             }
             // 
             Fahrer[i].x += Math.random(); //Geschwindigkeit des Skifahrers
-            Fahrer[i].y += 0.8; //Winkel in dem er nach unten fährt
+            Fahrer[i].y += 0.5; //Winkel in dem er nach unten fährt
             zeichneSkifahrer(Fahrer[i]); //Aufruf der function
         }
 
         //zweiter Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft für den Skifahrer die function auf. Hier Werte für die Datensätze aus Array (x, y, Kopffarbe...)angeben)
         for (let i: number = 0; i < Fahrer.length; i++) {
-            if (Fahrer[i].x > 800) {  //Bereich, in dem der Skifahrer sich bewegt:
+            if (Fahrer[i].x > 800) {  
                 Fahrer[i].x = Math.random();
                 Fahrer[i].y = 180;
                 Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
@@ -195,9 +195,9 @@ namespace vierteAufgabe {
                 Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
             // 
-            Fahrer[i].x += 3; //Geschwindigkeit des Skifahrers
-            Fahrer[i].y += 0.8; //Winkel in dem er nach unten fährt
-            zeichneSkifahrer(Fahrer[i]); //Aufruf der function
+            Fahrer[i].x += 3; 
+            Fahrer[i].y += 0.5;
+            zeichneSkifahrer(Fahrer[i]); 
         }
 
 
