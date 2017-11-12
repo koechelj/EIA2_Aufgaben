@@ -119,33 +119,35 @@ var vierteAufgabe;
         console.log("Timeout");
         crc2.clearRect(0, 0, 800, 600);
         crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
-        //erster Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft f�r den Skifahrer die function auf. Hier Werte f�r die Datens�tze aus Array (x, y, Kopffarbe...)angeben)
+        //erster Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft f�r den Skifahrer die function zeichneSkifahrer auf. 
+        //Hier Werte f�r die Datens�tze aus Array (x, y, Kopffarbe...)angeben)
         for (let i = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {
                 Fahrer[i].x = Math.random();
-                Fahrer[i].y = 180;
+                Fahrer[i].y = 240; //Startposition H�he
                 Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
             // 
-            Fahrer[i].x += Math.random(); //Geschwindigkeit des Skifahrers
+            Fahrer[i].x += 3; //Geschwindigkeit d. Skifahrers
             Fahrer[i].y += 0.5; //Winkel in dem er nach unten f�hrt
             zeichneSkifahrer(Fahrer[i]); //Aufruf der function
         }
-        //zweiter Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft f�r den Skifahrer die function auf. Hier Werte f�r die Datens�tze aus Array (x, y, Kopffarbe...)angeben)
+        //zweiter Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft f�r den Skifahrer die function auf. 
+        //Hier Werte f�r die Datens�tze aus Array (x, y, Kopffarbe...)angeben)
         for (let i = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {
                 Fahrer[i].x = Math.random();
-                Fahrer[i].y = 180;
+                Fahrer[i].y = 100; //Startposition H�he
                 Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
             // 
-            Fahrer[i].x += 3;
-            Fahrer[i].y += 0.5;
-            zeichneSkifahrer(Fahrer[i]);
+            Fahrer[i].x += 3; //Geschwindigkeit d. Skifahrers
+            Fahrer[i].y += 1.2; //Winkel
+            zeichneSkifahrer(Fahrer[i]); //Aufruf d. function
         }
         //Schneeflocken Bewegungsmuster
         for (let i = 0; i < arraySchneeY.length; i++) {
