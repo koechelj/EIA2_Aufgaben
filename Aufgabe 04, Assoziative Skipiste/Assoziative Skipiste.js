@@ -87,7 +87,7 @@ var vierteAufgabe;
         crc2.fill();
     }
     //Schneeflocken zeichnen
-    function Schneeflocken(x, y, radius, winkel, circle, color) {
+    function zeichneSchneeflocken(x, y, radius, winkel, circle, color) {
         crc2.beginPath();
         crc2.arc(x, y, 4, 0, 4 * Math.PI);
         crc2.fillStyle = color;
@@ -129,7 +129,6 @@ var vierteAufgabe;
                 Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
-            // 
             Fahrer[i].x += 3; //Geschwindigkeit d. Skifahrers
             Fahrer[i].y += 0.5; //Winkel in dem er nach unten f�hrt
             zeichneSkifahrer(Fahrer[i]); //Aufruf der function
@@ -144,7 +143,6 @@ var vierteAufgabe;
                 Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             }
-            // 
             Fahrer[i].x += 3; //Geschwindigkeit d. Skifahrers
             Fahrer[i].y += 1.2; //Winkel
             zeichneSkifahrer(Fahrer[i]); //Aufruf d. function
@@ -155,7 +153,7 @@ var vierteAufgabe;
                 arraySchneeX[i] = 0;
             }
             arraySchneeY[i] += 0.6; //Geschwindigkeit der Flocken
-            Schneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
+            zeichneSchneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
         }
         window.setTimeout(animate, 20);
     }
