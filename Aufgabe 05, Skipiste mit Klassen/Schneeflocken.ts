@@ -1,7 +1,7 @@
 
 namespace fuenfteAufgabe {
 
-    //Schneeflocken Klasse (Bauplan für Objekt Skifahrer)
+    //Schneeflocken Klasse (Bauplan für Objekt Schneeflocken)
     //Export macht Klasse über Dateigrenzen hinweg nutzbar, innerhalb des gleichen Namespaces
     export class Schneeflocken {
         //Attribute
@@ -25,14 +25,14 @@ namespace fuenfteAufgabe {
         }
 
 
-        //Update MoveandDrawYourself   (Update im HTML aufrufen)
-        UpdateSkifahrer(): void {
+        //Update MoveandDrawYourself  
+        UpdateSchneeflocken(): void {
             this.drawSchneeflocken();
             this.moveSchneeflocken();
         }
 
 
-        //Methoden
+        //Methoden Schneeflocken zeichnen und bewegen
         drawSchneeflocken(): void {
             crc2.beginPath();
             crc2.arc(this.x, this.y, this.radius, this.winkel, this.circle * Math.PI);

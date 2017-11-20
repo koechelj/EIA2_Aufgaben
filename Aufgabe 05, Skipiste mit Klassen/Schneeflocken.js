@@ -1,6 +1,6 @@
 var fuenfteAufgabe;
 (function (fuenfteAufgabe) {
-    //Schneeflocken Klasse (Bauplan f�r Objekt Skifahrer)
+    //Schneeflocken Klasse (Bauplan f�r Objekt Schneeflocken)
     //Export macht Klasse �ber Dateigrenzen hinweg nutzbar, innerhalb des gleichen Namespaces
     class Schneeflocken {
         //Constructor nimmt Infos entgegen und verarbeitet sie
@@ -13,12 +13,12 @@ var fuenfteAufgabe;
             this.circle = circle;
             this.color = color;
         }
-        //Update MoveandDrawYourself   (Update im HTML aufrufen)
-        UpdateSkifahrer() {
+        //Update MoveandDrawYourself  
+        UpdateSchneeflocken() {
             this.drawSchneeflocken();
             this.moveSchneeflocken();
         }
-        //Methoden
+        //Methoden Schneeflocken zeichnen und bewegen
         drawSchneeflocken() {
             fuenfteAufgabe.crc2.beginPath();
             fuenfteAufgabe.crc2.arc(this.x, this.y, this.radius, this.winkel, this.circle * Math.PI);

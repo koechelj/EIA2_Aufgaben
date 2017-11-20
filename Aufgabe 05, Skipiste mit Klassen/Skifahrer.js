@@ -12,12 +12,12 @@ var fuenfteAufgabe;
             this.Koerperfarbe = Koerperfarbe;
             this.Skifarbe = Skifarbe;
         }
-        //Update MoveandDrawYourself   (Update im HTML aufrufen)
+        //Update MoveandDrawYourself  
         UpdateSkifahrer() {
             this.drawSkifahrer();
             this.moveSkifahrer();
         }
-        //Methoden
+        //Methoden Skifahrer zeichnen und bewegen
         drawSkifahrer() {
             //Kopf
             fuenfteAufgabe.crc2.beginPath();

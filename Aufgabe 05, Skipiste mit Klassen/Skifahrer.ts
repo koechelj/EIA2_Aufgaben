@@ -22,14 +22,14 @@ namespace fuenfteAufgabe {
         }
 
 
-        //Update MoveandDrawYourself   (Update im HTML aufrufen)
+        //Update MoveandDrawYourself  
         UpdateSkifahrer(): void {
             this.drawSkifahrer();
             this.moveSkifahrer();
         }
 
 
-        //Methoden
+        //Methoden Skifahrer zeichnen und bewegen
         drawSkifahrer(): void {
             //Kopf
             crc2.beginPath();
