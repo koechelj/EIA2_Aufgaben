@@ -4,7 +4,7 @@ var fuenfteAufgabe;
     //Export macht Klasse �ber Dateigrenzen hinweg nutzbar, innerhalb des gleichen Namespaces
     class Schneeflocken {
         //Constructor nimmt Infos entgegen und verarbeitet sie
-        //this verweist auf die Eigenschaften und Methoden des Objekts
+        //mit this werden den Koordinaten Werte zugewiesen
         constructor(x, y, radius, winkel, circle, color) {
             this.x = x;
             this.y = y;

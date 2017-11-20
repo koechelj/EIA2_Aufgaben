@@ -10,8 +10,8 @@ namespace fuenfteAufgabe {
         color: string;
 
 
-        //Constructor nimmt Infos entgegen und verarbeitet sie
-        //this verweist auf die Eigenschaften und Methoden des Objekts
+      //Constructor nimmt Infos entgegen und verarbeitet sie
+        //mit this werden den Koordinaten Werte zugewiesen
         constructor(x: number, y: number, color: string) {
             this.x = x;
             this.y = y;

@@ -5,14 +5,14 @@ namespace fuenfteAufgabe {
     export let crc2: CanvasRenderingContext2D;
 
 
-
-
-
     let i: number;
+    let Background: ImageData;
+    //Arrays
     let Fahrer: Skifahrer[] = [];
     let Schnee: Schneeflocken[] = [];
     let Tree: Baum[] = [];
-    let Background: ImageData;
+
+
 
 
 
@@ -68,24 +68,23 @@ namespace fuenfteAufgabe {
 
 
 
+        //hier nun mit new die Objekte erzeugen und Werte für die Attribute angeben:
 
-
-        //Schleife Bäume
+        //Schleife Bäume 
         for (i = 0; i < 7; i++) {
-
-            Baum[i] = new Tree(70 + Math.random() * 620, 450 + Math.random() * 100);
+            Tree[i] = new Baum(Math.random() * 620, Math.random() * 450, "green");
         }
 
 
 
         //Schleife Schneeflocken
         for (i = 0; i < 50; i++) {
-            Schnee[i] = new Schneeflocken(Math.random() * 800, Math.random() * 600);
+            Schnee[i] = new Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
         }
 
         //Schleife Skifahrer
         for (i = 0; i < 1; i++) {
-            Fahrer[i] = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+            Fahrer[i] = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
 
         }
 
@@ -131,7 +130,7 @@ namespace fuenfteAufgabe {
         }
 
 
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 20); //animate() wird alle 20ms aufgerufen
     }
 
 }
