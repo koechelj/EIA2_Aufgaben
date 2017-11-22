@@ -2,7 +2,7 @@ var dritteAufgabe;
 (function (dritteAufgabe) {
     window.addEventListener("load", init);
     let crc2;
-    //Array f�r Skifahrer
+    //Array f�r Skifahrer (wird ben�tigt, da f�r die Animation ganz viele Bilder hintereinander generiert werden m�ssen)
     let arraySkifahrerX = [10];
     let arraySkifahrerY = [190];
     //Array f�r Schneeflocken
@@ -46,12 +46,12 @@ var dritteAufgabe;
         crc2.lineTo(500, 15);
         crc2.lineTo(520, 50);
         crc2.stroke(); //Ende des Pfads
-        //Aufruf konstant platzierte B�ume (Parameter einsetzen)
+        //Aufruf konstant platzierte B�ume (Parameter x, y und color einsetzen)
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
         //B�ume an zuf�lliger Position 
         for (let i = 0; i < 7; i++) {
-            let x = 70 + Math.random() * 620; //zuf�llige x und y Werte
+            let x = 70 + Math.random() * 620;
             let y = 450 + Math.random() * 100;
             //Aufruf der drawTree Funktion
             drawTree(x, y, "green");
@@ -128,7 +128,7 @@ var dritteAufgabe;
             arraySchneeY[i] += 0.6; //Geschwindigkeit der Flocken
             Schneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
         }
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 20); //alle 20ms wird animate aufgerufen
     }
 })(dritteAufgabe || (dritteAufgabe = {}));
 //# sourceMappingURL=Schneegestoeber.js.map

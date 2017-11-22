@@ -212,7 +212,7 @@ namespace vierteAufgabe {
             zeichneSchneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
         }
 
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 20); //alle 20ms wird animate aufgerufen
     }
 
 }

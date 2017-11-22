@@ -155,7 +155,7 @@ var vierteAufgabe;
             arraySchneeY[i] += 0.6; //Geschwindigkeit der Flocken
             zeichneSchneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
         }
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 20); //alle 20ms wird animate aufgerufen
     }
 })(vierteAufgabe || (vierteAufgabe = {}));
 //# sourceMappingURL=Assoziative Skipiste.js.map

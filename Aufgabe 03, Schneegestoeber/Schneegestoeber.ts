@@ -3,7 +3,7 @@ namespace dritteAufgabe {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
 
-    //Array für Skifahrer
+    //Array für Skifahrer (wird benötigt, da für die Animation ganz viele Bilder hintereinander generiert werden müssen)
     let arraySkifahrerX: number[] = [10];
     let arraySkifahrerY: number[] = [190];
 
@@ -68,7 +68,7 @@ namespace dritteAufgabe {
 
 
 
-        //Aufruf konstant platzierte Bäume (Parameter einsetzen)
+        //Aufruf konstant platzierte Bäume (Parameter x, y und color einsetzen)
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
 
@@ -76,7 +76,7 @@ namespace dritteAufgabe {
 
         //Bäume an zufälliger Position 
         for (let i: number = 0; i < 7; i++) {
-            let x: number = 70 + Math.random() * 620; //zufällige x und y Werte
+            let x: number = 70 + Math.random() * 620;
             let y: number = 450 + Math.random() * 100;
             //Aufruf der drawTree Funktion
             drawTree(x, y, "green");
@@ -171,7 +171,7 @@ namespace dritteAufgabe {
             Schneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
         }
 
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 20); //alle 20ms wird animate aufgerufen
     }
 
 }

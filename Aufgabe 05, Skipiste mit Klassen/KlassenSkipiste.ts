@@ -72,7 +72,7 @@ namespace fuenfteAufgabe {
 
         //Schleife Bäume 
         for (i = 0; i < 7; i++) {
-            Tree[i] = new Baum(Math.random() * 620, Math.random() * 450, "green");
+            Tree[i] = new Baum(70 + Math.random() * 620, 450 + Math.random() * 100, "green");
         }
 
 
