@@ -1,7 +1,8 @@
 namespace vierteAufgabe {
 
     window.addEventListener("load", init);
-
+    
+//Interface: um Arrays kompakter zu schreiben
     interface SkifahrerInfo {
         x: number;
         y: number;
@@ -12,12 +13,15 @@ namespace vierteAufgabe {
 
 
     let crc2: CanvasRenderingContext2D;
+    
     //Array für Skifahrer
     let Fahrer: SkifahrerInfo[] = [];
+    
     //Array für Schneeflocken
     let arraySchneeX: number[] = [];
     let arraySchneeY: number[] = [];
 
+    
     let Background: ImageData;
 
 
@@ -79,26 +83,27 @@ namespace vierteAufgabe {
 
 
 
-        //Bäume an zufälliger Position 
+        //Bäume an zufälliger Position generieren
         for (let i: number = 0; i < 7; i++) {
             let x: number = 70 + Math.random() * 620; //zufällige x und y Werte
             let y: number = 450 + Math.random() * 100;
+            
             //Aufruf der drawTree Funktion
             drawTree(x, y, "green");
 
         }
 
 
-        //Schnee an zufälliger Position
+        //Schnee an zufälliger Position (Schleife generiert 50 Schneeflocken)
         for (let i: number = 0; i < 50; i++) {
             arraySchneeX[i] = 800 * Math.random();
             arraySchneeY[i] = 600 * Math.random();
         }
 
-        //Skifahrer
+        //Skifahrer generieren
         for (let i: number = 0; i < 1; i++) {
             Fahrer[i] = {
-                x: 0,
+                x: 0, //Startposition
                 y: 180,
                 Kopffarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
                 Koerperfarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
@@ -116,13 +121,13 @@ namespace vierteAufgabe {
         //Aufruf der Animationsfunktion
         animate();
 
-    }
+    } //Ende init
 
 
-    //Parameter Funktion für zufällige Bäume
+    //Parameter Funktion für Bäume
     function drawTree(x: number, y: number, color: string): void {
         crc2.beginPath();
-        crc2.moveTo(x, y);   //Position x und y sind variabel
+        crc2.moveTo(x, y);   //x und y Werte sind variabel
         crc2.lineTo(x + 30, y - 60);
         crc2.lineTo(x + 60, y);
         crc2.strokeStyle = color;
@@ -140,7 +145,7 @@ namespace vierteAufgabe {
 
     }
 
-    //function nimmt Daten aus Array entgegen und zeichnet die Skifahrer (allgemein, noch keine Werte einsetzen)
+    //function nimmt Daten aus Interface entgegen und zeichnet die Skifahrer (allgemein, noch keine Werte einsetzen)
     function zeichneSkifahrer(Info: SkifahrerInfo): void {
         //Kopf
         crc2.beginPath();
@@ -168,10 +173,11 @@ namespace vierteAufgabe {
     function animate(): void {
         console.log("Timeout");
         crc2.clearRect(0, 0, 800, 600);
-        crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
+        crc2.putImageData(Background, 0, 0); //Hintergrund wird hinterlegt
+        
 
-        //erster Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft für den Skifahrer die function zeichneSkifahrer auf. 
-        //Hier Werte für die Datensätze aus Array (x, y, Kopffarbe...)angeben)
+        //erster Skifahrer Bewegungsmuster (Schleife generiert Bewegung des Skifahrers --> viele aufeinanderfolgende Einzelbilder/Positionen) 
+        //Hier Werte für die Daten aus Interface angeben)
         for (let i: number = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {  //Bereich, in dem der Skifahrer sich bewegt:
                 Fahrer[i].x = Math.random();
@@ -186,10 +192,12 @@ namespace vierteAufgabe {
             zeichneSkifahrer(Fahrer[i]); //Aufruf der function
         }
 
-        //zweiter Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft für den Skifahrer die function auf. 
-        //Hier Werte für die Datensätze aus Array (x, y, Kopffarbe...)angeben)
+        
+        
+        //zweiter Skifahrer Bewegungsmuster 
+        //Hier Werte für die Daten aus Interface angeben
         for (let i: number = 0; i < Fahrer.length; i++) {
-            if (Fahrer[i].x > 800) {
+            if (Fahrer[i].x > 800) {   //Bereich, in dem der Skifahrer sich bewegt:
                 Fahrer[i].x = Math.random();
                 Fahrer[i].y = 100; //Startposition Höhe
                 Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
@@ -202,6 +210,8 @@ namespace vierteAufgabe {
             zeichneSkifahrer(Fahrer[i]); //Aufruf d. function
         }
 
+        
+        
        
         //Schneeflocken Bewegungsmuster
         for (let i: number = 0; i < arraySchneeY.length; i++) {
@@ -209,9 +219,11 @@ namespace vierteAufgabe {
                 arraySchneeX[i] = 0;
             }
             arraySchneeY[i] += 0.6; //Geschwindigkeit der Flocken
-            zeichneSchneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
+            zeichneSchneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //X und Y Werte verändern sich (Bewegung). Restliche Werte sind konstant. 
         }
 
+        
+        
         window.setTimeout(animate, 20); //alle 20ms wird animate aufgerufen
     }
 

@@ -48,19 +48,19 @@ var vierteAufgabe;
         //Aufruf konstant platzierte B�ume (Parameter einsetzen)
         drawTree(680, 80, "green");
         drawTree(150, 380, "green");
-        //B�ume an zuf�lliger Position 
+        //B�ume an zuf�lliger Position generieren
         for (let i = 0; i < 7; i++) {
             let x = 70 + Math.random() * 620; //zuf�llige x und y Werte
             let y = 450 + Math.random() * 100;
             //Aufruf der drawTree Funktion
             drawTree(x, y, "green");
         }
-        //Schnee an zuf�lliger Position
+        //Schnee an zuf�lliger Position (Schleife generiert 50 Schneeflocken)
         for (let i = 0; i < 50; i++) {
             arraySchneeX[i] = 800 * Math.random();
             arraySchneeY[i] = 600 * Math.random();
         }
-        //Skifahrer
+        //Skifahrer generieren
         for (let i = 0; i < 1; i++) {
             Fahrer[i] = {
                 x: 0,
@@ -74,11 +74,11 @@ var vierteAufgabe;
         Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
         //Aufruf der Animationsfunktion
         animate();
-    }
-    //Parameter Funktion f�r zuf�llige B�ume
+    } //Ende init
+    //Parameter Funktion f�r B�ume
     function drawTree(x, y, color) {
         crc2.beginPath();
-        crc2.moveTo(x, y); //Position x und y sind variabel
+        crc2.moveTo(x, y); //x und y Werte sind variabel
         crc2.lineTo(x + 30, y - 60);
         crc2.lineTo(x + 60, y);
         crc2.strokeStyle = color;
@@ -93,7 +93,7 @@ var vierteAufgabe;
         crc2.fillStyle = color;
         crc2.fill();
     }
-    //function nimmt Daten aus Array entgegen und zeichnet die Skifahrer (allgemein, noch keine Werte einsetzen)
+    //function nimmt Daten aus Interface entgegen und zeichnet die Skifahrer (allgemein, noch keine Werte einsetzen)
     function zeichneSkifahrer(Info) {
         //Kopf
         crc2.beginPath();
@@ -118,9 +118,9 @@ var vierteAufgabe;
     function animate() {
         console.log("Timeout");
         crc2.clearRect(0, 0, 800, 600);
-        crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
-        //erster Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft f�r den Skifahrer die function zeichneSkifahrer auf. 
-        //Hier Werte f�r die Datens�tze aus Array (x, y, Kopffarbe...)angeben)
+        crc2.putImageData(Background, 0, 0); //Hintergrund wird hinterlegt
+        //erster Skifahrer Bewegungsmuster (Schleife generiert Bewegung des Skifahrers --> viele aufeinanderfolgende Einzelbilder/Positionen) 
+        //Hier Werte f�r die Daten aus Interface angeben)
         for (let i = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {
                 Fahrer[i].x = Math.random();
@@ -133,8 +133,8 @@ var vierteAufgabe;
             Fahrer[i].y += 0.5; //Winkel in dem er nach unten f�hrt
             zeichneSkifahrer(Fahrer[i]); //Aufruf der function
         }
-        //zweiter Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft f�r den Skifahrer die function auf. 
-        //Hier Werte f�r die Datens�tze aus Array (x, y, Kopffarbe...)angeben)
+        //zweiter Skifahrer Bewegungsmuster 
+        //Hier Werte f�r die Daten aus Interface angeben
         for (let i = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {
                 Fahrer[i].x = Math.random();
@@ -153,7 +153,7 @@ var vierteAufgabe;
                 arraySchneeX[i] = 0;
             }
             arraySchneeY[i] += 0.6; //Geschwindigkeit der Flocken
-            zeichneSchneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
+            zeichneSchneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //X und Y Werte ver�ndern sich (Bewegung). Restliche Werte sind konstant. 
         }
         window.setTimeout(animate, 20); //alle 20ms wird animate aufgerufen
     }
