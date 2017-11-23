@@ -14,7 +14,7 @@ namespace vierteAufgabe {
 
     let crc2: CanvasRenderingContext2D;
     
-    //Array für Skifahrer
+    //Array für Fahrer vom Typ: SkifahrerInfo
     let Fahrer: SkifahrerInfo[] = [];
     
     //Array für Schneeflocken
@@ -177,7 +177,7 @@ namespace vierteAufgabe {
         
 
         //erster Skifahrer Bewegungsmuster (Schleife generiert Bewegung des Skifahrers --> viele aufeinanderfolgende Einzelbilder/Positionen) 
-        //Hier Werte für die Daten aus Interface angeben)
+        //Hier Werte für die Daten aus Interface angeben
         for (let i: number = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {  //Bereich, in dem der Skifahrer sich bewegt:
                 Fahrer[i].x = Math.random();

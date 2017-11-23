@@ -1,7 +1,6 @@
 var fuenfteAufgabe;
 (function (fuenfteAufgabe) {
     //Skifahrer Klasse (Bauplan f�r Objekt Skifahrer)
-    //Export macht Klasse �ber Dateigrenzen hinweg nutzbar, innerhalb des gleichen Namespaces
     class Skifahrer {
         //Constructor nimmt Infos entgegen und verarbeitet sie
         //mit this werden den Koordinaten Werte zugewiesen

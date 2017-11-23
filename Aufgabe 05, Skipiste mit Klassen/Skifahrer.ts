@@ -2,8 +2,7 @@
 namespace fuenfteAufgabe {
 
     //Skifahrer Klasse (Bauplan für Objekt Skifahrer)
-    //Export macht Klasse über Dateigrenzen hinweg nutzbar, innerhalb des gleichen Namespaces
-    export class Skifahrer {
+    export class Skifahrer {    //Export macht Klasse über Dateigrenzen hinweg nutzbar, innerhalb des gleichen Namespaces
         //Attribute
         x: number;
         y: number;

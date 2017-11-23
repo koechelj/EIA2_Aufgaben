@@ -2,17 +2,16 @@ namespace fuenfteAufgabe {
 
     window.addEventListener("load", init);
 
-    export let crc2: CanvasRenderingContext2D;
+    export let crc2: CanvasRenderingContext2D;  //Export: crc2 über Dateigrenze hinweg nutzbar
 
 
     let i: number;
     let Background: ImageData;
-    //Arrays
-    let Fahrer: Skifahrer[] = [];
-    let Schnee: Schneeflocken[] = [];
-    let Tree: Baum[] = [];
-
-
+    
+    //Array skifahrer vom Typ: Skifahrer
+    let skifahrer: Skifahrer[] = [];
+    let schneeflocken: Schneeflocken[] = [];
+    let baum: Baum[] = [];
 
 
 
@@ -68,23 +67,23 @@ namespace fuenfteAufgabe {
 
 
 
-        //hier nun mit new die Objekte erzeugen und Werte für die Attribute angeben:
+        //new: erzeugt die Objekte der Klassen. Hier Werte für die Attribute angeben:
 
         //Schleife Bäume 
         for (i = 0; i < 7; i++) {
-            Tree[i] = new Baum(70 + Math.random() * 620, 450 + Math.random() * 100, "green");
+            baum[i] = new Baum(70 + Math.random() * 620, 450 + Math.random() * 100, "green");
         }
 
 
 
         //Schleife Schneeflocken
         for (i = 0; i < 50; i++) {
-            Schnee[i] = new Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
+            schneeflocken[i] = new Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
         }
 
         //Schleife Skifahrer
         for (i = 0; i < 1; i++) {
-            Fahrer[i] = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+            skifahrer[i] = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
 
         }
 
@@ -111,21 +110,21 @@ namespace fuenfteAufgabe {
         crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
 
         //Skifahrer bewegen  
-        for (i = 0; i < Fahrer.length; i++) {
-            let s: Fahrer = Skifahrer[i];
+        for (i = 0; i < skifahrer.length; i++) {
+            let s: skifahrer = Skifahrer[i];
             s.moveSkifahrer();
         }
 
 
         //Schneeflocken bewegen
-        for (i = 0; i < Schnee.length; i++) {
-            let s: Schnee = Schneeflocken[i];
+        for (i = 0; i < schneeflocken.length; i++) {
+            let s: schneeflocken = Schneeflocken[i];
             s.moveSchneeflocken();
         }
 
         //Bäume zeichnen 
-        for (i = 0; i < Tree.length; i++) {
-            let s: Tree = Baum[i];
+        for (i = 0; i < baum.length; i++) {
+            let s: baum = Baum[i];
             s.drawTree();
         }
 

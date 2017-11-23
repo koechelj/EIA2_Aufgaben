@@ -2,7 +2,7 @@ var vierteAufgabe;
 (function (vierteAufgabe) {
     window.addEventListener("load", init);
     let crc2;
-    //Array f�r Skifahrer
+    //Array f�r Fahrer vom Typ: SkifahrerInfo
     let Fahrer = [];
     //Array f�r Schneeflocken
     let arraySchneeX = [];
@@ -120,7 +120,7 @@ var vierteAufgabe;
         crc2.clearRect(0, 0, 800, 600);
         crc2.putImageData(Background, 0, 0); //Hintergrund wird hinterlegt
         //erster Skifahrer Bewegungsmuster (Schleife generiert Bewegung des Skifahrers --> viele aufeinanderfolgende Einzelbilder/Positionen) 
-        //Hier Werte f�r die Daten aus Interface angeben)
+        //Hier Werte f�r die Daten aus Interface angeben
         for (let i = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {
                 Fahrer[i].x = Math.random();
