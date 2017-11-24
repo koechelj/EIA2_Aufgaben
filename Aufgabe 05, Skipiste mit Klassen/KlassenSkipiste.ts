@@ -7,7 +7,7 @@ namespace fuenfteAufgabe {
 
     let i: number;
     let Background: ImageData;
-    
+
     //Array skifahrer vom Typ: Skifahrer
     let skifahrer: Skifahrer[] = [];
     let schneeflocken: Schneeflocken[] = [];
@@ -111,21 +111,20 @@ namespace fuenfteAufgabe {
 
         //Skifahrer bewegen  
         for (i = 0; i < skifahrer.length; i++) {
-            let s: skifahrer = Skifahrer[i];
-            s.moveSkifahrer();
+            skifahrer[i].moveSkifahrer();  //Skifahrer wird aus skifahrer Array rausgeholt. Die Methode moveSkifahre wird gleichzeitig aufgerufen
+            skifahrer[i].drawSkifahrer();
         }
 
 
         //Schneeflocken bewegen
         for (i = 0; i < schneeflocken.length; i++) {
-            let s: schneeflocken = Schneeflocken[i];
-            s.moveSchneeflocken();
+            schneeflocken[i].moveSchneeflocken();
+            schneeflocken[i].drawSchneeflocken();
         }
 
         //Bäume zeichnen 
         for (i = 0; i < baum.length; i++) {
-            let s: baum = Baum[i];
-            s.drawTree();
+            baum[i].drawTree();
         }
 
 

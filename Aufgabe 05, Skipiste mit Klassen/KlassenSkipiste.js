@@ -1,161 +1,87 @@
-var vierteAufgabe;
-(function (vierteAufgabe) {
+var fuenfteAufgabe;
+(function (fuenfteAufgabe) {
     window.addEventListener("load", init);
-    let crc2;
-    //Array f�r Skifahrer
-    let Fahrer = [];
-    //Array f�r Schneeflocken
-    let arraySchneeX = [];
-    let arraySchneeY = [];
+    let i;
     let Background;
+    //Array skifahrer vom Typ: Skifahrer
+    let skifahrer = [];
+    let schneeflocken = [];
+    let baum = [];
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         //Zeichnung
-        crc2 = canvas.getContext("2d");
-        console.log(crc2);
+        fuenfteAufgabe.crc2 = canvas.getContext("2d");
+        console.log(fuenfteAufgabe.crc2);
         //Gondel Linie   
-        crc2.beginPath();
-        crc2.moveTo(0, 50);
-        crc2.lineTo(650, 250);
-        crc2.stroke();
+        fuenfteAufgabe.crc2.beginPath();
+        fuenfteAufgabe.crc2.moveTo(0, 50);
+        fuenfteAufgabe.crc2.lineTo(650, 250);
+        fuenfteAufgabe.crc2.stroke();
         //Gondel   
-        crc2.fillStyle = "black";
-        crc2.fillRect(180, 95, 65, 40); //Position x,y, Breite, H�he des Rechtecks
+        fuenfteAufgabe.crc2.fillStyle = "black";
+        fuenfteAufgabe.crc2.fillRect(180, 95, 65, 40); //Position x,y, Breite, H�he des Rechtecks
         //Piste Linie 
-        crc2.beginPath();
-        crc2.moveTo(50, 300); //Beginne hier den Pfad
-        crc2.lineTo(600, 520);
-        crc2.stroke(); //Ende des Pfads
+        fuenfteAufgabe.crc2.beginPath();
+        fuenfteAufgabe.crc2.moveTo(50, 300); //Beginne hier den Pfad
+        fuenfteAufgabe.crc2.lineTo(600, 520);
+        fuenfteAufgabe.crc2.stroke(); //Ende des Pfads
         //Berg 1
-        crc2.beginPath();
-        crc2.moveTo(400, 50);
-        crc2.lineTo(420, 15);
-        crc2.lineTo(440, 50);
-        crc2.stroke(); //Ende des Pfads
+        fuenfteAufgabe.crc2.beginPath();
+        fuenfteAufgabe.crc2.moveTo(400, 50);
+        fuenfteAufgabe.crc2.lineTo(420, 15);
+        fuenfteAufgabe.crc2.lineTo(440, 50);
+        fuenfteAufgabe.crc2.stroke(); //Ende des Pfads
         //Berg 2
-        crc2.beginPath();
-        crc2.moveTo(440, 50);
-        crc2.lineTo(460, 15);
-        crc2.lineTo(480, 50);
-        crc2.stroke(); //Ende des Pfads
+        fuenfteAufgabe.crc2.beginPath();
+        fuenfteAufgabe.crc2.moveTo(440, 50);
+        fuenfteAufgabe.crc2.lineTo(460, 15);
+        fuenfteAufgabe.crc2.lineTo(480, 50);
+        fuenfteAufgabe.crc2.stroke(); //Ende des Pfads
         //Berg 3
-        crc2.beginPath();
-        crc2.moveTo(470, 35);
-        crc2.lineTo(500, 15);
-        crc2.lineTo(520, 50);
-        crc2.stroke(); //Ende des Pfads
-        //Aufruf konstant platzierte B�ume (Parameter einsetzen)
-        drawTree(680, 80, "green");
-        drawTree(150, 380, "green");
-        //B�ume an zuf�lliger Position 
-        for (let i = 0; i < 7; i++) {
-            let x = 70 + Math.random() * 620; //zuf�llige x und y Werte
-            let y = 450 + Math.random() * 100;
-            //Aufruf der drawTree Funktion
-            drawTree(x, y, "green");
+        fuenfteAufgabe.crc2.beginPath();
+        fuenfteAufgabe.crc2.moveTo(470, 35);
+        fuenfteAufgabe.crc2.lineTo(500, 15);
+        fuenfteAufgabe.crc2.lineTo(520, 50);
+        fuenfteAufgabe.crc2.stroke(); //Ende des Pfads
+        //new: erzeugt die Objekte der Klassen. Hier Werte f�r die Attribute angeben:
+        //Schleife B�ume 
+        for (i = 0; i < 7; i++) {
+            baum[i] = new fuenfteAufgabe.Baum(70 + Math.random() * 620, 450 + Math.random() * 100, "green");
         }
-        //Schnee an zuf�lliger Position
-        for (let i = 0; i < 50; i++) {
-            arraySchneeX[i] = 800 * Math.random();
-            arraySchneeY[i] = 600 * Math.random();
+        //Schleife Schneeflocken
+        for (i = 0; i < 50; i++) {
+            schneeflocken[i] = new fuenfteAufgabe.Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
         }
-        //Skifahrer
-        for (let i = 0; i < 1; i++) {
-            Fahrer[i] = {
-                x: 0,
-                y: 180,
-                Kopffarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-                Koerperfarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-                Skifarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-            };
+        //Schleife Skifahrer
+        for (i = 0; i < 1; i++) {
+            skifahrer[i] = new fuenfteAufgabe.Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
         }
         //Hintergrund speichern
-        Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        Background = fuenfteAufgabe.crc2.getImageData(0, 0, canvas.width, canvas.height);
         //Aufruf der Animationsfunktion
         animate();
     }
-    //Parameter Funktion f�r zuf�llige B�ume
-    function drawTree(x, y, color) {
-        crc2.beginPath();
-        crc2.moveTo(x, y); //Position x und y sind variabel
-        crc2.lineTo(x + 30, y - 60);
-        crc2.lineTo(x + 60, y);
-        crc2.strokeStyle = color;
-        crc2.stroke();
-        crc2.fillStyle = color;
-        crc2.fill();
-    }
-    //Schneeflocken zeichnen
-    function zeichneSchneeflocken(x, y, radius, winkel, circle, color) {
-        crc2.beginPath();
-        crc2.arc(x, y, 4, 0, 4 * Math.PI);
-        crc2.fillStyle = color;
-        crc2.fill();
-    }
-    //function nimmt Daten aus Array entgegen und zeichnet die Skifahrer (allgemein, noch keine Werte einsetzen)
-    function zeichneSkifahrer(Info) {
-        //Kopf
-        crc2.beginPath();
-        crc2.arc(Info.x, Info.y, 10, 0, 4 * Math.PI);
-        crc2.fillStyle = Info.Kopffarbe;
-        crc2.fill();
-        //K�rper
-        crc2.fillStyle = Info.Koerperfarbe;
-        crc2.fillRect(Info.x - 8, Info.y + 8, 10, 15);
-        //Skibretter
-        crc2.beginPath();
-        crc2.moveTo(Info.x - 7, Info.y + 21);
-        crc2.lineTo(Info.x - 7, Info.y + 23);
-        crc2.lineTo(Info.x + 12, Info.y + 30);
-        crc2.lineTo(Info.x + 12, Info.y + 28);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = Info.Skifarbe;
-        crc2.fill();
-    }
-    //Animation des Skifahrers und der Schneeflocken (Bewegungsmuster hier angeben)
+    //Animation des Skifahrers und der Schneeflocken 
     function animate() {
         console.log("Timeout");
-        crc2.clearRect(0, 0, 800, 600);
-        crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
-        //erster Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft f�r den Skifahrer die function zeichneSkifahrer auf. 
-        //Hier Werte f�r die Datens�tze aus Array (x, y, Kopffarbe...)angeben)
-        for (let i = 0; i < Fahrer.length; i++) {
-            if (Fahrer[i].x > 800) {
-                Fahrer[i].x = Math.random();
-                Fahrer[i].y = 240; //Startposition H�he
-                Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-                Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-                Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-            }
-            Fahrer[i].x += 3; //Geschwindigkeit d. Skifahrers
-            Fahrer[i].y += 0.5; //Winkel in dem er nach unten f�hrt
-            zeichneSkifahrer(Fahrer[i]); //Aufruf der function
+        fuenfteAufgabe.crc2.clearRect(0, 0, 800, 600);
+        fuenfteAufgabe.crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
+        //Skifahrer bewegen  
+        for (i = 0; i < skifahrer.length; i++) {
+            skifahrer[i].moveSkifahrer(); //Skifahrer wird aus skifahrer Array rausgeholt. Die Methode moveSkifahre wird gleichzeitig aufgerufen
+            skifahrer[i].drawSkifahrer();
         }
-        //zweiter Skifahrer Bewegungsmuster (Schleife verwertet die Daten aus Array aus und ruft f�r den Skifahrer die function auf. 
-        //Hier Werte f�r die Datens�tze aus Array (x, y, Kopffarbe...)angeben)
-        for (let i = 0; i < Fahrer.length; i++) {
-            if (Fahrer[i].x > 800) {
-                Fahrer[i].x = Math.random();
-                Fahrer[i].y = 100; //Startposition H�he
-                Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-                Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-                Fahrer[i].Skifarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-            }
-            Fahrer[i].x += 3; //Geschwindigkeit d. Skifahrers
-            Fahrer[i].y += 1.2; //Winkel
-            zeichneSkifahrer(Fahrer[i]); //Aufruf d. function
+        //Schneeflocken bewegen
+        for (i = 0; i < schneeflocken.length; i++) {
+            schneeflocken[i].moveSchneeflocken();
+            schneeflocken[i].drawSchneeflocken();
         }
-        //Schneeflocken Bewegungsmuster
-        for (let i = 0; i < arraySchneeY.length; i++) {
-            if (arraySchneeX[i] > 800) {
-                arraySchneeX[i] = 0;
-            }
-            arraySchneeY[i] += 0.6; //Geschwindigkeit der Flocken
-            zeichneSchneeflocken(arraySchneeX[i], arraySchneeY[i], 5, 0, 5 * Math.PI, "#A9F5F2"); //Aufruf
+        //B�ume zeichnen 
+        for (i = 0; i < baum.length; i++) {
+            baum[i].drawTree();
         }
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 20); //animate() wird alle 20ms aufgerufen
     }
-})(vierteAufgabe || (vierteAufgabe = {}));
+})(fuenfteAufgabe || (fuenfteAufgabe = {}));
 //# sourceMappingURL=KlassenSkipiste.js.map

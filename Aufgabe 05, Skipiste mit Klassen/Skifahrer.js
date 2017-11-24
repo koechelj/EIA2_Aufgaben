@@ -2,7 +2,7 @@ var fuenfteAufgabe;
 (function (fuenfteAufgabe) {
     //Skifahrer Klasse (Bauplan f�r Objekt Skifahrer)
     class Skifahrer {
-        //Constructor nimmt Infos entgegen und verarbeitet sie
+        //Constructor nimmt Attribute entgegen und verarbeitet sie
         //mit this werden den Koordinaten Werte zugewiesen
         constructor(x, y, Kopffarbe, Koerperfarbe, Skifarbe) {
             this.x = x;
@@ -13,10 +13,11 @@ var fuenfteAufgabe;
         }
         //Update MoveandDrawYourself  
         UpdateSkifahrer() {
-            this.drawSkifahrer();
+            this.drawSkifahrer(); //Aufruf
             this.moveSkifahrer();
         }
-        //Methoden Skifahrer zeichnen und bewegen
+        //Methoden: Skifahrer zeichnen und bewegen
+        //Methoden greifen mit this direkt auf Objekteigenschaften zu
         drawSkifahrer() {
             //Kopf
             fuenfteAufgabe.crc2.beginPath();
@@ -38,7 +39,9 @@ var fuenfteAufgabe;
             fuenfteAufgabe.crc2.fill();
         }
         moveSkifahrer() {
-            this.x += 3; //Geschwindigkeit d. Skifahrers
+            if (this.x > 800)
+                this.x = 0;
+            this.x += 5; //Geschwindigkeit d. Skifahrers
             this.y += 0.5; //Winkel in dem er nach unten f�hrt
         }
     }

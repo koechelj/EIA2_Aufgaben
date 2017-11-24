@@ -13,8 +13,10 @@ namespace fuenfteAufgabe {
         color: string;
 
 
-       //Constructor nimmt Infos entgegen und verarbeitet sie
+       //Constructor nimmt Attribute entgegen und verarbeitet sie
+        
         //mit this werden den Koordinaten Werte zugewiesen
+        
         constructor(x: number, y: number, radius: number, winkel: number, circle: number, color: string) {
             this.x = x;
             this.y = y;
@@ -33,6 +35,9 @@ namespace fuenfteAufgabe {
 
 
         //Methoden Schneeflocken zeichnen und bewegen
+        
+        //Methoden greifen mit this direkt auf Objekteigenschaften zu
+        
         drawSchneeflocken(): void {
             crc2.beginPath();
             crc2.arc(this.x, this.y, this.radius, this.winkel, this.circle * Math.PI);
@@ -43,8 +48,8 @@ namespace fuenfteAufgabe {
 
 
         moveSchneeflocken(): void {
-            this.x > 800;  //Bereich in dem es schneit
-            this.x = 0;
+           if (this.y > 600)  //Bereich in dem es schneit
+            this.y = 0;
             this.y += 0.6; //Geschwindigkeit d. Schneeflocken
         }
     }

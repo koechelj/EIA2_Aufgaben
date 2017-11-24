@@ -10,8 +10,10 @@ namespace fuenfteAufgabe {
         color: string;
 
 
-      //Constructor nimmt Infos entgegen und verarbeitet sie
+ //Constructor nimmt Attribute entgegen und verarbeitet sie
+        
         //mit this werden den Koordinaten Werte zugewiesen
+        
         constructor(x: number, y: number, color: string) {
             this.x = x;
             this.y = y;
@@ -25,7 +27,10 @@ namespace fuenfteAufgabe {
         }
 
 
-        //Methode Baum zeichnen
+        //Methode: Baum zeichnen
+        
+        //Methode greift mit this direkt auf Objekteigenschaften zu
+        
         drawTree(): void {
            crc2.beginPath();
             crc2.moveTo(this.x, this.y);

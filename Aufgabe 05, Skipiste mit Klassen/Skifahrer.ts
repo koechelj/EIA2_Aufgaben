@@ -1,6 +1,7 @@
 
 namespace fuenfteAufgabe {
 
+    
     //Skifahrer Klasse (Bauplan für Objekt Skifahrer)
     export class Skifahrer {    //Export macht Klasse über Dateigrenzen hinweg nutzbar, innerhalb des gleichen Namespaces
         //Attribute
@@ -9,9 +10,13 @@ namespace fuenfteAufgabe {
         Kopffarbe: string;
         Koerperfarbe: string;
         Skifarbe: string;
+        
+        
 
-        //Constructor nimmt Infos entgegen und verarbeitet sie
+        //Constructor nimmt Attribute entgegen und verarbeitet sie
+        
         //mit this werden den Koordinaten Werte zugewiesen
+        
         constructor(x: number, y: number, Kopffarbe: string, Koerperfarbe: string, Skifarbe: string) {
             this.x = x;
             this.y = y;
@@ -20,15 +25,20 @@ namespace fuenfteAufgabe {
             this.Skifarbe = Skifarbe;
         }
 
+        
 
         //Update MoveandDrawYourself  
         UpdateSkifahrer(): void {
-            this.drawSkifahrer();
+            this.drawSkifahrer();  //Aufruf
             this.moveSkifahrer();
         }
 
+        
 
-        //Methoden Skifahrer zeichnen und bewegen
+        //Methoden: Skifahrer zeichnen und bewegen
+        
+        //Methoden greifen mit this direkt auf Objekteigenschaften zu
+        
         drawSkifahrer(): void {
             //Kopf
             crc2.beginPath();
@@ -50,8 +60,11 @@ namespace fuenfteAufgabe {
             crc2.fill();
         }
 
+       
         moveSkifahrer(): void {
-            this.x += 3; //Geschwindigkeit d. Skifahrers
+            if (this.x > 800)
+            this.x = 0;
+            this.x += 5; //Geschwindigkeit d. Skifahrers
             this.y += 0.5; //Winkel in dem er nach unten fährt
         }
 
