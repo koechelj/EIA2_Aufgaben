@@ -5,21 +5,13 @@ namespace sechsteAufgabe {
     export let crc2: CanvasRenderingContext2D;  //Export: crc2 über Dateigrenze hinweg nutzbar
     export class movingObject {
 
-        
-        
-        
-        
-      
-    let i: number;
+
     let Background: ImageData;
 
     //Haupt-Array vom Typ der Superklasse
     let superklasse: movingObject[] = [];
     
-  
-
-
-
+ 
     function init(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -74,19 +66,17 @@ namespace sechsteAufgabe {
         //new: erzeugt die Objekte der Klassen. Hier Werte für die Attribute angeben:
 
         //Schleife Bäume 
-        for (i = 0; i < 7; i++) {
+        for (let i: number = 0; i < 7; i++) {
             baum[i] = new Baum(70 + Math.random() * 620, 450 + Math.random() * 100, "green");
         }
 
-
-
         //Schleife Schneeflocken
-        for (i = 0; i < 50; i++) {
+        for (let i: number = 0; i < 50; i++) {
             schneeflocken[i] = new Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
         }
 
         //Schleife Skifahrer
-        for (i = 0; i < 1; i++) {
+        for (let i: number = 0; i < 1; i++) {
             skifahrer[i] = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
 
         }
@@ -114,20 +104,20 @@ namespace sechsteAufgabe {
         crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
 
         //Skifahrer bewegen  
-        for (i = 0; i < skifahrer.length; i++) {
+        for (let i: number = 0; i < skifahrer.length; i++) {
             skifahrer[i].moveSkifahrer();  //Skifahrer wird aus skifahrer Array rausgeholt. Die Methode moveSkifahre wird gleichzeitig aufgerufen
             skifahrer[i].drawSkifahrer();
         }
 
 
         //Schneeflocken bewegen
-        for (i = 0; i < schneeflocken.length; i++) {
+        for (let i: number = 0; i < schneeflocken.length; i++) {
             schneeflocken[i].moveSchneeflocken();
             schneeflocken[i].drawSchneeflocken();
         }
 
         //Bäume zeichnen 
-        for (i = 0; i < baum.length; i++) {
+        for (let i: number = 0; i < baum.length; i++) {
             baum[i].drawTree();
         }
 
