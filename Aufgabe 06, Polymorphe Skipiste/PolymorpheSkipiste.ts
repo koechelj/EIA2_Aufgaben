@@ -3,15 +3,25 @@ namespace sechsteAufgabe {
     window.addEventListener("load", init);
 
     export let crc2: CanvasRenderingContext2D;  //Export: crc2 über Dateigrenze hinweg nutzbar
+   
     export class movingObject {
-
-
+        
+   
     let Background: ImageData;
-
-    //Haupt-Array vom Typ der Superklasse
-    let superklasse: movingObject[] = [];
     
- 
+     //Haupt-Array vom Typ der Superklasse
+    let superklasse: movingObject [] = [];
+    
+    let skifahrer: Skifahrer;
+    let schneeflocken: Schneeflocken;
+    let baum: Baum[] = [];
+
+   
+    
+  
+
+
+
     function init(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -70,14 +80,16 @@ namespace sechsteAufgabe {
             baum[i] = new Baum(70 + Math.random() * 620, 450 + Math.random() * 100, "green");
         }
 
+
+
         //Schleife Schneeflocken
         for (let i: number = 0; i < 50; i++) {
-            schneeflocken[i] = new Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
+            schneeflocken = new Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
         }
 
         //Schleife Skifahrer
         for (let i: number = 0; i < 1; i++) {
-            skifahrer[i] = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+            skifahrer = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
 
         }
 
@@ -104,20 +116,20 @@ namespace sechsteAufgabe {
         crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
 
         //Skifahrer bewegen  
-        for (let i: number = 0; i < skifahrer.length; i++) {
-            skifahrer[i].moveSkifahrer();  //Skifahrer wird aus skifahrer Array rausgeholt. Die Methode moveSkifahre wird gleichzeitig aufgerufen
-            skifahrer[i].drawSkifahrer();
+        for (let i: number = 0; i < superklasse.length; i++) {
+            skifahrer.move();  //Aufruf
+            skifahrer.draw();
         }
 
 
         //Schneeflocken bewegen
-        for (let i: number = 0; i < schneeflocken.length; i++) {
-            schneeflocken[i].moveSchneeflocken();
-            schneeflocken[i].drawSchneeflocken();
+        for (let i: number = 0; i < superklasse.length; i++) {
+            schneeflocken.move();
+            schneeflocken.draw();
         }
 
         //Bäume zeichnen 
-        for (let i: number = 0; i < baum.length; i++) {
+        for (let i: number = 0; i < superklasse.length; i++) {
             baum[i].drawTree();
         }
 
