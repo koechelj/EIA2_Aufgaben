@@ -101,9 +101,9 @@ namespace vierteAufgabe {
         }
 
         //Skifahrer generieren
-        for (let i: number = 0; i < 1; i++) {
+        for (let i: number = 0; i < 5; i++) {
             Fahrer[i] = {
-                x: 0, //Startposition
+                x: 800, //Startposition
                 y: 180,
                 Kopffarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
                 Koerperfarbe: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
@@ -179,8 +179,9 @@ namespace vierteAufgabe {
         //erster Skifahrer Bewegungsmuster (Schleife generiert Bewegung des Skifahrers --> viele aufeinanderfolgende Einzelbilder/Positionen) 
         //Hier Werte für die Daten aus Interface angeben
         for (let i: number = 0; i < Fahrer.length; i++) {
+            zeichneSkifahrer (Fahrer[i]);
             if (Fahrer[i].x > 800) {  //Bereich, in dem der Skifahrer sich bewegt:
-                Fahrer[i].x = Math.random();
+                Fahrer[i].x = 0;
                 Fahrer[i].y = 240; //Startposition Höhe
                 Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
@@ -198,7 +199,7 @@ namespace vierteAufgabe {
         //Hier Werte für die Daten aus Interface angeben
         for (let i: number = 0; i < Fahrer.length; i++) {
             if (Fahrer[i].x > 800) {   //Bereich, in dem der Skifahrer sich bewegt:
-                Fahrer[i].x = Math.random();
+                Fahrer[i].x = 0;
                 Fahrer[i].y = 100; //Startposition Höhe
                 Fahrer[i].Kopffarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
                 Fahrer[i].Koerperfarbe = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
