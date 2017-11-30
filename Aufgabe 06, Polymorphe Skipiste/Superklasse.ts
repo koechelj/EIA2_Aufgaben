@@ -2,7 +2,7 @@
 namespace sechsteAufgabe {
 
     //Superklasse   
-    class movingObject {
+    export class movingObject {
         //Attribute
         x: number;
         y: number;

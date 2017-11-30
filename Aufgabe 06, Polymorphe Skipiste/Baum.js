@@ -3,8 +3,8 @@ var sechsteAufgabe;
     //Schneeflocken Klasse (Bauplan f�r Objekt Baum)
     //Export macht Klasse �ber Dateigrenzen hinweg nutzbar, innerhalb des gleichen Namespaces
     class Baum {
-        //Constructor nimmt Attribute entgegen und verarbeitet sie
-        //mit this werden den Koordinaten Werte zugewiesen
+        //Constructor nimmt Attribute entgegen und verarbeite       
+        //mit this werden den Koordinaten Werte zugew       
         constructor(x, y, color) {
             this.x = x;
             this.y = y;

@@ -14,5 +14,6 @@ var sechsteAufgabe;
         move() {
         }
     }
+    sechsteAufgabe.movingObject = movingObject;
 })(sechsteAufgabe || (sechsteAufgabe = {}));
 //# sourceMappingURL=Superklasse.js.map

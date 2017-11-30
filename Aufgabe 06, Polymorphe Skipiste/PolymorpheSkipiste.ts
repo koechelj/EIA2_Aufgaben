@@ -3,26 +3,23 @@ namespace sechsteAufgabe {
     window.addEventListener("load", init);
 
     export let crc2: CanvasRenderingContext2D;  //Export: crc2 über Dateigrenze hinweg nutzbar
-   
-    export class movingObject {
-        
-   
+
+
     let Background: ImageData;
-    
-     //Haupt-Array vom Typ der Superklasse
-    let superklasse: movingObject [] = [];
-    
-    let skifahrer: Skifahrer;
-    let schneeflocken: Schneeflocken;
+    let i: number;
+
+    //Haupt-Array vom Typ der Superklasse
+    let objects: movingObject[] = [];
+
+    //weitere Arrays für die Objekte
+    let nskifahrer: number = 2;
+    let nschneeflocken: number = 50;
+
     let baum: Baum[] = [];
 
-   
-    
-  
 
 
-
-    function init(): void {
+    function init(event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         //Zeichnung
@@ -76,29 +73,29 @@ namespace sechsteAufgabe {
         //new: erzeugt die Objekte der Klassen. Hier Werte für die Attribute angeben:
 
         //Schleife Bäume 
-        for (let i: number = 0; i < 7; i++) {
+        for (i = 0; i < 7; i++) {
             baum[i] = new Baum(70 + Math.random() * 620, 450 + Math.random() * 100, "green");
         }
 
 
 
-        //Schleife Schneeflocken
-        for (let i: number = 0; i < 50; i++) {
-            schneeflocken = new Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
-        }
-
         //Schleife Skifahrer
-        for (let i: number = 0; i < 1; i++) {
-            skifahrer = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
-
+        for (i = 0; i < nskifahrer; i++) {
+            let s: Skifahrer = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+            objects.push(s);
         }
 
 
+
+        //Schleife Schneeflocken
+        for (i = 0; i < nschneeflocken; i++) {
+            let s: Schneeflocken = new Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
+            objects.push(s);
+        }
 
 
         //Hintergrund speichern
-        Background = crc2.getImageData(0, 0, canvas.width, canvas.height);
-
+        Background = crc2.getImageData(0, 0, 800, 600);
 
 
         //Aufruf der Animationsfunktion
@@ -115,22 +112,15 @@ namespace sechsteAufgabe {
         crc2.clearRect(0, 0, 800, 600);
         crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
 
-        //Skifahrer bewegen  
-        for (let i: number = 0; i < superklasse.length; i++) {
-            skifahrer.move();  //Aufruf
-            skifahrer.draw();
+        for (i = 0; i < objects.length; i++) {
+            let s: movingObject = objects[i];
+            s.move();
         }
 
-
-        //Schneeflocken bewegen
-        for (let i: number = 0; i < superklasse.length; i++) {
-            schneeflocken.move();
-            schneeflocken.draw();
-        }
-
+        
         //Bäume zeichnen 
-        for (let i: number = 0; i < superklasse.length; i++) {
-            baum[i].drawTree();
+        for (let i: number = 0; i < baum.length; i++) {
+            baum[i].drawTree(); //Kurzversion: es wird auf das baum Array zugegriffen und gleichzeitig wird die drawTree function angehängt.
         }
 
 

@@ -10,10 +10,8 @@ namespace sechsteAufgabe {
         color: string;
 
 
- //Constructor nimmt Attribute entgegen und verarbeitet sie
-        
-        //mit this werden den Koordinaten Werte zugewiesen
-        
+        //Constructor nimmt Attribute entgegen und verarbeite       
+        //mit this werden den Koordinaten Werte zugew       
         constructor(x: number, y: number, color: string) {
             this.x = x;
             this.y = y;
@@ -23,16 +21,16 @@ namespace sechsteAufgabe {
 
         //Update MoveandDrawYourself   
         UpdateBaum(): void {
-       this.drawTree();
+            this.drawTree();
         }
 
 
         //Methode: Baum zeichnen
-        
+
         //Methode greift mit this direkt auf Objekteigenschaften zu
-        
+
         drawTree(): void {
-           crc2.beginPath();
+            crc2.beginPath();
             crc2.moveTo(this.x, this.y);
             crc2.lineTo(this.x + 30, this.y - 60);
             crc2.lineTo(this.x + 60, this.y);
