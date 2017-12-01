@@ -54,8 +54,8 @@ var fuenfteAufgabe;
             schneeflocken[i] = new fuenfteAufgabe.Schneeflocken(Math.random() * 800, Math.random() * 600, 4, 0, 4 * Math.PI, "#A9F5F2");
         }
         //Schleife Skifahrer
-        for (i = 0; i < 1; i++) {
-            skifahrer[i] = new fuenfteAufgabe.Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+        for (i = 0; i < 3; i++) {
+            skifahrer[i] = new fuenfteAufgabe.Skifahrer(0 + Math.random() * 200, 180 + Math.random() * 130, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
         }
         //Hintergrund speichern
         Background = fuenfteAufgabe.crc2.getImageData(0, 0, canvas.width, canvas.height);

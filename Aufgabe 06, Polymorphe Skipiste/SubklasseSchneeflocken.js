@@ -22,6 +22,7 @@ var sechsteAufgabe;
             if (this.y > 600)
                 this.y = 0;
             this.y += 0.6; //Geschwindigkeit d. Schneeflocken
+            this.draw();
         }
     }
     sechsteAufgabe.Schneeflocken = Schneeflocken;

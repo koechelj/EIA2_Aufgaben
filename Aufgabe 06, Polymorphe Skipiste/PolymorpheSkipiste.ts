@@ -12,7 +12,7 @@ namespace sechsteAufgabe {
     let objects: movingObject[] = [];
 
     //weitere Arrays für die Objekte
-    let nskifahrer: number = 2;
+    let nskifahrer: number = 3;
     let nschneeflocken: number = 50;
 
     let baum: Baum[] = [];
@@ -81,7 +81,7 @@ namespace sechsteAufgabe {
 
         //Schleife Skifahrer
         for (i = 0; i < nskifahrer; i++) {
-            let s: Skifahrer = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+            let s: Skifahrer = new Skifahrer(0 + Math.random() * 200, 180 + Math.random() * 130 , + "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
             objects.push(s);
         }
 
@@ -102,7 +102,6 @@ namespace sechsteAufgabe {
         animate();
 
     }
-
 
 
 

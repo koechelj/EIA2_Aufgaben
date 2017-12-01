@@ -39,6 +39,7 @@ namespace sechsteAufgabe {
             if (this.y > 600)  //Bereich in dem es schneit
                 this.y = 0;
             this.y += 0.6; //Geschwindigkeit d. Schneeflocken
+            this.draw();
         }
     }
 }

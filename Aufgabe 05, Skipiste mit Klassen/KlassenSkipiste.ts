@@ -82,8 +82,8 @@ namespace fuenfteAufgabe {
         }
 
         //Schleife Skifahrer
-        for (i = 0; i < 1; i++) {
-            skifahrer[i] = new Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+        for (i = 0; i < 3; i++) {
+            skifahrer[i] = new Skifahrer(0 + Math.random() * 200, 180 + Math.random() * 130, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
 
         }
 

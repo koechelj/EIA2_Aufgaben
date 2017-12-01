@@ -6,7 +6,7 @@ var sechsteAufgabe;
     //Haupt-Array vom Typ der Superklasse
     let objects = [];
     //weitere Arrays f�r die Objekte
-    let nskifahrer = 2;
+    let nskifahrer = 3;
     let nschneeflocken = 50;
     let baum = [];
     function init(event) {
@@ -53,7 +53,7 @@ var sechsteAufgabe;
         }
         //Schleife Skifahrer
         for (i = 0; i < nskifahrer; i++) {
-            let s = new sechsteAufgabe.Skifahrer(0, 180, "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+            let s = new sechsteAufgabe.Skifahrer(0 + Math.random() * 200, 180 + Math.random() * 130, +"hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)", "hsl(" + Math.random() * 360 + ", 100%, 50%)");
             objects.push(s);
         }
         //Schleife Schneeflocken
