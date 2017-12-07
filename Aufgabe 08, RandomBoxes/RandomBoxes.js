@@ -8,7 +8,7 @@ var RandomBoxes;
         var quadratAnzahl = parseInt(eingegebeneZahl); //die eingegebeneZahl soll vom string in eine number umgewandelt werden
         //wenn die eingegebeneZahl gr��er bzw. = 10 ist und wenn sie kleiner bzw. = 100 ist, dann...
         if (quadratAnzahl >= 10 && quadratAnzahl <= 100) {
-            //...for Schleife ausf�hren, welche die entsprechende Quadratanzahl generiert
+            //...for Schleife ausf�hren, welche die entsprechende Quadratanzahl generiert  //Werte f�r die Parameter angeben
             for (var i = 0; i < quadratAnzahl; i++) {
                 zeichneQuadrat(Math.random() * 400, Math.random() * 200, "hsl(" + Math.random() * 360 + ", 100%, 50%)", 50, 50);
             }

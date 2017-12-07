@@ -12,7 +12,7 @@ namespace RandomBoxes {
         //wenn die eingegebeneZahl größer bzw. = 10 ist und wenn sie kleiner bzw. = 100 ist, dann...
         if (quadratAnzahl >= 10 && quadratAnzahl <= 100) {
 
-            //...for Schleife ausführen, welche die entsprechende Quadratanzahl generiert
+            //...for Schleife ausführen, welche die entsprechende Quadratanzahl generiert  //Werte für die Parameter angeben
             for (var i: number = 0; i < quadratAnzahl; i++) {
                 zeichneQuadrat(Math.random() * 400, Math.random() * 200, "hsl(" + Math.random() * 360 + ", 100%, 50%)", 50, 50);
                 //zufällige X und Y Position, Farbe, feste Höhe, feste Breite
