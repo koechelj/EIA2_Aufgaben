@@ -1,11 +1,18 @@
 namespace RandomBoxes {
     window.addEventListener("load", init);
+    window.addEventListener("keydown", keypress);
+
+
+    function keypress(_event: KeyboardEvent): void {
+        console.log(_event.keyCode);
+    }
 
 
     function init(): void {
 
+
         //prompt Fenster öffnen, welches nachfragt
-        var eingegebeneZahl: string = prompt("Wie viele Quadrate möchten Sie sehen? Auf einer Skala von 10 bis 100.");
+        var eingegebeneZahl: string = prompt("Wie viele Quadrate moechten Sie sehen? Auf einer Skala von 10 bis 100.");
         //var quadratAnzahl vom Typ eingegebeneZahl
         var quadratAnzahl: number = parseInt(eingegebeneZahl); //die eingegebeneZahl soll vom string in eine number umgewandelt werden
 
@@ -14,7 +21,7 @@ namespace RandomBoxes {
 
             //...for Schleife ausführen, welche die entsprechende Quadratanzahl generiert  //Werte für die Parameter angeben
             for (var i: number = 0; i < quadratAnzahl; i++) {
-                zeichneQuadrat(Math.random() * 400, Math.random() * 200, "hsl(" + Math.random() * 360 + ", 100%, 50%)", 50, 50);
+                zeichneQuadrat(Math.random() * 400, Math.random() * 200, "hsl(" + Math.random() * 360 + ", 100%, 50%)", 35, 35);
                 //zufällige X und Y Position, Farbe, feste Höhe, feste Breite
             }
             //andernfalls soll eine Fehlermeldung erscheinen
@@ -25,11 +32,13 @@ namespace RandomBoxes {
 
 
     function zeichneQuadrat(X: number, Y: number, Farbe: string, Hoehe: number, Breite: number): void {
-
+        console.log(Farbe);
         var div: HTMLDivElement = document.createElement("div"); //div Element erstellen
-        div.style.width = Breite.toString(); //muss für .style in string umgewandelt werden
-        div.style.height = Hoehe.toString();
-        div.style.backgroundColor = Farbe; 
+        div.style.left = X + "px";
+        div.style.top = Y + "px";
+        div.style.width = Breite.toString() + "px"; //muss für .style in string umgewandelt werden
+        div.style.height = Hoehe.toString() + "px";
+        div.style.backgroundColor = Farbe;
         div.style.display = "inline"; //inline, weil die die Quadrate nicht alle in einer neuen Zeile beginnen sollen (div ist normalerweise Block Element)
         div.style.position = "absolute"; //div Elemente sind mit absolute losgelöst vom Textfluss
         document.body.appendChild(div); //div in body einfügen
