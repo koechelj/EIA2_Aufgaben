@@ -12,7 +12,7 @@ namespace RandomBoxes {
 
 
         //prompt Fenster öffnen, welches nachfragt
-        var eingegebeneZahl: string = prompt("Wie viele Quadrate moechten Sie sehen? Auf einer Skala von 10 bis 100.");
+        var eingegebeneZahl: string = prompt("Gib eine Zahl zwischen 10 und 100 ein.");
         //var quadratAnzahl vom Typ eingegebeneZahl
         var quadratAnzahl: number = parseInt(eingegebeneZahl); //die eingegebeneZahl soll vom string in eine number umgewandelt werden
 
@@ -26,7 +26,7 @@ namespace RandomBoxes {
             }
             //andernfalls soll eine Fehlermeldung erscheinen
         } else {
-            alert("Da ist wohl etwas schief gelaufen. Versuchen Sie es bitte erneut.");
+            alert("Da ist wohl etwas schief gelaufen. Versuche es bitte erneut.");
         }
     }
 

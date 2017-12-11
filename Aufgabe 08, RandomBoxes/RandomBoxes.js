@@ -7,7 +7,7 @@ var RandomBoxes;
     }
     function init() {
         //prompt Fenster �ffnen, welches nachfragt
-        var eingegebeneZahl = prompt("Wie viele Quadrate moechten Sie sehen? Auf einer Skala von 10 bis 100.");
+        var eingegebeneZahl = prompt("Gib eine Zahl zwischen 10 und 100 ein.");
         //var quadratAnzahl vom Typ eingegebeneZahl
         var quadratAnzahl = parseInt(eingegebeneZahl); //die eingegebeneZahl soll vom string in eine number umgewandelt werden
         //wenn die eingegebeneZahl gr��er bzw. = 10 ist und wenn sie kleiner bzw. = 100 ist, dann...
@@ -18,7 +18,7 @@ var RandomBoxes;
             }
         }
         else {
-            alert("Da ist wohl etwas schief gelaufen. Versuchen Sie es bitte erneut.");
+            alert("Da ist wohl etwas schief gelaufen. Versuche es bitte erneut.");
         }
     }
     function zeichneQuadrat(X, Y, Farbe, Hoehe, Breite) {
