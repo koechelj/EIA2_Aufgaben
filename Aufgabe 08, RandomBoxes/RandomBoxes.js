@@ -10,7 +10,7 @@ var RandomBoxes;
         var eingegebeneZahl = prompt("Gib eine Zahl zwischen 10 und 100 ein.");
         //var quadratAnzahl vom Typ eingegebeneZahl
         var quadratAnzahl = parseInt(eingegebeneZahl); //die eingegebeneZahl soll vom string in eine number umgewandelt werden
-        //wenn die eingegebeneZahl gr��er bzw. = 10 ist und wenn sie kleiner bzw. = 100 ist, dann...
+        //wenn die eingegebeneZahl gr��er bzw. = 10 ist und wenn sie kleiner bzw. = 100 ist, dann....
         if (quadratAnzahl >= 10 && quadratAnzahl <= 100) {
             //...for Schleife ausf�hren, welche die entsprechende Quadratanzahl generiert  //Werte f�r die Parameter angeben
             for (var i = 0; i < quadratAnzahl; i++) {

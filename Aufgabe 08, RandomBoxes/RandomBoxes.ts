@@ -16,7 +16,7 @@ namespace RandomBoxes {
         //var quadratAnzahl vom Typ eingegebeneZahl
         var quadratAnzahl: number = parseInt(eingegebeneZahl); //die eingegebeneZahl soll vom string in eine number umgewandelt werden
 
-        //wenn die eingegebeneZahl größer bzw. = 10 ist und wenn sie kleiner bzw. = 100 ist, dann...
+        //wenn die eingegebeneZahl größer bzw. = 10 ist und wenn sie kleiner bzw. = 100 ist, dann....
         if (quadratAnzahl >= 10 && quadratAnzahl <= 100) {
 
             //...for Schleife ausführen, welche die entsprechende Quadratanzahl generiert  //Werte für die Parameter angeben
