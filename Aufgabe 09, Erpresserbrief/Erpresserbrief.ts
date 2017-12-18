@@ -3,7 +3,7 @@ namespace Erpresserbrief {
     //Event Listener installieren:
     window.addEventListener("load", erzeugeBuchstabeundTextfeld);
     document.addEventListener("keydown", TastaturColorChange); //wenn Buchstabe auf Tastatur gedrückt wird
-    document.addEventListener("keypressed", deleteBuchstabe); //für Löschen des Buchstabens, wenn Alt gedrückt und Buchstabe angeklickt wird
+
 
 
     //Array für Buchstaben
@@ -12,7 +12,7 @@ namespace Erpresserbrief {
     //Ausgewählter Buchstabe speichern:
     var gespeicherterBuchstabe: string = ""; //flexibel, da jeder Buchstabe angeklickt werden kann
 
-    let Briefbereich: HTMLDivElement;
+
 
 
 
@@ -21,32 +21,32 @@ namespace Erpresserbrief {
     function erzeugeBuchstabeundTextfeld(): void {
         //For schleife, die die Buchstaben divs generiert:
         for (let i: number = 0; i < Buchstabe.length; i++) {
-            var B: HTMLDivElement = document.createElement("div"); //div Elemente erstellen
-            B.style.width = "6%";
-            B.style.margin = "0.5em";
-            B.style.height = "auto";
-            B.style.display = "inline"; //inline, weil die die Buchstaben nicht alle in einer neuen Zeile beginnen sollen (div ist normalerweise Block Element)
-            B.style.backgroundColor = "lightgrey";
-            B.innerText = Buchstabe[i];
+            var buchstabe: HTMLDivElement = document.createElement("div"); //div Elemente erstellen
+            buchstabe.style.width = "6%";
+            buchstabe.style.margin = "0.5em";
+            buchstabe.style.height = "auto";
+            buchstabe.style.display = "inline"; //inline, weil die die Buchstaben nicht alle in einer neuen Zeile beginnen sollen (div ist normalerweise Block Element)
+            buchstabe.style.backgroundColor = "lightgrey";
+            buchstabe.innerText = Buchstabe[i];
 
             //Buchstabe wieder in Ursprungszustand versetzen:
-            B.id = Buchstabe[i];  //Id für Buchstaben vergeben
-            B.className = "Buchstaben";  //Klasse Buchstaben
+            buchstabe.id = Buchstabe[i];  //Id für Buchstaben vergeben
+            buchstabe.className = "Buchstaben";  //Klasse Buchstaben
 
-            B.addEventListener("click", ClickColorChange);  //Event Aufruf
+            buchstabe.addEventListener("click", clickColorChange);  //Event Aufruf
             //Elemente in Body einfügen:
-            document.body.appendChild(B);
+            document.body.appendChild(buchstabe);
 
         }
 
-        Textfeld();  //Aufruf der Textfeld function
+        createTextfeld();  //Aufruf der Textfeld function
     }
 
 
 
     //----------Erzeugen des Textfeldes--------------------------------------------------------------
 
-    function Textfeld(): void {
+    function createTextfeld(): void {
         let Textfeld: HTMLDivElement = document.createElement("div");
         Textfeld.style.width = "80%";
         Textfeld.style.height = "32em";  //Höhe muss in em angegeben werden, da Seitenhöhe nicht in Prozent berechnet werden kann
@@ -64,29 +64,38 @@ namespace Erpresserbrief {
     //----Auswahl des Buchstabens----------------------------------------------------------------------
 
     //Event: bei click auf Buchstaben oder Tastaturdruck, soll Farbe geändert werden
-    function ClickColorChange(_event: MouseEvent): void {
+    function clickColorChange(_event: MouseEvent): void {
         let div: HTMLHeadingElement = <HTMLHeadingElement>_event.target;  //target: Startknoten für das Event (hier ist der Signalempfang)
         div.style.backgroundColor = "yellow";  //wenn auf das Buchstaben div geklickt wird, wirds gelb
         gespeicherterBuchstabe = div.id;  //id des ausgewählten Buchstabens zwischenspeichern
 
 
         //Buchstabe, durch klicken eines anderen, in Ursprungszustand versetzen:
-        let BuchstabeWiederNormal: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("Buchstaben"); //speichert jedes div der Klasse "Buchstaben" in Variable "BuchstabeWiederNormal"
+        let buchstabeWiederNormal: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("Buchstaben"); //speichert jedes div der Klasse "Buchstaben" in Variable "BuchstabeWiederNormal"
 
-        for (let i: number = 0; i < BuchstabeWiederNormal.length; i++) {  //geht BuchstabeWiederNormal-Liste durch und prüft, ob eine Id mit der Id, die in "gespeicherterBuchstabe" hinterlegt ist, übereinstimmt
-            if (gespeicherterBuchstabe != BuchstabeWiederNormal[i].id) { //wenn gespeicherter Buchstabe gelb ist...
-                BuchstabeWiederNormal[i].style.backgroundColor = "white";  //...soll er wieder in den Ursprungszustand versetzt werden
+        for (let i: number = 0; i < buchstabeWiederNormal.length; i++) {  //geht BuchstabeWiederNormal-Liste durch und prüft, ob eine Id mit der Id, die in "gespeicherterBuchstabe" hinterlegt ist, übereinstimmt
+            if (gespeicherterBuchstabe != buchstabeWiederNormal[i].id) { //wenn gespeicherter Buchstabe gelb ist...
+                buchstabeWiederNormal[i].style.backgroundColor = "white";  //...soll er wieder in den Ursprungszustand versetzt werden
             }
 
         }
     }
-    
+
+
+
 
     //Buchstaben auf Tastatur auswählen: 
 
     function TastaturColorChange(event: KeyboardEvent): void {
         // Drücke a/A
         if (event.key == "a" || event.key == "A") { // wenn a/A gedrückt wird
+
+
+
+            // ab hier andere Lösung finden mit Zugriff auf Array!
+
+
+
             gespeicherterBuchstabe = event.key; //speichere a/A ab
             clickDomPointer;
         }
@@ -235,29 +244,22 @@ namespace Erpresserbrief {
         domPointerDiv.style.left = _event.pageX + "px"; //Position an der der Buchstabe erscheinen soll (ist abhängig vom _event Parameter)
         domPointerDiv.style.top = _event.pageY + "px";
 
-        domPointerDiv.addEventListener("click", deleteBuchstabe); //wenn auf BuchstabenDiv geklickt wird führe "deleteBuchstabe" aus
+        domPointerDiv.addEventListener("click", (event) => { deleteBuchstabe(event, event.altKey) }); //wenn Alt gedrückt und auf BuchstabenDiv geklickt wird führe "deleteBuchstabe" aus
         document.body.appendChild(domPointerDiv); //Div Element in Body einfügen
-        Briefbereich = <HTMLDivElement>_event.target; //Briefbereich ist das EventTarget (Startknoten für Signalempfang)
     }
 
 
-
+    //-------Löschen eines gesetzten Buchstabens-----------------------------------------------------------------   
     //Event: bei gehaltener Alt-Taste und click auf Buchstabe, soll dieser gelöscht werden
-    function deleteBuchstabe(_event: KeyboardEvent): void {
-        if (_event.keyCode == 18) {  //wenn KeyCode 18 (also Alt Taste) gedrückt wird....
-            //dann lösche Buchstabe:
-            BuchstabeAlt;
-    }
+    function deleteBuchstabe(_event: MouseEvent, alt: boolean): void {
+        if (alt == true) {  //wenn Alt gedrückt wird
+            //dann: 
+            let entferne: HTMLDivElement = <HTMLDivElement>_event.target; //Variable "entferne" ist das Event
+            //target: Startknoten, auf den sich das Event bezieht (hier ist der Signalempfang)
+            document.body.removeChild(entferne);  //Div aus Body entfernen
         }
-
-       //-------Löschen eines gesetzten Buchstabens------------------------------------------------------------------
-    function BuchstabeAlt(_event: MouseEvent): void {
-        let entferne: HTMLDivElement = <HTMLDivElement>_event.target; //Variable "entferne" ist das Event
-        //target: Startknoten, auf den sich das Event bezieht (hier ist der Signalempfang)
-        document.body.removeChild(entferne);  //Div aus Body entfernen
-    }    
-        
-        
-
-
     }
+
+
+
+}
