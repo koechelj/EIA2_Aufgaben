@@ -204,29 +204,33 @@ namespace Aufgabe10 {
         //Schleife generiert Warenkorbinhalt
         for (let i: number = 0; i < bestellung.length; i++) {
             if (bestellung[i].art == "Baumschmuck") {
-                stepper[i] = <HTMLInputElement>document.getElementById("schritte" + i);
+                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
                 checkBoxen[i] = <HTMLInputElement>document.getElementById("check" + i);
             }
+            //Baumart:
             if (target.value == bestellung[i].bezeichnung && target.id == "selectBaumart") {
                 korbBaumart[0] = bestellung[i].bezeichnung;
                 korbBaumart[1] = "" + bestellung[i].preis;
             }
+            //Baumhalterung:
             if (target.id == "radioH" + i) {
                 korbBaumhalterung[0] = bestellung[i].bezeichnung;
                 korbBaumhalterung[1] = "" + bestellung[i].preis;
 
             }
+            //Lieferoption:
             if (target.id == "radioL." + i) {
                 korbLieferoption[0] = bestellung[i].bezeichnung;
                 korbLieferoption[1] = "" + bestellung[i].preis;
 
             }
+            //Beleuchtung:
             if (target.value == bestellung[i].bezeichnung && target.id == "selectKerzen") {
                 korbKerzen[0] = bestellung[i].bezeichnung;
                 korbKerzen[1] = "" + bestellung[i].preis;
 
             }
-            if (target.id == "check" + i || target.id == "schritte" + i) {
+            if (target.id == "check" + i || target.id == "stepper" + i) {
                 korbBaumschmuck[i] = [bestellung[i].bezeichnung, "" + (bestellung[i].preis * parseInt(stepper[i].value))];  //parseInt wandelt string in ganze Zahl um
             }
         }
@@ -251,8 +255,8 @@ namespace Aufgabe10 {
             if (checkBoxen[i] != null && checkBoxen[i].checked == true) {  //wenn eine Checkbox ausgewählt ist...  
                 gesamtpreis += parseFloat(korbBaumschmuck[i][1]);  //...rechne bisherigen gesamtpreis + Preis des Checkbox Artikels zusammen
                 korb.innerHTML += "" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + " € <br>";
-                
-}
+
+            }
         }
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";
     }

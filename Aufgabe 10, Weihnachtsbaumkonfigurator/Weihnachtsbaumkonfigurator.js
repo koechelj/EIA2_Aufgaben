@@ -166,26 +166,30 @@ var Aufgabe10;
         //Schleife generiert Warenkorbinhalt
         for (let i = 0; i < Aufgabe10.bestellung.length; i++) {
             if (Aufgabe10.bestellung[i].art == "Baumschmuck") {
-                stepper[i] = document.getElementById("schritte" + i);
+                stepper[i] = document.getElementById("stepper" + i);
                 checkBoxen[i] = document.getElementById("check" + i);
             }
+            //Baumart:
             if (target.value == Aufgabe10.bestellung[i].bezeichnung && target.id == "selectBaumart") {
                 korbBaumart[0] = Aufgabe10.bestellung[i].bezeichnung;
                 korbBaumart[1] = "" + Aufgabe10.bestellung[i].preis;
             }
+            //Baumhalterung:
             if (target.id == "radioH" + i) {
                 korbBaumhalterung[0] = Aufgabe10.bestellung[i].bezeichnung;
                 korbBaumhalterung[1] = "" + Aufgabe10.bestellung[i].preis;
             }
+            //Lieferoption:
             if (target.id == "radioL." + i) {
                 korbLieferoption[0] = Aufgabe10.bestellung[i].bezeichnung;
                 korbLieferoption[1] = "" + Aufgabe10.bestellung[i].preis;
             }
+            //Beleuchtung:
             if (target.value == Aufgabe10.bestellung[i].bezeichnung && target.id == "selectKerzen") {
                 korbKerzen[0] = Aufgabe10.bestellung[i].bezeichnung;
                 korbKerzen[1] = "" + Aufgabe10.bestellung[i].preis;
             }
-            if (target.id == "check" + i || target.id == "schritte" + i) {
+            if (target.id == "check" + i || target.id == "stepper" + i) {
                 korbBaumschmuck[i] = [Aufgabe10.bestellung[i].bezeichnung, "" + (Aufgabe10.bestellung[i].preis * parseInt(stepper[i].value))]; //parseInt wandelt string in ganze Zahl um
             }
         }
