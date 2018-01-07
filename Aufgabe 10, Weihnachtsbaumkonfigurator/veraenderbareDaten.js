@@ -31,13 +31,13 @@ var Aufgabe10;
     ];
     Aufgabe10.baumArt = [];
     Aufgabe10.kerzen = [];
-    for (var i = 0; i < Aufgabe10.bestellung.length; i++) {
+    for (let i = 0; i < Aufgabe10.bestellung.length; i++) {
         if (Aufgabe10.bestellung[i].art == "Baumart") {
-            var temp = [Aufgabe10.bestellung[i].bezeichnung, Aufgabe10.bestellung[i].preis];
+            let temp = [Aufgabe10.bestellung[i].bezeichnung, Aufgabe10.bestellung[i].preis];
             Aufgabe10.baumArt.push(temp);
         }
         if (Aufgabe10.bestellung[i].art == "Kerzen") {
-            var temp = [Aufgabe10.bestellung[i].bezeichnung, Aufgabe10.bestellung[i].preis];
+            let temp = [Aufgabe10.bestellung[i].bezeichnung, Aufgabe10.bestellung[i].preis];
             Aufgabe10.kerzen.push(temp);
         }
     }

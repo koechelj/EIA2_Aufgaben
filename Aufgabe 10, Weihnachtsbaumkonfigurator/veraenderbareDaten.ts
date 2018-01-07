@@ -51,14 +51,14 @@ namespace Aufgabe10 {
     export let baumArt: string[][] = [];
     export let kerzen: string[][] = [];
 
-    for (var i: number = 0; i < bestellung.length; i++) {
+    for (let i: number = 0; i < bestellung.length; i++) {
         if (bestellung[i].art == "Baumart") {
-            var temp: any = [bestellung[i].bezeichnung, bestellung[i].preis];
+            let temp: any = [bestellung[i].bezeichnung, bestellung[i].preis];
             baumArt.push(temp);
         }
 
         if (bestellung[i].art == "Kerzen") {
-            var temp: any = [bestellung[i].bezeichnung, bestellung[i].preis];
+            let temp: any = [bestellung[i].bezeichnung, bestellung[i].preis];
             kerzen.push(temp);
         }
     }

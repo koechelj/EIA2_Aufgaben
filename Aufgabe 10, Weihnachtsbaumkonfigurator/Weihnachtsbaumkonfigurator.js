@@ -39,7 +39,7 @@ var Aufgabe10;
                 var stepper = document.createElement("input"); //Variable: Input-Element in Stepper Optik
                 stepper.type = "number";
                 stepper.name = "StepperBaumschmuck" + i;
-                stepper.value = "0";
+                stepper.value = "1"; //angezeigte Anzahl zu Beginn
                 stepper.id = "stepper" + i;
                 stepper.min = "0";
                 stepper.max = "30";
@@ -160,13 +160,13 @@ var Aufgabe10;
     //8) Warenkorb mit Zusammenfassung der Bestellung und Anzeige des Gesamtpreises 
     function warenkorb(_event) {
         let target = _event.target;
-        let schritte = [];
+        let stepper = [];
         let checkBoxen = [];
         let gesamtpreis = 0;
         //Schleife generiert Warenkorbinhalt
         for (let i = 0; i < Aufgabe10.bestellung.length; i++) {
             if (Aufgabe10.bestellung[i].art == "Baumschmuck") {
-                schritte[i] = document.getElementById("schritte" + i);
+                stepper[i] = document.getElementById("schritte" + i);
                 checkBoxen[i] = document.getElementById("check" + i);
             }
             if (target.value == Aufgabe10.bestellung[i].bezeichnung && target.id == "selectBaumart") {
@@ -186,7 +186,7 @@ var Aufgabe10;
                 korbKerzen[1] = "" + Aufgabe10.bestellung[i].preis;
             }
             if (target.id == "check" + i || target.id == "schritte" + i) {
-                korbBaumschmuck[i] = [Aufgabe10.bestellung[i].bezeichnung, "" + (Aufgabe10.bestellung[i].preis * parseInt(schritte[i].value))]; //parseInt wandelt string in ganze Zahl um
+                korbBaumschmuck[i] = [Aufgabe10.bestellung[i].bezeichnung, "" + (Aufgabe10.bestellung[i].preis * parseInt(stepper[i].value))]; //parseInt wandelt string in ganze Zahl um
             }
         }
         //Warenkorb Optik erzeugen 
@@ -196,17 +196,17 @@ var Aufgabe10;
         korb.style.height = "auto";
         korb.style.backgroundColor = "orange";
         //Text im Warenkorb:
-        korb.innerHTML = "<h3>Warenkorb</h3>";
+        korb.innerHTML = "<div>Warenkorb</div><hr>";
         korb.innerHTML += "" + korbBaumart[0] + " " + korbBaumart[1] + "� <br>";
         korb.innerHTML += "Halterung: " + korbBaumhalterung[0] + " " + korbBaumhalterung[1] + "� <br>";
         korb.innerHTML += "" + korbKerzen[0] + " " + korbKerzen[1] + "� <br>";
         korb.innerHTML += " " + korbLieferoption[0] + " " + korbLieferoption[1] + "� <br>";
         //Berechnung     //parseFloat wandelt string in Kommazahl um
-        gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]);
-        for (let i = 0; i < schritte.length; i++) {
+        gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbKerzen[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]);
+        for (let i = 0; i < stepper.length; i++) {
             if (checkBoxen[i] != null && checkBoxen[i].checked == true) {
-                gesamtpreis += parseFloat(korbBaumschmuck[i][1]);
-                korb.innerHTML += "" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + "� <br>";
+                gesamtpreis += parseFloat(korbBaumschmuck[i][1]); //...rechne bisherigen gesamtpreis + Preis des Checkbox Artikels zusammen
+                korb.innerHTML += "" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + " � <br>";
             }
         }
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "�";
