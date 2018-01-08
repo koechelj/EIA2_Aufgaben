@@ -249,7 +249,8 @@ namespace Erpresserbrief {
     }
 
 
-    //-------Löschen eines gesetzten Buchstabens-----------------------------------------------------------------   
+    //-------Löschen eines gesetzten Buchstabens-----------------------------------------------------------------
+       
     //Event: bei gehaltener Alt-Taste und click auf Buchstabe, soll dieser gelöscht werden
     function deleteBuchstabe(_event: MouseEvent, alt: boolean): void {
         if (alt == true) {  //wenn Alt gedrückt wird

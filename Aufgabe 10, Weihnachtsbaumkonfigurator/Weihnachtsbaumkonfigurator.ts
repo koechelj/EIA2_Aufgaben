@@ -242,15 +242,16 @@ namespace Aufgabe10 {
         korb.style.width = "30%";
         korb.style.height = "auto";
         korb.style.backgroundColor = "orange";
-        //Text im Warenkorb:
+        //Text im Warenkorb
+        //zuerst Baumart, Baumhalterung, Kerzen und Lieferoption:
         korb.innerHTML = "<div>Warenkorb</div><hr>";
         korb.innerHTML += "" + korbBaumart[0] + " " + korbBaumart[1] + "€ <br>";
         korb.innerHTML += "Halterung: " + korbBaumhalterung[0] + " " + korbBaumhalterung[1] + "€ <br>";
         korb.innerHTML += "" + korbKerzen[0] + " " + korbKerzen[1] + "€ <br>";
         korb.innerHTML += " " + korbLieferoption[0] + " " + korbLieferoption[1] + "€ <br>";
 
-        //Berechnung     //parseFloat wandelt string in Kommazahl um
-        gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbKerzen[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]);
+        //Berechnung      //parseFloat wandelt string in Kommazahl um
+        gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbKerzen[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]);  //gesamtpreis Berechnung dieser vier Artikel
         for (let i: number = 0; i < stepper.length; i++) {   //Schleife zählt so lange hoch, bis alle Stepper überprüft wurden
             if (checkBoxen[i] != null && checkBoxen[i].checked == true) {  //wenn eine Checkbox ausgewählt ist...  
                 gesamtpreis += parseFloat(korbBaumschmuck[i][1]);  //...rechne bisherigen gesamtpreis + Preis des Checkbox Artikels zusammen
@@ -258,7 +259,7 @@ namespace Aufgabe10 {
 
             }
         }
-        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";
+        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";  //Math.round rundet Ergebnis auf ganze Zahl
     }
 
 

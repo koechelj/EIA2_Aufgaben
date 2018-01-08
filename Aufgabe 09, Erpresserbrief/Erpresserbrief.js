@@ -178,7 +178,7 @@ var Erpresserbrief;
         domPointerDiv.addEventListener("click", (event) => { deleteBuchstabe(event, event.altKey); }); //wenn Alt gedr�ckt und auf BuchstabenDiv geklickt wird f�hre "deleteBuchstabe" aus
         document.body.appendChild(domPointerDiv); //Div Element in Body einf�gen
     }
-    //-------L�schen eines gesetzten Buchstabens-----------------------------------------------------------------   
+    //-------L�schen eines gesetzten Buchstabens-----------------------------------------------------------------
     //Event: bei gehaltener Alt-Taste und click auf Buchstabe, soll dieser gel�scht werden
     function deleteBuchstabe(_event, alt) {
         if (alt == true) {
