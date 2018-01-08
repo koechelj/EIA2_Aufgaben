@@ -40,7 +40,7 @@ var Erpresserbrief;
         document.body.appendChild(Textfeld);
     }
     //----Auswahl des Buchstabens----------------------------------------------------------------------
-    //Event: bei click auf Buchstaben oder Tastaturdruck, soll Farbe ge�ndert werden
+    //Event: Farbwechsel bei Mausclick auf Buchstaben
     function clickColorChange(_event) {
         let div = _event.target; //target: Startknoten f�r das Event (hier ist der Signalempfang)
         div.style.backgroundColor = "yellow"; //wenn auf das Buchstaben div geklickt wird, wirds gelb
@@ -54,6 +54,7 @@ var Erpresserbrief;
         }
     }
     //Buchstaben auf Tastatur ausw�hlen: 
+    //Event: Farbwechsel bei Tastaturdruck
     function TastaturColorChange(event) {
         // Dr�cke a/A
         if (event.key == "a" || event.key == "A") {
@@ -166,7 +167,7 @@ var Erpresserbrief;
     function clickDomPointer(_event) {
         let domPointerDiv = document.createElement("div"); //Erzeuge div 
         //div f�llen mit Buchstabe:
-        domPointerDiv.style.width = "2%";
+        domPointerDiv.style.width = "auto";
         domPointerDiv.style.padding = "0.3em";
         domPointerDiv.style.height = "auto";
         domPointerDiv.style.border = "1px solid black";
@@ -175,16 +176,16 @@ var Erpresserbrief;
         domPointerDiv.style.left = _event.pageX + "px"; //Position an der der Buchstabe erscheinen soll (ist abh�ngig vom _event Parameter)
         domPointerDiv.style.top = _event.pageY + "px";
         domPointerDiv.addEventListener("click", (event) => { deleteBuchstabe(event, event.altKey); }); //wenn Alt gedr�ckt und auf BuchstabenDiv geklickt wird f�hre "deleteBuchstabe" aus
-        document.body.appendChild(domPointerDiv); //Div Element in Body einf�gen
+        document.body.appendChild(domPointerDiv); //Div Element in HTML-Body einf�gen
     }
     //-------L�schen eines gesetzten Buchstabens-----------------------------------------------------------------
     //Event: bei gehaltener Alt-Taste und click auf Buchstabe, soll dieser gel�scht werden
     function deleteBuchstabe(_event, alt) {
         if (alt == true) {
-            //dann: 
+            //..und das MouseEvent eintrifft: 
             let entferne = _event.target; //Variable "entferne" ist das Event
-            //target: Startknoten, auf den sich das Event bezieht (hier ist der Signalempfang)
-            document.body.removeChild(entferne); //Div aus Body entfernen
+            //target: Startknoten, auf den sich das Event bezieht (Signalempfang)
+            document.body.removeChild(entferne); //Div aus HTML-Body entfernen
         }
     }
 })(Erpresserbrief || (Erpresserbrief = {}));

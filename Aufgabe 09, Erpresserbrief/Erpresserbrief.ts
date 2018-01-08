@@ -63,7 +63,7 @@ namespace Erpresserbrief {
 
     //----Auswahl des Buchstabens----------------------------------------------------------------------
 
-    //Event: bei click auf Buchstaben oder Tastaturdruck, soll Farbe geändert werden
+    //Event: Farbwechsel bei Mausclick auf Buchstaben
     function clickColorChange(_event: MouseEvent): void {
         let div: HTMLHeadingElement = <HTMLHeadingElement>_event.target;  //target: Startknoten für das Event (hier ist der Signalempfang)
         div.style.backgroundColor = "yellow";  //wenn auf das Buchstaben div geklickt wird, wirds gelb
@@ -85,10 +85,11 @@ namespace Erpresserbrief {
 
 
     //Buchstaben auf Tastatur auswählen: 
-
+    //Event: Farbwechsel bei Tastaturdruck
     function TastaturColorChange(event: KeyboardEvent): void {
         // Drücke a/A
         if (event.key == "a" || event.key == "A") { // wenn a/A gedrückt wird
+
             gespeicherterBuchstabe = event.key; //speichere a/A ab
             clickDomPointer;
         }
@@ -228,7 +229,7 @@ namespace Erpresserbrief {
     function clickDomPointer(_event: MouseEvent): void {
         let domPointerDiv: HTMLDivElement = document.createElement("div");  //Erzeuge div 
         //div füllen mit Buchstabe:
-        domPointerDiv.style.width = "2%";
+        domPointerDiv.style.width = "auto";
         domPointerDiv.style.padding = "0.3em";
         domPointerDiv.style.height = "auto";
         domPointerDiv.style.border = "1px solid black";
@@ -238,7 +239,7 @@ namespace Erpresserbrief {
         domPointerDiv.style.top = _event.pageY + "px";
 
         domPointerDiv.addEventListener("click", (event) => { deleteBuchstabe(event, event.altKey) }); //wenn Alt gedrückt und auf BuchstabenDiv geklickt wird führe "deleteBuchstabe" aus
-        document.body.appendChild(domPointerDiv); //Div Element in Body einfügen
+        document.body.appendChild(domPointerDiv); //Div Element in HTML-Body einfügen
     }
 
 
@@ -246,11 +247,11 @@ namespace Erpresserbrief {
        
     //Event: bei gehaltener Alt-Taste und click auf Buchstabe, soll dieser gelöscht werden
     function deleteBuchstabe(_event: MouseEvent, alt: boolean): void {
-        if (alt == true) {  //wenn Alt gedrückt wird
-            //dann: 
+        if (alt == true) {  //wenn Alt gedrückt wird...
+            //..und das MouseEvent eintrifft: 
             let entferne: HTMLDivElement = <HTMLDivElement>_event.target; //Variable "entferne" ist das Event
-            //target: Startknoten, auf den sich das Event bezieht (hier ist der Signalempfang)
-            document.body.removeChild(entferne);  //Div aus Body entfernen
+            //target: Startknoten, auf den sich das Event bezieht (Signalempfang)
+            document.body.removeChild(entferne);  //Div aus HTML-Body entfernen
         }
     }
 
