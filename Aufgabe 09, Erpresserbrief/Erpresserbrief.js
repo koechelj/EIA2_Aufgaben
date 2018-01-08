@@ -57,7 +57,6 @@ var Erpresserbrief;
     function TastaturColorChange(event) {
         // Dr�cke a/A
         if (event.key == "a" || event.key == "A") {
-            // ab hier andere L�sung finden mit Zugriff auf Array!
             gespeicherterBuchstabe = event.key; //speichere a/A ab
             clickDomPointer;
         }

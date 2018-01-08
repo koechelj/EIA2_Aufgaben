@@ -89,13 +89,6 @@ namespace Erpresserbrief {
     function TastaturColorChange(event: KeyboardEvent): void {
         // Drücke a/A
         if (event.key == "a" || event.key == "A") { // wenn a/A gedrückt wird
-
-
-
-            // ab hier andere Lösung finden mit Zugriff auf Array!
-
-
-
             gespeicherterBuchstabe = event.key; //speichere a/A ab
             clickDomPointer;
         }
