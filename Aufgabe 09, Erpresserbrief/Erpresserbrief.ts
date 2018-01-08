@@ -2,7 +2,7 @@ namespace Erpresserbrief {
 
     //Event Listener installieren:
     window.addEventListener("load", erzeugeBuchstabeundTextfeld);
-    document.addEventListener("keydown", TastaturColorChange); //wenn Buchstabe auf Tastatur gedrückt wird
+    document.addEventListener("keydown", tastaturColorChange); //wenn Buchstabe auf Tastatur gedrückt wird
 
 
 
@@ -86,7 +86,7 @@ namespace Erpresserbrief {
 
     //Buchstaben auf Tastatur auswählen: 
     //Event: Farbwechsel bei Tastaturdruck
-    function TastaturColorChange(event: KeyboardEvent): void {
+    function tastaturColorChange(event: KeyboardEvent): void {
         // Drücke a/A
         if (event.key == "a" || event.key == "A") { // wenn a/A gedrückt wird
 

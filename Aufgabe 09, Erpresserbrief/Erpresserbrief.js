@@ -2,7 +2,7 @@ var Erpresserbrief;
 (function (Erpresserbrief) {
     //Event Listener installieren:
     window.addEventListener("load", erzeugeBuchstabeundTextfeld);
-    document.addEventListener("keydown", TastaturColorChange); //wenn Buchstabe auf Tastatur gedr�ckt wird
+    document.addEventListener("keydown", tastaturColorChange); //wenn Buchstabe auf Tastatur gedr�ckt wird
     //Array f�r Buchstaben
     let Buchstabe = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     //Ausgew�hlter Buchstabe speichern:
@@ -55,7 +55,7 @@ var Erpresserbrief;
     }
     //Buchstaben auf Tastatur ausw�hlen: 
     //Event: Farbwechsel bei Tastaturdruck
-    function TastaturColorChange(event) {
+    function tastaturColorChange(event) {
         // Dr�cke a/A
         if (event.key == "a" || event.key == "A") {
             gespeicherterBuchstabe = event.key; //speichere a/A ab
