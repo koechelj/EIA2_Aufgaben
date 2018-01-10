@@ -1,9 +1,9 @@
 namespace Aufgabe10 {
     window.addEventListener("load", createElements);
-    window.addEventListener("change", warenkorb);
+    window.addEventListener("change", warenkorb);  //wenn sich Warenkorb verändert, function neu aufrufen  
 
-    //Platzhalter für Kontaktdaten:
-    var name: HTMLInputElement;
+    //-------Platzhalter für Kontaktdaten--------------------------
+    var name: HTMLInputElement;  //var Name: Datentyp;
     var strasse: HTMLInputElement;
     var hausnr: HTMLInputElement;
     var ort: HTMLInputElement;
@@ -11,7 +11,7 @@ namespace Aufgabe10 {
     var mail: HTMLInputElement;
     var label: HTMLLabelElement;
 
-    //Platzhalter für Warenkorbinhalte:
+    //-------Platzhalter für Warenkorbinhalte-----------------------
     var korbBaumart: string[] = [baumArt[0][0], "" + baumArt[0][1]];
     var korbBaumhalterung: string[] = ["Baumhalterung: keine ausgewählt", "0"];
     var korbKerzen: string[] = [kerzen[0][0], "" + kerzen[0][1]];
@@ -24,47 +24,46 @@ namespace Aufgabe10 {
 
     function createElements(): void {
 
-        //1) Baumschmuck generieren (Auswahl mit Checkbox und Stepper) 
+        //1) Baumschmuck generieren (Checkbox, Titel und Stepper) 
         let baumschmuck: HTMLDivElement = <HTMLDivElement>document.getElementById("baumschmuck");
         //Schleife durchsucht Array bis Bedingung erfüllt ist und generiert dann den Inhalt
         for (let i: number = 0; i < bestellung.length; i++) {
             //Bedingung
             if (bestellung[i].art == "Baumschmuck") {  //...wenn es sich um Baumschmuck handelt...
-
-                var checkboxBS: HTMLInputElement = document.createElement("input");   //Variable: Input-Element als Platzhalter
+                var checkboxBS: HTMLInputElement = document.createElement("input"); //Input-Element in Checkbox Optik erstellen
                 //...dann befülle die Variable (das Input-Element) wie folgt:
                 checkboxBS.type = "checkbox";
                 checkboxBS.name = "CheckboxBaumschmuck";
                 checkboxBS.value = "check";
                 checkboxBS.id = "check" + i;
-                baumschmuck.appendChild(checkboxBS);  //let baumschmuck ins HTML integrieren
+                baumschmuck.appendChild(checkboxBS);  //let baumschmuck ins HTML einfügen
 
-                var labelBS: HTMLLabelElement = document.createElement("label");  //Variable: Titel-Element
+                var labelBS: HTMLLabelElement = document.createElement("label"); //Titel-Element
                 //befüllen
-                labelBS.id = "label2." + i;
+                labelBS.id = "label2" + i;
                 labelBS.innerText = bestellung[i].bezeichnung;
                 baumschmuck.appendChild(labelBS);   //Titel ins HTML integrieren
 
-                var stepper: HTMLInputElement = document.createElement("input");  //Variable: Input-Element in Stepper Optik
-
-                stepper.type = "number";
-                stepper.name = "StepperBaumschmuck" + i;
-                stepper.value = "1";  //angezeigte Anzahl zu Beginn
-                stepper.id = "stepper" + i;
-                stepper.min = "0";
-                stepper.max = "30";
-                stepper.step = "1";  //Schritte
-                baumschmuck.appendChild(stepper);  //Stepper ins HTML integrieren
+                var stepperBS: HTMLInputElement = document.createElement("input");  //Input-Element in Stepper Optik
+                stepperBS.type = "number";
+                stepperBS.name = "StepperBaumschmuck" + i;
+                stepperBS.value = "1";  //angezeigte Anzahl zu Beginn
+                stepperBS.id = "stepperBS" + i;
+                stepperBS.min = "0";
+                stepperBS.max = "30";
+                stepperBS.step = "1";  //Schritte
+                baumschmuck.appendChild(stepperBS);  //Stepper ins HTML integrieren
             }
         }
 
 
-        //2) Kerzen generieren (Auswahl mit Selectbox)
+        //2) Kerzen generieren (Selectbox)
         let kerzen: HTMLDivElement = <HTMLDivElement>document.getElementById("kerzen");
         let selectboxK: HTMLSelectElement = document.createElement("select");
         selectboxK.name = "SelectKerzen";
         selectboxK.id = "selectKerzen";
         kerzen.appendChild(selectboxK);
+        //wenn Bedingung erfüllt, dann kreiere Select Box
         for (let i: number = 0; i < bestellung.length; i++) {
             if (bestellung[i].art == "Kerzen") {
                 var optionK: HTMLElement = document.createElement("option");
@@ -75,7 +74,7 @@ namespace Aufgabe10 {
         }
 
 
-        //3) Baumart generieren (Auswahl mit Selectbox)
+        //3) Baumart generieren (Selectbox)
         let baumart: HTMLDivElement = <HTMLDivElement>document.getElementById("baumart");
         let selectboxBA: HTMLSelectElement = document.createElement("select");
         selectboxBA.name = "SelectBaumart";
@@ -92,7 +91,7 @@ namespace Aufgabe10 {
 
 
 
-        //4) Baumhalterung generieren (Auswahl mit Radio Button Group)
+        //4) Baumhalterung generieren (Radiobutton Group)
         let halterung: HTMLDivElement = <HTMLDivElement>document.getElementById("baumhalterung");
         for (let i: number = 0; i < bestellung.length; i++) {
             if (bestellung[i].art == "Baumhalterung") {
@@ -111,14 +110,14 @@ namespace Aufgabe10 {
         }
 
 
-        //5) Lieferoptionen generieren (Auswahl mit Radiobutton Group) 
+        //5) Lieferoptionen generieren (Radiobutton Group) 
         let lieferoptionen: HTMLDivElement = <HTMLDivElement>document.getElementById("lieferoptionen");
         for (let i: number = 0; i < bestellung.length; i++) {
             if (bestellung[i].art == "Lieferung") {
                 var radiobuttonL: HTMLInputElement = document.createElement("input");
                 radiobuttonL.type = "radio";
                 radiobuttonL.name = "radioGroupLieferoptionen";
-                radiobuttonL.value = "radio." + i;
+                radiobuttonL.value = "radio" + i;
                 radiobuttonL.id = "radioL" + i;
                 lieferoptionen.appendChild(radiobuttonL);
 
@@ -132,12 +131,12 @@ namespace Aufgabe10 {
 
         //6) Kontaktdatenfelder generieren 
         let kontaktdaten: HTMLDivElement = <HTMLDivElement>document.getElementById("kontaktdaten");
-
-        name = document.createElement("input");  //Input-Element für Namen generieren
+        name = document.createElement("input");  //Input-Element erstellen 
+        //Input-Element füllen
         name.type = "text";
         name.name = "DatenName";
         name.placeholder = "Vor-und Nachname";
-        name.required = true;
+        name.required = true; //Eingabe ist erforderlich
         kontaktdaten.appendChild(name);  //Name Input-Element ins HTML integrieren
 
         strasse = document.createElement("input");
@@ -151,7 +150,7 @@ namespace Aufgabe10 {
         hausnr.type = "text";
         hausnr.name = "DatenHausnummer";
         hausnr.placeholder = "Hausnummer, 2 stellig";
-        hausnr.pattern = "[0-9]{2}";
+        hausnr.pattern = "[0-9]{2}";  //Mögliche Zahlen 0-9 //2 Zahlen sind erforderlich
         hausnr.required = true;
         kontaktdaten.appendChild(hausnr);
 
@@ -166,7 +165,7 @@ namespace Aufgabe10 {
         plz.type = "text";
         plz.name = "DatenPLZ";
         plz.placeholder = "Postleitzahl, 5 stellig";
-        plz.pattern = "[0-9]{5}";
+        plz.pattern = "[0-9]{5}";  //Mögliche Zahlen 0-9 //5 Zahlen sind erforderlich
         plz.required = true;
         kontaktdaten.appendChild(plz);
 
@@ -180,12 +179,12 @@ namespace Aufgabe10 {
 
         //7) Botton generieren   
         let button: HTMLDivElement = <HTMLDivElement>document.getElementById("button");
-        let submit: HTMLButtonElement = document.createElement("button");
-        submit.name = "Button";
-        submit.type = "button";
-        submit.innerText = "Bestellung pruefen";
-        submit.addEventListener("mousedown", clickButton);  //Bei click Event soll function clickButton ausgeführt werden
-        button.appendChild(submit);
+        let pruefen: HTMLButtonElement = document.createElement("button");
+        pruefen.name = "Pruefbutton";
+        pruefen.type = "button";
+        pruefen.innerText = "Bestellung pruefen";
+        pruefen.addEventListener("mousedown", clickButton);  //Bei click-Event soll function clickButton ausgeführt werden
+        button.appendChild(pruefen);
     }
 
 
@@ -204,13 +203,13 @@ namespace Aufgabe10 {
         //Schleife generiert Warenkorbinhalt
         for (let i: number = 0; i < bestellung.length; i++) {
             if (bestellung[i].art == "Baumschmuck") {
-                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
+                stepper[i] = <HTMLInputElement>document.getElementById("stepperBS" + i);
                 checkBoxen[i] = <HTMLInputElement>document.getElementById("check" + i);
             }
             //Baumart:
             if (target.value == bestellung[i].bezeichnung && target.id == "selectBaumart") {
-                korbBaumart[0] = bestellung[i].bezeichnung;
-                korbBaumart[1] = "" + bestellung[i].preis;
+                korbBaumart[0] = bestellung[i].bezeichnung;  //[0] erste Array Angabe
+                korbBaumart[1] = "" + bestellung[i].preis;   //[1] zweite Array Angabe
             }
             //Baumhalterung:
             if (target.id == "radioH" + i) {
@@ -219,7 +218,7 @@ namespace Aufgabe10 {
 
             }
             //Lieferoption:
-            if (target.id == "radioL." + i) {
+            if (target.id == "radioL" + i) {
                 korbLieferoption[0] = bestellung[i].bezeichnung;
                 korbLieferoption[1] = "" + bestellung[i].preis;
 
@@ -230,7 +229,7 @@ namespace Aufgabe10 {
                 korbKerzen[1] = "" + bestellung[i].preis;
 
             }
-            if (target.id == "check" + i || target.id == "stepper" + i) {
+            if (target.id == "check" + i || target.id == "stepperBS" + i) {
                 korbBaumschmuck[i] = [bestellung[i].bezeichnung, "" + (bestellung[i].preis * parseInt(stepper[i].value))];  //parseInt wandelt string in ganze Zahl um
             }
         }

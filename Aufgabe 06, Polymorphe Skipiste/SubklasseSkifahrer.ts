@@ -2,9 +2,9 @@
 namespace sechsteAufgabe {
 
 
-    export class Skifahrer extends movingObject {
+    export class Skifahrer extends movingObject {   //movingObject = Name der Superklasse
 
-
+        //Subklasse erbt die Attribute der Superklasse
 
         //Attribute
         Kopffarbe: string;
@@ -14,7 +14,7 @@ namespace sechsteAufgabe {
 
 
         //Constructor nimmt Attribute entgegen und verarbeitet sie  
-        
+
         //mit this werden den Koordinaten Werte zugewiesen      
         constructor(x: number, y: number, Kopffarbe: string, Koerperfarbe: string, Skifarbe: string) {
             super(x, y);
