@@ -48,6 +48,8 @@ namespace Aufgabe10 {
 
 
 
+    
+    
     export let baumArt: string[][] = [];
     export let kerzen: string[][] = [];
 

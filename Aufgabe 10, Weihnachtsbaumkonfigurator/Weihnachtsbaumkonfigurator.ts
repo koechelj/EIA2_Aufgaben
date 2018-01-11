@@ -12,7 +12,7 @@ namespace Aufgabe10 {
     var label: HTMLLabelElement;
 
     //-------Platzhalter für Warenkorbinhalte-----------------------
-    var korbBaumart: string[] = [baumArt[0][0], "" + baumArt[0][1]];
+    var korbBaumart: string[] = [baumArt[0][0], "" + baumArt[0][1]];  //wenn keine ausgewählt ist, wenn eine ausgewählt ist
     var korbBaumhalterung: string[] = ["Baumhalterung: keine ausgewählt", "0"];
     var korbKerzen: string[] = [kerzen[0][0], "" + kerzen[0][1]];
     var korbBaumschmuck: string[][] = [];
@@ -195,7 +195,7 @@ namespace Aufgabe10 {
 
     //8) Warenkorb mit Zusammenfassung der Bestellung und Anzeige des Gesamtpreises 
     function warenkorb(_event: Event): void {
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        let target: HTMLInputElement = <HTMLInputElement>_event.target;  //target setzt Event auf Anfang zurück
         let stepper: HTMLInputElement[] = [];
         let checkBoxen: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
@@ -237,23 +237,23 @@ namespace Aufgabe10 {
 
         //Warenkorb Optik erzeugen 
         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("zusammenfassung");
-        //das zusammenfassung div wird gestylt:
+        //div wird gestylt:
         korb.style.width = "30%";
         korb.style.height = "auto";
         korb.style.backgroundColor = "orange";
         //Text im Warenkorb
         //zuerst Baumart, Baumhalterung, Kerzen und Lieferoption:
-        korb.innerHTML = "<div>Warenkorb</div><hr>";
+        korb.innerHTML = "<h3>Warenkorb</h3><hr>";
         korb.innerHTML += "" + korbBaumart[0] + " " + korbBaumart[1] + "€ <br>";
         korb.innerHTML += "Halterung: " + korbBaumhalterung[0] + " " + korbBaumhalterung[1] + "€ <br>";
         korb.innerHTML += "" + korbKerzen[0] + " " + korbKerzen[1] + "€ <br>";
         korb.innerHTML += " " + korbLieferoption[0] + " " + korbLieferoption[1] + "€ <br>";
 
-        //Berechnung      //parseFloat wandelt string in Kommazahl um
-        gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbKerzen[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]);  //gesamtpreis Berechnung dieser vier Artikel
+        //Berechnung       //parseFloat wandelt string in Kommazahl um
+        gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbKerzen[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]);  //gesamtpreis definieren
         for (let i: number = 0; i < stepper.length; i++) {   //Schleife zählt so lange hoch, bis alle Stepper überprüft wurden
-            if (checkBoxen[i] != null && checkBoxen[i].checked == true) {  //wenn eine Checkbox ausgewählt ist...  
-                gesamtpreis += parseFloat(korbBaumschmuck[i][1]);  //...rechne bisherigen gesamtpreis + Preis des Checkbox Artikels zusammen
+            if (stepper[i] != null && checkBoxen[i].checked == true) {  //wenn Stepper nicht 0 und die Checkbox abgeharkt ist...  
+                gesamtpreis += parseFloat(korbBaumschmuck[i][1]);  //...rechne bisherigen gesamtpreis + Preis des Schmuckartikels zusammen
                 korb.innerHTML += "" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + " € <br>";
 
             }
@@ -268,7 +268,8 @@ namespace Aufgabe10 {
 
     //Bestellung prüfen durch Klick auf Button: Info über fehlende o. invalide Daten
     function clickButton(_event: MouseEvent): void {
-        var feedback: HTMLDivElement = document.createElement("div"); //
+        var feedback: HTMLDivElement = document.createElement("div"); //var ist Platzhalter für das div-Element
+        //var füllen:
         feedback.style.paddingBottom = "3em";
 
         //wenn die Kontaktdaten falsch ausgefüllt wurden...
