@@ -13,10 +13,10 @@ namespace Aufgabe10 {
 
     //-------Platzhalter für Warenkorbinhalte-----------------------
     var korbBaumart: string[] = [baumArt[0][0], "" + baumArt[0][1]];  //wenn keine ausgewählt ist, wenn eine ausgewählt ist
-    var korbBaumhalterung: string[] = ["Baumhalterung: keine ausgewählt", "0"];
+    var korbBaumhalterung: string[] = ["kein Halter ausgewaehlt", "0"];
     var korbKerzen: string[] = [kerzen[0][0], "" + kerzen[0][1]];
     var korbBaumschmuck: string[][] = [];
-    var korbLieferoption: string[] = ["Lieferoption: keine ausgewählt", "0"];
+    var korbLieferoption: string[] = ["keine Lieferoption ausgewaehlt", "0"];
 
 
 
@@ -113,7 +113,7 @@ namespace Aufgabe10 {
         //5) Lieferoptionen generieren (Radiobutton Group) 
         let lieferoptionen: HTMLDivElement = <HTMLDivElement>document.getElementById("lieferoptionen");
         for (let i: number = 0; i < bestellung.length; i++) {
-            if (bestellung[i].art == "Lieferung") {
+            if (bestellung[i].art == "Lieferoption") {
                 var radiobuttonL: HTMLInputElement = document.createElement("input");
                 radiobuttonL.type = "radio";
                 radiobuttonL.name = "radioGroupLieferoptionen";
@@ -244,21 +244,21 @@ namespace Aufgabe10 {
         //Text im Warenkorb
         //zuerst Baumart, Baumhalterung, Kerzen und Lieferoption:
         korb.innerHTML = "<h3>Warenkorb</h3><hr>";
-        korb.innerHTML += "" + korbBaumart[0] + " " + korbBaumart[1] + "€ <br>";
-        korb.innerHTML += "Halterung: " + korbBaumhalterung[0] + " " + korbBaumhalterung[1] + "€ <br>";
-        korb.innerHTML += "" + korbKerzen[0] + " " + korbKerzen[1] + "€ <br>";
-        korb.innerHTML += " " + korbLieferoption[0] + " " + korbLieferoption[1] + "€ <br>";
+        korb.innerHTML += "" + korbBaumart[0] + " " + korbBaumart[1] + " Euro <br>";
+        korb.innerHTML += "Baumhalterung: " + korbBaumhalterung[0] + " " + korbBaumhalterung[1] + " Euro <br>";
+        korb.innerHTML += "" + korbKerzen[0] + " " + korbKerzen[1] + " Euro <br>";
+        korb.innerHTML += "Lieferoption: " + korbLieferoption[0] + " " + korbLieferoption[1] + " Euro <br>";
 
         //Berechnung       //parseFloat wandelt string in Kommazahl um
         gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbKerzen[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]);  //gesamtpreis definieren
         for (let i: number = 0; i < stepper.length; i++) {   //Schleife zählt so lange hoch, bis alle Stepper überprüft wurden
             if (stepper[i] != null && checkBoxen[i].checked == true) {  //wenn Stepper nicht 0 und die Checkbox abgeharkt ist...  
                 gesamtpreis += parseFloat(korbBaumschmuck[i][1]);  //...rechne bisherigen gesamtpreis + Preis des Schmuckartikels zusammen
-                korb.innerHTML += "" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + " € <br>";
+                korb.innerHTML += "" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + " Euro <br>";
 
             }
         }
-        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";  //Math.round rundet Ergebnis auf ganze Zahl
+        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + " Euro";  //Math.round rundet Ergebnis auf ganze Zahl
     }
 
 

@@ -12,10 +12,10 @@ var Aufgabe10;
     var label;
     //-------Platzhalter f�r Warenkorbinhalte-----------------------
     var korbBaumart = [Aufgabe10.baumArt[0][0], "" + Aufgabe10.baumArt[0][1]]; //wenn keine ausgew�hlt ist, wenn eine ausgew�hlt ist
-    var korbBaumhalterung = ["Baumhalterung: keine ausgew�hlt", "0"];
+    var korbBaumhalterung = ["kein Halter ausgewaehlt", "0"];
     var korbKerzen = [Aufgabe10.kerzen[0][0], "" + Aufgabe10.kerzen[0][1]];
     var korbBaumschmuck = [];
-    var korbLieferoption = ["Lieferoption: keine ausgew�hlt", "0"];
+    var korbLieferoption = ["keine Lieferoption ausgewaehlt", "0"];
     //--------------------Seitenelemente--------------------------------------
     function createElements() {
         //1) Baumschmuck generieren (Checkbox, Titel und Stepper) 
@@ -95,7 +95,7 @@ var Aufgabe10;
         //5) Lieferoptionen generieren (Radiobutton Group) 
         let lieferoptionen = document.getElementById("lieferoptionen");
         for (let i = 0; i < Aufgabe10.bestellung.length; i++) {
-            if (Aufgabe10.bestellung[i].art == "Lieferung") {
+            if (Aufgabe10.bestellung[i].art == "Lieferoption") {
                 var radiobuttonL = document.createElement("input");
                 radiobuttonL.type = "radio";
                 radiobuttonL.name = "radioGroupLieferoptionen";
@@ -204,19 +204,19 @@ var Aufgabe10;
         //Text im Warenkorb
         //zuerst Baumart, Baumhalterung, Kerzen und Lieferoption:
         korb.innerHTML = "<h3>Warenkorb</h3><hr>";
-        korb.innerHTML += "" + korbBaumart[0] + " " + korbBaumart[1] + "� <br>";
-        korb.innerHTML += "Halterung: " + korbBaumhalterung[0] + " " + korbBaumhalterung[1] + "� <br>";
-        korb.innerHTML += "" + korbKerzen[0] + " " + korbKerzen[1] + "� <br>";
-        korb.innerHTML += " " + korbLieferoption[0] + " " + korbLieferoption[1] + "� <br>";
+        korb.innerHTML += "" + korbBaumart[0] + " " + korbBaumart[1] + " Euro <br>";
+        korb.innerHTML += "Baumhalterung: " + korbBaumhalterung[0] + " " + korbBaumhalterung[1] + " Euro <br>";
+        korb.innerHTML += "" + korbKerzen[0] + " " + korbKerzen[1] + " Euro <br>";
+        korb.innerHTML += "Lieferoption: " + korbLieferoption[0] + " " + korbLieferoption[1] + " Euro <br>";
         //Berechnung       //parseFloat wandelt string in Kommazahl um
         gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbKerzen[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]); //gesamtpreis definieren
         for (let i = 0; i < stepper.length; i++) {
             if (stepper[i] != null && checkBoxen[i].checked == true) {
                 gesamtpreis += parseFloat(korbBaumschmuck[i][1]); //...rechne bisherigen gesamtpreis + Preis des Schmuckartikels zusammen
-                korb.innerHTML += "" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + " � <br>";
+                korb.innerHTML += "" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + " Euro <br>";
             }
         }
-        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "�"; //Math.round rundet Ergebnis auf ganze Zahl
+        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + " Euro"; //Math.round rundet Ergebnis auf ganze Zahl
     }
     //------------------Button------------------------------------------------------
     //Bestellung pr�fen durch Klick auf Button: Info �ber fehlende o. invalide Daten
