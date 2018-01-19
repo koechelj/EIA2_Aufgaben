@@ -1,0 +1,47 @@
+* {
+	display: block;
+	margin-left: 1.5em;
+	font-family: "Arial";
+}
+
+h1 {
+	color: green;
+	text-decoration: underline;
+}
+
+h2 {
+	color: lightgreen;
+}
+
+input[type="radio"], input[type="checkbox"], label {
+	display: inline;
+}
+
+label::after {
+	display: block;
+}
+
+head {
+	display: none;
+}
+
+input:invalid {
+	background: orange;
+}
+
+button {
+	color: white;
+	background-color: green;
+	height: 3em;
+	cursor: pointer;
+}
+
+#zusammenfassung {
+	position: fixed;
+	right: 1em;
+	top: 7em;
+	color: white;
+	background-color: orange;
+	padding: 0.8em;
+	border: dashed 0.2em white;
+}

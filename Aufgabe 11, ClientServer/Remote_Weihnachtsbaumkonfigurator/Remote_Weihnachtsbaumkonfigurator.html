@@ -1,0 +1,173 @@
+<!-- Aufgabe 11: ClientServer: Remote-Weihnachtsbaumkonfigurator  -->
+<!-- Name: Jaqueline Köchel -->
+<!-- Matrikel: 256345 -->
+<!-- Datum: 15.01.18 -->
+<!-- Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. -->
+
+<!Doctype HTML>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Aufgabe 11, ClientServer:
+	Remote-Weihnachtsbaumkonfigurator</title>
+
+<!-- Link zum js File -->
+<script type="text/javascript" src="Remote_veraenderbareDaten.js"></script>
+<script type="text/javascript" src="Remote_Weihnachtsbaumkonfigurator.js"></script>
+
+
+
+<!-- Link zum CSS File -->
+<link rel="stylesheet" type="text/css"
+	href="Remote_Weihnachtsbaumkonfigurator.css">
+
+
+</head>
+<body>
+<form action="https://eia2-servertest-koechelj.herokuapp.com/" method="get">
+
+	<h1>Designe Deinen individuellen Weihnachtsbaum!</h1>
+	<!-- Seite besteht aus einzelnen divs pro Kategorie. Diese werden dynamisch per ts befüllt -->
+
+	<h2>Schmuckartikel:</h2>
+	<div id="baumschmuck"></div>
+	<h2>Beleuchtung:</h2>
+	<div id="kerzen"></div>
+	<h2>Baumart:</h2>
+	<div id="baumart"></div>
+	<h2>Halterung:</h2>
+	<div id="baumhalterung"></div>
+	<h2>Lieferung:</h2>
+	<div id="lieferoptionen"></div>
+	<h2>Ihre Kontaktdaten:</h2>
+	<div id="kontaktdaten"></div>
+	<div id="zusammenfassung"></div>
+	<div id="button"></div>
+
+
+
+
+
+	<!--  Möglichkeit mit Fieldsets direkt in HTML:
+
+	
+	 1) Weihnachtsbaumschmuck: Auswahl mit Stepper 
+	<fieldset id="select">
+		<legend> <strong>Baumschmuck</strong> </legend>
+		
+		blaue Kugeln
+		<input type="number" name="Stepper" step="1" min="0" max="30" value="0"/>    Anzahl in 1er Schritten auswählen, zwischen 0 und 30
+		rote Kugeln
+		<input type="number" name="Stepper" step="1" min="0" max="30" value="0"/> 
+		goldene Kugeln
+		<input type="number" name="Stepper" step="1" min="0" max="30" value="0"/> 
+		orangene Kugeln
+		<input type="number" name="Stepper" step="1" min="0" max="30" value="0"/> 
+		silberne Kugeln
+		<input type="number" name="Stepper" step="1" min="0" max="30" value="0"/> 
+		<hr/>
+		Strohsterne
+		<input type="number" name="Stepper" step="1" min="0" max="30" value="0"/> 
+		kleine Holzsterne
+		<input type="number" name="Stepper" step="1" min="0" max="30" value="0"/> 
+		<hr/>
+		100g Lametta silber
+		<input type="number" name="Stepper" step="1" min="0" max="10" value="0"/> 
+		100g Lametta gold
+		<input type="number" name="Stepper" step="1" min="0" max="10" value="0"/>
+	</fieldset>
+	
+	
+
+	 2) Weihnachtsbaumkerzen: Auswahl mit Stepper  
+	<fieldset id="select">
+		<legend> <strong>Kerzen</strong> </legend>
+		
+		Lichterkette mit elektrischen Kerzen
+		<input type="number" name="Stepper" step="1" min="0" max="10" value="0"/> 
+		rote Kerzen mit Halterung
+		<input type="number" name="Stepper" step="1" min="0" max="30" value="0"/>
+	</fieldset>
+	
+	
+
+	 3) Weihnachtsbäume: Auswahl mit Radiobutton Group  
+	<fieldset id="radio">
+		<legend> <strong>Baumart</strong> </legend>
+		<input type="radio" name="Baum" value="radio1" id="radio1" />
+		<label for="radio">Nordmanntanne 1m</label> 
+		<input type="radio" name="Baum" value="radio1" id="radio1" />
+		<label for="radio">Nordmanntanne 1,50m</label> 
+		<input type="radio" name="Baum" value="radio2" id="radio2"/>
+		<label for="radio">Nordmanntanne 2m</label> 
+		<input type="radio" name="Baum" value="radio3" id="radio3"/>
+		<label for="radio">Blaufichte 1,20m</label> 
+		<input type="radio" name="Baum" value="radio3" id="radio3"/>
+		<label for="radio">Blaufichte 1,70m</label>
+	</fieldset>
+	
+	
+	
+	 4) Weihnachtsbaumhalterungen: Auswahl mit Select Box 
+	<fieldset id="select">
+		<legend> <strong>Baumhalterungen</strong> </legend>
+		Art und Farbe: 
+		<select name="Select" id="select">
+			<optgroup label="Halterung"></optgroup>
+			<option value="option1">grau</option>
+			<option value="option2" selected>grün</option>
+			<optgroup label="Halterung (mit Wasser befüllbar)"></optgroup>
+			<option value="option3">grau</option>
+			<option value="option4">grün</option>
+		</select>
+	</fieldset>
+	
+
+	
+	 5) Lieferoptionen: Auswahl mit Radiobutton Group  
+	<fieldset id="radio">
+		<legend> <strong>Lieferoptionen</strong> </legend>
+		<input type="radio" name="Lieferoption" value="radio1" id="radio1" />
+		<label for="radio">Standardlieferung (in 10 Werktagen)</label> 
+		<input type="radio" name="Lieferoption" value="radio1" id="radio1" />
+		<label for="radio">Expresslieferung (in 3 Werktagen)</label>
+	</fieldset>
+	
+	
+	
+	
+	 6) Deine Kontaktdaten: Ausfüllen in Simple, Mail und Area Textfeldern  
+	<fieldset id="text">
+		<legend> <strong>Deine Kontaktdaten</strong> </legend>
+		Name und Vorname: 
+		<input type="text" name="Text" placeholder="" required/>
+		<hr/>
+		Lieferadresse: 
+		<input type="text" name="Text" placeholder="" required/>
+		<hr/>
+		Email: 
+		<input type="email" name="Mail" placeholder=""/>
+		<hr/>
+		Anmerkungen:
+		<textarea name="Area" cols="35" rows="4" placeholder=""></textarea>      cols: Breite des Textfelds, rows: Höhe 
+	</fieldset>
+	
+	
+	7) Bestellung prüfen mit Klick auf Button: Info über fehlende o. invalide Daten  
+	
+	
+	 8) Zusammenfassung der Bestellung und Anzeige des Gesamtpreises  
+	
+	
+	-->
+
+
+
+
+
+
+
+
+</form>
+</body>
+</html>
