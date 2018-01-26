@@ -11,9 +11,10 @@ namespace Aufgabe10 {
     var mail: HTMLInputElement;
     var label: HTMLLabelElement;
 
-    //-------Platzhalter für Warenkorbinhalte-----------------------
-    var korbBaumart: string[] = [baumArt[0][0], "" + baumArt[0][1]];  //wenn keine ausgewählt ist, wenn eine ausgewählt ist
-    var korbBaumhalterung: string[] = ["kein Halter ausgewaehlt", "0"];
+
+    //-------Platzhalter für Warenkorbinhalte (werden unten bei der Warenkorb Inhaltsgenerierung befüllt)-----------------------
+    var korbBaumart: string[] = [baumArt[0][0], "" + baumArt[0][1]];  //1. und 2. Stelle im Warenkorb
+    var korbBaumhalterung: string[] = ["kein Halter ausgewaehlt", "0"];  //1. und 2. Stelle im Warenkorb
     var korbKerzen: string[] = [kerzen[0][0], "" + kerzen[0][1]];
     var korbBaumschmuck: string[][] = [];
     var korbLieferoption: string[] = ["keine Lieferoption ausgewaehlt", "0"];
@@ -48,7 +49,7 @@ namespace Aufgabe10 {
                 stepperBS.type = "number";
                 stepperBS.name = "StepperBaumschmuck" + i;
                 stepperBS.value = "1";  //angezeigte Anzahl zu Beginn
-                stepperBS.id = "stepperBS" + i;
+                stepperBS.id = "stepperBS" + i;  //i, da es für alle BS Stepper gilt
                 stepperBS.min = "0";
                 stepperBS.max = "30";
                 stepperBS.step = "1";  //Schritte
@@ -180,8 +181,7 @@ namespace Aufgabe10 {
         //7) Botton generieren   
         let button: HTMLDivElement = <HTMLDivElement>document.getElementById("button");
         let pruefen: HTMLButtonElement = document.createElement("button");
-        pruefen.name = "Pruefbutton";
-        pruefen.type = "button";
+        pruefen.type = "submit";  //submit = sende Request (alles im form-Tag) an den Server
         pruefen.innerText = "Bestellung pruefen";
         pruefen.addEventListener("mousedown", clickButton);  //Bei click-Event soll function clickButton ausgeführt werden
         button.appendChild(pruefen);
@@ -195,76 +195,112 @@ namespace Aufgabe10 {
 
     //8) Warenkorb mit Zusammenfassung der Bestellung und Anzeige des Gesamtpreises 
     function warenkorb(_event: Event): void {
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;  //target setzt Event auf Anfang zurück
-        let stepper: HTMLInputElement[] = [];
-        let checkBoxen: HTMLInputElement[] = [];
-        let gesamtpreis: number = 0;
 
-        //Schleife generiert Warenkorbinhalt
+        //Variablen deklarieren:
+        let target: HTMLInputElement = <HTMLInputElement>_event.target;  //target ist das InputElement, in dem gerade das Event stattfindet
+        let stepper: HTMLInputElement[] = [];  //Stepper Array 
+        let checkBoxen: HTMLInputElement[] = [];  //Checkboxen Array
+        let gesamtpreis: number = 0;  //Anfangsbetrag ist 0
+
+
+
+
+        //-------------------Schleife generiert angezeigter Warenkorbinhalt (Bezeichnungen und Preise)---------------------------------        
+
         for (let i: number = 0; i < bestellung.length; i++) {
-            if (bestellung[i].art == "Baumschmuck") {
+
+            //Überprüfe:
+
+            //Baumschmuck Stepper:
+            if (bestellung[i].art == "Baumschmuck") {   //wenn es sich um BS handelt, dann...
+
+                //...wird stepper[i] der Stepper, der oben generiert wurde, zugewiesen //i bestimmt welcher StepperArtikel gemeint ist
                 stepper[i] = <HTMLInputElement>document.getElementById("stepperBS" + i);
+                //stepper[i] ist Warenkorbihalt
+
+                //...nimmt das Document die Checkbox, die oben generiert wurde und weist sie checkBoxen[i] zu
                 checkBoxen[i] = <HTMLInputElement>document.getElementById("check" + i);
             }
+
+
             //Baumart:
+            //wenn Wert im HTMLInputElement mit Artikelbezeichnung übereinstimmt & id der Selectbox übereinstimmt, dann....  
             if (target.value == bestellung[i].bezeichnung && target.id == "selectBaumart") {
-                korbBaumart[0] = bestellung[i].bezeichnung;  //[0] erste Array Angabe
-                korbBaumart[1] = "" + bestellung[i].preis;   //[1] zweite Array Angabe
+                korbBaumart[0] = bestellung[i].bezeichnung;
+                korbBaumart[1] = "" + bestellung[i].preis;   //...soll im WK  Bezeichnung u. Preis angezeigt werden
             }
-            //Baumhalterung:
-            if (target.id == "radioH" + i) {
+
+
+            //Baumhalterung: (radioH ist RadioButtonGroup der Halterung) 
+            if (target.id == "radioH" + i) { //wenn id vom HTMLInputElement gleich "radioH" ist, dann...
                 korbBaumhalterung[0] = bestellung[i].bezeichnung;
-                korbBaumhalterung[1] = "" + bestellung[i].preis;
-
+                korbBaumhalterung[1] = "" + bestellung[i].preis; //...soll im WK Bezeichnung u. Preis angezeigt werden
             }
-            //Lieferoption:
-            if (target.id == "radioL" + i) {
+
+
+            //Lieferoption: (radioL ist RadioButtonGroup der Lieferoption)
+            if (target.id == "radioL" + i) { //wenn id vom HTMLInputElement gleich "radioL" ist, dann...
                 korbLieferoption[0] = bestellung[i].bezeichnung;
-                korbLieferoption[1] = "" + bestellung[i].preis;
-
+                korbLieferoption[1] = "" + bestellung[i].preis; //...soll Bezeichnung u. Preis im WK angezeigt werden
             }
-            //Beleuchtung:
+
+
+            //Beleuchtung:  
+            //wenn Wert im HTMLInputElement mit Artikelbezeichnung übereinstimmt & id der Selectbox übereinstimmt, dann...
             if (target.value == bestellung[i].bezeichnung && target.id == "selectKerzen") {
                 korbKerzen[0] = bestellung[i].bezeichnung;
-                korbKerzen[1] = "" + bestellung[i].preis;
-
+                korbKerzen[1] = "" + bestellung[i].preis; //...soll Bezeichnung u. Preis im WK angezeigt werden
             }
+
+
+
+            //Checkboxen Baumschmuck:
+            //wenn die id  mit CheckboxId ODER mit StepperId übereinstimmt, dann...
             if (target.id == "check" + i || target.id == "stepperBS" + i) {
+                //...soll Bezeichnung u. Preis*Anzahl im WK angezeigt werden
                 korbBaumschmuck[i] = [bestellung[i].bezeichnung, "" + (bestellung[i].preis * parseInt(stepper[i].value))];  //parseInt wandelt string in ganze Zahl um
             }
         }
 
 
-        //Warenkorb Optik erzeugen 
+        //-----------Warenkorb Feld u. Optik erzeugen------------------------------
+         
         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("zusammenfassung");
         //div wird gestylt:
         korb.style.width = "30%";
         korb.style.height = "auto";
         korb.style.backgroundColor = "orange";
+
         //Text im Warenkorb
-        //zuerst Baumart, Baumhalterung, Kerzen und Lieferoption:
+        //zeige Baumart, Baumhalterung, Kerzen und Lieferoption im WK an:
         korb.innerHTML = "<h3>Warenkorb</h3><hr>";
-        korb.innerHTML += "" + korbBaumart[0] + " " + korbBaumart[1] + " Euro <br>";
+        korb.innerHTML += "Baumart:" + korbBaumart[0] + " " + korbBaumart[1] + " Euro <br>";  //1. u. 2. Arrayangabe, siehe Platzhalter ganz oben
         korb.innerHTML += "Baumhalterung: " + korbBaumhalterung[0] + " " + korbBaumhalterung[1] + " Euro <br>";
-        korb.innerHTML += "" + korbKerzen[0] + " " + korbKerzen[1] + " Euro <br>";
+        korb.innerHTML += "Beleuchtung:" + korbKerzen[0] + " " + korbKerzen[1] + " Euro <br>";
         korb.innerHTML += "Lieferoption: " + korbLieferoption[0] + " " + korbLieferoption[1] + " Euro <br>";
 
-        //Berechnung       //parseFloat wandelt string in Kommazahl um
-        gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbKerzen[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]);  //gesamtpreis definieren
+
+        
+        //------------Berechnung----------------- //parseFloat wandelt string in Fließkommazahl um
+
+        //Die Preise die vorhin generiert wurden zusammenaddieren:
+        gesamtpreis = parseFloat(korbBaumart[1]) + parseFloat(korbKerzen[1]) + parseFloat(korbBaumhalterung[1]) + parseFloat(korbLieferoption[1]);
         for (let i: number = 0; i < stepper.length; i++) {   //Schleife zählt so lange hoch, bis alle Stepper überprüft wurden
             if (stepper[i] != null && checkBoxen[i].checked == true) {  //wenn Stepper nicht 0 und die Checkbox abgeharkt ist...  
                 gesamtpreis += parseFloat(korbBaumschmuck[i][1]);  //...rechne bisherigen gesamtpreis + Preis des Schmuckartikels zusammen
-                korb.innerHTML += "" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + " Euro <br>";
 
+                //Ausgabe für Schmuckartikel:
+                korb.innerHTML += "Schmuckartikel:" + korbBaumschmuck[i][0] + " " + korbBaumschmuck[i][1] + " Euro <br>";
             }
         }
+        //Ausgabe Endpreis:
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + " Euro";  //Math.round rundet Ergebnis auf ganze Zahl
     }
 
 
 
 
-    //------------------Button------------------------------------------------------
+    //------------------Button EventFunktion------------------------------------------------------
 
     //Bestellung prüfen durch Klick auf Button: Info über fehlende o. invalide Daten
     function clickButton(_event: MouseEvent): void {

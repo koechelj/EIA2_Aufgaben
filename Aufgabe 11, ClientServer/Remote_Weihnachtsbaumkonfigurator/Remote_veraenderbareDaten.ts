@@ -2,14 +2,14 @@ namespace Aufgabe11 {
 
     //Daten zu veränderbaren Teilen des Angebots
 
-
+    //Interface = Bauplan für Arrayinhalt
     export interface Bestellung {  //export: über Dateingerenzen hinweg nutzbar
         art: string;
         bezeichnung: string;
         preis: number;
     }
 
-    //Array
+    //Array  
     export let bestellung: Bestellung[] = [    //Variable vom Typ des Interfaces
 
         //Baumschmuck
@@ -49,7 +49,7 @@ namespace Aufgabe11 {
 
 
     
-    
+    //?
     export let baumArt: string[][] = [];
     export let kerzen: string[][] = [];
 

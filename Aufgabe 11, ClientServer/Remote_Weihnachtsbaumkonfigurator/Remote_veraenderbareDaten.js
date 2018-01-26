@@ -1,6 +1,6 @@
 var Aufgabe11;
 (function (Aufgabe11) {
-    //Array
+    //Array  
     Aufgabe11.bestellung = [
         //Baumschmuck
         { art: "Baumschmuck", bezeichnung: "blaue Kugeln", preis: 0.50 },
@@ -29,6 +29,7 @@ var Aufgabe11;
         { art: "Lieferoption", bezeichnung: "Standardlieferung (in 8 Werktagen)", preis: 5.99 },
         { art: "Lieferoption", bezeichnung: "Expresslieferung (in 3 Werktagen)", preis: 9.99 },
     ];
+    //?
     Aufgabe11.baumArt = [];
     Aufgabe11.kerzen = [];
     for (let i = 0; i < Aufgabe11.bestellung.length; i++) {
