@@ -180,8 +180,7 @@ namespace Aufgabe11 {
         //7) Botton generieren   
         let button: HTMLDivElement = <HTMLDivElement>document.getElementById("button");
         let pruefen: HTMLButtonElement = document.createElement("button");
-        pruefen.name = "Pruefbutton";
-        pruefen.type = "submit";
+        pruefen.type = "submit";  //submit = sende Request (alles im form-Tag) an den Server
         pruefen.innerText = "Bestellung pruefen";
         pruefen.addEventListener("mousedown", clickButton);  //Bei click-Event soll function clickButton ausgeführt werden
         button.appendChild(pruefen);

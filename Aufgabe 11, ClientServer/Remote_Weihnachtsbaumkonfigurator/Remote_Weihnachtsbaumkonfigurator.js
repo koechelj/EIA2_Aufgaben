@@ -152,8 +152,7 @@ var Aufgabe11;
         //7) Botton generieren   
         let button = document.getElementById("button");
         let pruefen = document.createElement("button");
-        pruefen.name = "Pruefbutton";
-        pruefen.type = "submit";
+        pruefen.type = "submit"; //submit = sende Request (alles im form-Tag) an den Server
         pruefen.innerText = "Bestellung pruefen";
         pruefen.addEventListener("mousedown", clickButton); //Bei click-Event soll function clickButton ausgef�hrt werden
         button.appendChild(pruefen);
