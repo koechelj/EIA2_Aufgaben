@@ -14,7 +14,7 @@ var Aufgabe11;
     var korbBaumart = [Aufgabe11.baumArt[0][0], "" + Aufgabe11.baumArt[0][1]]; //1. und 2. Stelle im Warenkorb
     var korbBaumhalterung = ["kein Halter ausgewaehlt", "0"]; //1. und 2. Stelle im Warenkorb
     var korbKerzen = [Aufgabe11.kerzen[0][0], "" + Aufgabe11.kerzen[0][1]];
-    var korbBaumschmuck = [];
+    var korbBaumschmuck = []; //Array wird sp�ter ganz viele Stepper beinhalten
     var korbLieferoption = ["keine Lieferoption ausgewaehlt", "0"];
     //--------------------Seitenelemente generieren--------------------------------------
     function createElements() {
@@ -61,6 +61,7 @@ var Aufgabe11;
                 optionK.id = "optionK" + i;
                 selectboxK.appendChild(optionK);
             }
+            2;
         }
         //3) Baumart generieren (Selectbox)
         let baumart = document.getElementById("baumart");
@@ -152,8 +153,10 @@ var Aufgabe11;
         //7) Botton generieren   
         let button = document.getElementById("button");
         let pruefen = document.createElement("button");
+        //var f�llen:
         pruefen.type = "submit"; //submit = sende Request (alles im form-Tag) an den Server
         pruefen.innerText = "Bestellung pruefen";
+        //Event-Listener lauscht da wo das Event passieren wird, n�mlich im Button
         pruefen.addEventListener("mousedown", clickButton); //Bei click-Event soll function clickButton ausgef�hrt werden
         button.appendChild(pruefen);
     }

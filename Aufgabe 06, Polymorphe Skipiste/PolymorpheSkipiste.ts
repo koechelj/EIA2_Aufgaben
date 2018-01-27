@@ -70,7 +70,7 @@ namespace sechsteAufgabe {
 
 
 
-        //new: erzeugt die Objekte der Klassen. Hier Werte für die Attribute angeben:
+        //new: erzeugt ein neues Objekt der Klasse. Hier Werte für die Attribute angeben:
 
         //Schleife Bäume 
         for (i = 0; i < 7; i++) {

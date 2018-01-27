@@ -2,7 +2,7 @@
 namespace sechsteAufgabe {
 
 
-    export class Schneeflocken extends movingObject {
+    export class Schneeflocken extends movingObject { //extends: Subklassen können damit auf Inhalte der Superklasse zugreifen
 
 
 

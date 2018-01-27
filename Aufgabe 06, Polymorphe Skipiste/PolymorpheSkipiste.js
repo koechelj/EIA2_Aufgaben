@@ -46,7 +46,7 @@ var sechsteAufgabe;
         sechsteAufgabe.crc2.lineTo(500, 15);
         sechsteAufgabe.crc2.lineTo(520, 50);
         sechsteAufgabe.crc2.stroke(); //Ende des Pfads
-        //new: erzeugt die Objekte der Klassen. Hier Werte f�r die Attribute angeben:
+        //new: erzeugt ein neues Objekt der Klasse. Hier Werte f�r die Attribute angeben:
         //Schleife B�ume 
         for (i = 0; i < 7; i++) {
             baum[i] = new sechsteAufgabe.Baum(70 + Math.random() * 620, 450 + Math.random() * 100, "green");

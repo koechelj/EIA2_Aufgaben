@@ -16,7 +16,7 @@ namespace Aufgabe11 {
     var korbBaumart: string[] = [baumArt[0][0], "" + baumArt[0][1]];  //1. und 2. Stelle im Warenkorb
     var korbBaumhalterung: string[] = ["kein Halter ausgewaehlt", "0"];  //1. und 2. Stelle im Warenkorb
     var korbKerzen: string[] = [kerzen[0][0], "" + kerzen[0][1]];
-    var korbBaumschmuck: string[][] = [];
+    var korbBaumschmuck: string[][] = [];  //Array wird später ganz viele Stepper beinhalten
     var korbLieferoption: string[] = ["keine Lieferoption ausgewaehlt", "0"];
 
 
@@ -71,7 +71,7 @@ namespace Aufgabe11 {
                 optionK.innerText = bestellung[i].bezeichnung;
                 optionK.id = "optionK" + i;
                 selectboxK.appendChild(optionK);
-            }
+            }2
         }
 
 
@@ -181,8 +181,10 @@ namespace Aufgabe11 {
         //7) Botton generieren   
         let button: HTMLDivElement = <HTMLDivElement>document.getElementById("button");
         let pruefen: HTMLButtonElement = document.createElement("button");
+        //var füllen:
         pruefen.type = "submit";  //submit = sende Request (alles im form-Tag) an den Server
         pruefen.innerText = "Bestellung pruefen";
+        //Event-Listener lauscht da wo das Event passieren wird, nämlich im Button
         pruefen.addEventListener("mousedown", clickButton);  //Bei click-Event soll function clickButton ausgeführt werden
         button.appendChild(pruefen);
     }
