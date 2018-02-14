@@ -1,0 +1,79 @@
+canvas {
+	width: 80%;
+}
+
+
+HTML {
+	background-color: white;
+}
+
+#Sonne {
+	position: absolute;
+	top: 2em;
+	left: 5%;
+	width: 2%;
+	min-width: 1em;
+	height: auto;
+}
+
+#Wolke {
+	position: absolute;
+	top: 2em;
+	right: 50%;
+	width: 2%;
+	min-width: 1em;
+	height: auto;
+}
+
+#Bluetenblaetter {
+	position: absolute;
+	top: 2em;
+	left: 1.5em;
+	width: 2%;
+	min-width: 1em;
+	height: auto;
+}
+
+#Blueteninneres {
+	position: absolute;
+	top: 2em;
+	left: 1.5em;
+	width: 2%;
+	min-width: 1em;
+	height: auto;
+}
+
+#Blaetter {
+	position: absolute;
+	top: 2em;
+	left: 1.5em;
+	width: 2%;
+	min-width: 1em;
+	height: auto;
+}
+
+#Staengel {
+	position: absolute;
+	top: 2em;
+	left: 1.5em;
+	width: 2%;
+	min-width: 1em;
+	height: auto;
+}
+
+#Wurzeln {
+	position: absolute;
+	bottom: 60%;
+	right: 70%;
+	width: 2%;
+	min-width: 1em;
+	height: auto;
+}
+
+#Erde {
+	position: absolute;
+	right: 7%;
+	width: 2%;
+	min-width: 1em;
+	height: auto;
+}
