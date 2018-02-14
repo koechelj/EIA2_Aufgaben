@@ -219,7 +219,7 @@ namespace Abschlussaufgabe {
 
         //Bienen zeichnen 
         for (let i: number = 0; i < biene.length; i++) {
-            biene[i].drawBiene(); //Kurzversion: es wird auf das baum Array zugegriffen und gleichzeitig wird die drawBiene function angehängt.
+            biene[i].drawBiene(); 
         }
 
 

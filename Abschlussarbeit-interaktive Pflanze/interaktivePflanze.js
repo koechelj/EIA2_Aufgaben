@@ -163,7 +163,7 @@ var Abschlussaufgabe;
         }
         //Bienen zeichnen 
         for (let i = 0; i < biene.length; i++) {
-            biene[i].drawBiene(); //Kurzversion: es wird auf das baum Array zugegriffen und gleichzeitig wird die drawBiene function angeh�ngt.
+            biene[i].drawBiene();
         }
         window.setTimeout(animate, 20); //animate() wird alle 20ms aufgerufen
     }
