@@ -159,7 +159,7 @@ var Abschlussaufgabe;
             alert("");
         }
         function nestAlert() {
-            alert("Wir Bienen.... . Bei Regen verstecken wir uns.");
+            alert("");
         }
         //Bienen zeichnen 
         for (let i = 0; i < biene.length; i++) {

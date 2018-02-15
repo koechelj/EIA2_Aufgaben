@@ -197,7 +197,7 @@ namespace Abschlussaufgabe {
         }
 
         function nestAlert() {
-            alert("Wir Bienen.... . Bei Regen verstecken wir uns.");
+            alert("");
         }
 
 
