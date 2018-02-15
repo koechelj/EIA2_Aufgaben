@@ -19,8 +19,7 @@ namespace Abschlussaufgabe {
             this.koerperfarbe = koerperfarbe;
             this.fluegelfarbe = fluegelfarbe;
             this.kopffarbe = kopffarbe;
-            this.fuehlerfarbe = fuehlerfarbe;
-            
+            this.fuehlerfarbe = fuehlerfarbe;     
         }
 
 

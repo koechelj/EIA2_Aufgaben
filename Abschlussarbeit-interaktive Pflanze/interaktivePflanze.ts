@@ -11,10 +11,11 @@ namespace Abschlussaufgabe {
     //Haupt-Array vom Typ der Superklasse
     let objects: AnimiertesObjekt[] = [];
 
-    //weitere Arrays für die Objekte Regentropfen und Biene
-    let nRegentropfen: number = 200;
-
+    //weitere Arrays für die Objekte Regentropfen, Biene, Regenwurm
+    let nRegentropfen: number = 400;
     let biene: Biene[] = [];
+    let regenwurm: Regenwurm[] = [];
+
 
 
 
@@ -35,16 +36,18 @@ namespace Abschlussaufgabe {
         document.getElementById("Wolke").addEventListener("touchstart", regnen);
         document.getElementById("Bluetenblaetter").addEventListener("click", bluetenblaetterAlert);
         document.getElementById("Bluetenblaetter").addEventListener("touchstart", bluetenblaetterAlert);
-        document.getElementById("Blueteninneres").addEventListener("click", blueteninneresAlert);
-        document.getElementById("Blueteninneres").addEventListener("touchstart", blueteninneresAlert);
+        document.getElementById("Bluetenkern").addEventListener("click", bluetenkernAlert);
+        document.getElementById("Bluetenkern").addEventListener("touchstart", bluetenkernAlert);
         document.getElementById("Blaetter").addEventListener("click", blaetterAlert);
         document.getElementById("Blaetter").addEventListener("touchstart", blaetterAlert);
         document.getElementById("Staengel").addEventListener("click", staengelAlert);
         document.getElementById("Staengel").addEventListener("touchstart", staengelAlert);
         document.getElementById("Wurzeln").addEventListener("click", wurzelnAlert);
         document.getElementById("Wurzeln").addEventListener("touchstart", wurzelnAlert);
-        document.getElementById("Erde").addEventListener("click", erdeAlert);
-        document.getElementById("Erde").addEventListener("touchstart", erdeAlert);
+        document.getElementById("Erde").addEventListener("click", drawWurm);
+        document.getElementById("Erde").addEventListener("touchstart", drawWurm);
+        document.getElementById("Bienennest").addEventListener("click", nestAlert);
+        document.getElementById("Bienennest").addEventListener("touchstart", nestAlert);
 
         //Pflanze zeichnen:
         //Stängel
@@ -133,98 +136,95 @@ namespace Abschlussaufgabe {
 
 
 
+        //Hintergrund speichern
+        Background = crc2.getImageData(0, 0, 800, 600);
 
-        //Bienen erzeugen an random Stellen
+
+
+        //Bienen an random Stellen:
         for (i = 0; i < 5; i++) {
             biene[i] = new Biene(550 + Math.random() * 220, 250 + Math.random() * 100, "yellow", "silver", "yellow", "black");
         }
 
 
-        //Hintergrund speichern
-        Background = crc2.getImageData(0, 0, 800, 600);
-
-
-        //Aufruf der Animationsfunktion
-        animate();
-
-
-    }
-
-
-
-
-
-
-    function sonneAlert() {
-        alert("");
-
-    }
-
-    function regnen() {
-
-        //Schleife Regentropfen
-        for (i = 0; i < nRegentropfen; i++) {
-            let r: Regentropfen = new Regentropfen(Math.random() * 800, Math.random() * 600, 3, 0, 4 * Math.PI, "#2E9AFE");
-            objects.push(r);
+        //Regenwürmer an random Stellen, nachdem auf Info-Image geklickt wurde:
+        function drawWurm(): void {
+            for (let i: number = 0; i < regenwurm.length; i++) {
+                regenwurm[i].drawRegenwurm();
+            }
+            for (i = 0; i < 15; i++) {
+                regenwurm[i] = new Regenwurm(120 + Math.random() * 600, 420 + Math.random() * 200, "#D76767", "#D76767");
+            }
         }
 
-        animate();
-    }
+        //Regentropfen:
+        function regnen(): void {
+            for (i = 0; i < nRegentropfen; i++) {
+                let r: Regentropfen = new Regentropfen(Math.random() * 800, Math.random() * 600, 2.5, 0, 4 * Math.PI, "#2E9AFE");
+                objects.push(r);
+            }
 
-
-    //Alert Funktionen
-    
-    function bluetenblaetterAlert() {
-        alert("");
-    }
-
-    function blueteninneresAlert() {
-
-        alert("");
-    }
-
-    function blaetterAlert() {
-        alert("");
-    }
-
-    function staengelAlert() {
-        alert("");
-    }
-
-    function wurzelnAlert() {
-        alert("");
-    }
-
-    function erdeAlert() {
-        alert("");
-    }
-
-
-
-
-
-
-
-    //Animation der Regentropfen 
-    function animate(): void {
-        console.log("Timeout");
-        crc2.clearRect(0, 0, 800, 600);
-        crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
-
-        for (i = 0; i < objects.length; i++) {
-            let r: AnimiertesObjekt = objects[i];
-            r.move();
+            animate();
         }
+
+
+
+        //Alert Funktion    
+        function sonneAlert() {
+            alert("");
+
+        }
+
+        function bluetenblaetterAlert() {
+            alert("");
+        }
+
+        function bluetenkernAlert() {
+
+            alert("");
+        }
+
+        function blaetterAlert() {
+            alert("");
+        }
+
+        function staengelAlert() {
+            alert("");
+        }
+
+        function wurzelnAlert() {
+            alert("");
+        }
+
+        function nestAlert() {
+            alert("Wir Bienen.... . Bei Regen verstecken wir uns.");
+        }
+
 
 
         //Bienen zeichnen 
         for (let i: number = 0; i < biene.length; i++) {
-            biene[i].drawBiene(); 
+            biene[i].drawBiene();
         }
 
 
-        window.setTimeout(animate, 20); //animate() wird alle 20ms aufgerufen
-    }
+        //Animation der Regentropfen 
+        function animate(): void {
+            console.log("Timeout");
+            crc2.clearRect(0, 0, 800, 600);
+            crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
+
+            for (i = 0; i < objects.length; i++) {
+                let r: AnimiertesObjekt = objects[i];
+                r.move();
+            }
+
+            window.setTimeout(animate, 20); //animate() wird alle 20ms aufgerufen
+
+        }
+
+    }//Ende init
+
 
 
 }

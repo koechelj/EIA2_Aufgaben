@@ -2,78 +2,64 @@ canvas {
 	width: 80%;
 }
 
-
-HTML {
-	background-color: white;
-}
-
 #Sonne {
 	position: absolute;
-	top: 2em;
-	left: 5%;
-	width: 2%;
-	min-width: 1em;
-	height: auto;
+	top: 3vw;
+	left: 3vw;
+	width: 2.5vw;
 }
 
 #Wolke {
 	position: absolute;
-	top: 2em;
-	right: 50%;
-	width: 2%;
-	min-width: 1em;
-	height: auto;
+	top: 7vw;
+	left: 63vw;
+	width: 2.5vw;
 }
 
 #Bluetenblaetter {
 	position: absolute;
-	top: 2em;
-	left: 1.5em;
-	width: 2%;
-	min-width: 1em;
-	height: auto;
+	top: 14.5vw;
+	left: 39vw;
+	width: 2.5vw;
 }
 
-#Blueteninneres {
+#Bluetenkern {
 	position: absolute;
-	top: 2em;
-	left: 1.5em;
-	width: 2%;
-	min-width: 1em;
-	height: auto;
+	top: 16vw;
+	left: 33.5vw;
+	width: 2.5vw;
 }
 
 #Blaetter {
 	position: absolute;
-	top: 2em;
-	left: 1.5em;
-	width: 2%;
-	min-width: 1em;
-	height: auto;
+	top: 32vw;
+	left: 31vw;
+	width: 2.5vw;
 }
 
 #Staengel {
 	position: absolute;
-	top: 2em;
-	left: 1.5em;
-	width: 2%;
-	min-width: 1em;
-	height: auto;
+	top: 36.5vw;
+	left: 33.5vw;
+	width: 2.5vw;
 }
 
 #Wurzeln {
 	position: absolute;
-	bottom: 60%;
-	right: 70%;
-	width: 2%;
-	min-width: 1em;
-	height: auto;
+	top: 42vw;
+	left: 39vw;
+	width: 2.5vw;
 }
 
 #Erde {
 	position: absolute;
-	right: 7%;
-	width: 2%;
-	min-width: 1em;
-	height: auto;
+	top: 42vw;
+	left: 4vw;
+	width: 2.5vw;
+}
+
+#Bienennest {
+	position: absolute;
+	top: 30vw; right : 25vw;
+	width: 8vw;
 }

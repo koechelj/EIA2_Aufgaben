@@ -36,7 +36,7 @@ namespace Abschlussaufgabe {
         move(): void {
             if (this.y > 600)  //Bereich in dem es regnet
                 this.y = 0;
-            this.y +=4.8; //Geschwindigkeit d. Regentropfen
+            this.y +=10; //Geschwindigkeit d. Regentropfen
             this.draw();
         }
     }
