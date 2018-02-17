@@ -2,9 +2,14 @@ canvas {
 	width: 80%;
 }
 
-h2 {
-	font-family: Calibri;
+audio {
+	display: none;
 }
+
+h1 {
+	font-family: "Reenie Beanie";
+}
+
 
 #Sonne {
 	position: absolute;
@@ -50,8 +55,8 @@ h2 {
 
 #Wurzeln {
 	position: absolute;
-	top: 42vw;
-	left: 39vw;
+	top: 44.2vw;
+	left: 37vw;
 	width: 2.5vw;
 }
 

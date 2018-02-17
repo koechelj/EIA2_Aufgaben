@@ -31,6 +31,14 @@ var Abschlussaufgabe;
             Abschlussaufgabe.crc2.fillRect(this.x - 6, this.y - 27, 2, 12);
             Abschlussaufgabe.crc2.fillStyle = this.fuehlerfarbe;
             Abschlussaufgabe.crc2.fillRect(this.x - 14, this.y - 27, 2, 12);
+            Abschlussaufgabe.crc2.beginPath();
+            Abschlussaufgabe.crc2.arc(this.x - 7, this.y - 27, 2.5, 0, 2 * Math.PI);
+            Abschlussaufgabe.crc2.fillStyle = this.fuehlerfarbe;
+            Abschlussaufgabe.crc2.fill();
+            Abschlussaufgabe.crc2.beginPath();
+            Abschlussaufgabe.crc2.arc(this.x - 15, this.y - 27, 2.5, 0, 2 * Math.PI);
+            Abschlussaufgabe.crc2.fillStyle = this.fuehlerfarbe;
+            Abschlussaufgabe.crc2.fill();
             //Fl�gel
             Abschlussaufgabe.crc2.beginPath();
             Abschlussaufgabe.crc2.arc(this.x + 8, this.y - 12, 6, 0, 2 * Math.PI);

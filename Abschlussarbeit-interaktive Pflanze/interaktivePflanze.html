@@ -13,14 +13,25 @@
 
 <script src="Superklasse.js"></script>
 <script src="SubklasseRegentropfen.js"></script>
+<script src="SubklasseVoegel.js"></script>
 <script src="Bienen.js"></script>
 <script src="Regenwuermer.js"></script>
 <script src="Steine.js"></script>
 <script src="interaktivePflanze.js"></script>
 <link rel="stylesheet" type="text/css" href="interaktivePflanze.css" />
+
+<!-- Einbindung von Google Schriftarten -->
+<style>
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie');
+</style>
+
 </head>
 
 <body>
+
+	<audio controls autoplay>
+		<source src="Vogelgezwitscher.mp3" type="audio/mpeg">
+	</audio>
 
 	<canvas id="canvas" width="800" height="600"></canvas>
 
@@ -34,7 +45,7 @@
 	<img id="Erde" src="Regenwurm.png">
 	<img id="Bienennest" src="bienennest.png">
 
-<h2>"Hallo, ich bin eine interaktive Pflanze. Klick dich durch das Bild!"</h2>
+	<h1>"Hallo, ich bin eine interaktive Pflanze. Klick dich durch das Bild!"</h1>
 
 </body>
 </html>
