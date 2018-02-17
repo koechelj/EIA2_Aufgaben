@@ -65,7 +65,7 @@ var sechsteAufgabe;
         Background = sechsteAufgabe.crc2.getImageData(0, 0, 800, 600);
         //Aufruf der Animationsfunktion
         animate();
-    }
+    } //Ende init
     //Animation des Skifahrers und der Schneeflocken 
     function animate() {
         console.log("Timeout");

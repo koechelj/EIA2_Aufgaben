@@ -101,7 +101,7 @@ namespace sechsteAufgabe {
         //Aufruf der Animationsfunktion
         animate();
 
-    }
+    }//Ende init
 
 
 
