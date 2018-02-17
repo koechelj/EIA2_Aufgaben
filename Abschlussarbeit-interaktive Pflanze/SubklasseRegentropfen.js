@@ -8,8 +8,7 @@ var Abschlussaufgabe;
             this.circle = circle;
             this.color = color;
         }
-        //Methoden Regentropfen zeichnen und bewegen
-        //Methoden greifen mit this direkt auf Objekteigenschaften zu. Die vererbten Attribute der Superklasse werden mit super gekennzeichnet 
+        //Methoden Regentropfen zeichnen und bewegen (Methoden greifen mit this direkt auf Objekteigenschaften zu) 
         draw() {
             Abschlussaufgabe.crc2.beginPath();
             Abschlussaufgabe.crc2.arc(this.x, this.y, this.radius, this.winkel, this.circle * Math.PI);

@@ -1,6 +1,5 @@
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
-    //Export macht Klasse �ber Dateigrenzen hinweg nutzbar, innerhalb des gleichen Namespaces
     class Regenwurm {
         constructor(x, y, farbe1, farbe2) {
             this.x = x;
@@ -9,11 +8,10 @@ var Abschlussaufgabe;
             this.farbe2 = farbe2;
         }
         //Update DrawYourself   
-        UpdateRegenwurm() {
+        updateRegenwurm() {
             this.drawRegenwurm();
         }
-        //Methode: Regenwurm zeichnen
-        //Methode greift mit this direkt auf Objekteigenschaften zu
+        //Methode Regenwurm zeichnen
         drawRegenwurm() {
             //K�rper   
             Abschlussaufgabe.crc2.fillStyle = this.farbe1;

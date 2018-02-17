@@ -11,11 +11,10 @@ var Abschlussaufgabe;
             this.fuehlerfarbe = fuehlerfarbe;
         }
         //Update DrawYourself   
-        UpdateBiene() {
+        updateBiene() {
             this.drawBiene();
         }
-        //Methode: Biene zeichnen
-        //Methode greift mit this direkt auf Objekteigenschaften zu
+        //Methode Biene zeichnen (Methode greift mit this direkt auf Objekteigenschaften zu)
         drawBiene() {
             //K�rper   
             Abschlussaufgabe.crc2.beginPath();

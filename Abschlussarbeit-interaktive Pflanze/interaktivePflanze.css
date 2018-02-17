@@ -2,6 +2,10 @@ canvas {
 	width: 80%;
 }
 
+h2 {
+	font-family: Calibri;
+}
+
 #Sonne {
 	position: absolute;
 	top: 3vw;
@@ -60,6 +64,7 @@ canvas {
 
 #Bienennest {
 	position: absolute;
-	top: 30vw; right : 25vw;
+	top: 30vw;
+	right: 25vw;
 	width: 8vw;
 }

@@ -1,20 +1,20 @@
 var Abschlussaufgabe;
 (function (Abschlussaufgabe) {
-    window.addEventListener("load", init);
+    window.addEventListener("load", init); //alles in init soll gleich zu beginn erscheinen
     let Background;
     let i;
     //Haupt-Array vom Typ der Superklasse
     let objects = [];
-    //weitere Arrays f�r die Objekte Regentropfen, Biene, Regenwurm
+    //weitere Arrays f�r die Objekte Regentropfen, Biene, Regenwurm, Stein
     let nRegentropfen = 400;
     let biene = [];
     let regenwurm = [];
+    let stein = [];
     function init(event) {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         Abschlussaufgabe.crc2 = canvas.getContext("2d");
         console.log(Abschlussaufgabe.crc2);
-        //alert("Hallo, ich bin eine interaktive Pflanze. Lerne mich kennen, indem Du auf die Info Symbole klickst.");
         document.getElementById("Sonne").addEventListener("click", sonneAlert);
         document.getElementById("Sonne").addEventListener("touchstart", sonneAlert);
         document.getElementById("Wolke").addEventListener("click", regnen);
@@ -33,7 +33,7 @@ var Abschlussaufgabe;
         document.getElementById("Erde").addEventListener("touchstart", drawWurm);
         document.getElementById("Bienennest").addEventListener("click", nestAlert);
         document.getElementById("Bienennest").addEventListener("touchstart", nestAlert);
-        //Pflanze zeichnen:
+        //-------Pflanze und Co zeichnen-------------------------------------
         //St�ngel
         Abschlussaufgabe.crc2.fillStyle = "#64FE2E";
         Abschlussaufgabe.crc2.fillRect(348, 185, 6, 250);
@@ -100,6 +100,34 @@ var Abschlussaufgabe;
         Abschlussaufgabe.crc2.fillRect(300, 420, 3, 20);
         //Sonne
         Abschlussaufgabe.crc2.beginPath();
+        Abschlussaufgabe.crc2.moveTo(5, 50);
+        Abschlussaufgabe.crc2.lineTo(15, 150);
+        Abschlussaufgabe.crc2.lineTo(19, 145);
+        Abschlussaufgabe.crc2.stroke();
+        Abschlussaufgabe.crc2.fillStyle = "yellow";
+        Abschlussaufgabe.crc2.fill();
+        Abschlussaufgabe.crc2.beginPath();
+        Abschlussaufgabe.crc2.moveTo(60, 30);
+        Abschlussaufgabe.crc2.lineTo(70, 150);
+        Abschlussaufgabe.crc2.lineTo(74, 145);
+        Abschlussaufgabe.crc2.stroke();
+        Abschlussaufgabe.crc2.fillStyle = "yellow";
+        Abschlussaufgabe.crc2.fill();
+        Abschlussaufgabe.crc2.beginPath();
+        Abschlussaufgabe.crc2.moveTo(90, 40);
+        Abschlussaufgabe.crc2.lineTo(150, 80);
+        Abschlussaufgabe.crc2.lineTo(154, 75);
+        Abschlussaufgabe.crc2.stroke();
+        Abschlussaufgabe.crc2.fillStyle = "yellow";
+        Abschlussaufgabe.crc2.fill();
+        Abschlussaufgabe.crc2.beginPath();
+        Abschlussaufgabe.crc2.moveTo(90, 5);
+        Abschlussaufgabe.crc2.lineTo(175, 20);
+        Abschlussaufgabe.crc2.lineTo(180, 15);
+        Abschlussaufgabe.crc2.stroke();
+        Abschlussaufgabe.crc2.fillStyle = "yellow";
+        Abschlussaufgabe.crc2.fill();
+        Abschlussaufgabe.crc2.beginPath();
         Abschlussaufgabe.crc2.arc(30, 30, 80, 0, 2 * Math.PI);
         Abschlussaufgabe.crc2.fillStyle = "yellow";
         Abschlussaufgabe.crc2.fill();
@@ -118,11 +146,15 @@ var Abschlussaufgabe;
         Abschlussaufgabe.crc2.fill();
         //Hintergrund speichern
         Background = Abschlussaufgabe.crc2.getImageData(0, 0, 800, 600);
-        //Bienen an random Stellen:
+        //random Bienen erzeugen:
         for (i = 0; i < 5; i++) {
             biene[i] = new Abschlussaufgabe.Biene(550 + Math.random() * 220, 250 + Math.random() * 100, "yellow", "silver", "yellow", "black");
         }
-        //Regenw�rmer an random Stellen, nachdem auf Info-Image geklickt wurde:
+        //random Steine erzeugen:
+        for (i = 0; i < 60; i++) {
+            stein[i] = new Abschlussaufgabe.Stein(20 + Math.random() * 780, 415 + Math.random() * 175, "black");
+        }
+        //random Regenw�rmer erzeugen, nachdem auf Icon geklickt wurde:
         function drawWurm() {
             for (let i = 0; i < regenwurm.length; i++) {
                 regenwurm[i].drawRegenwurm();
@@ -131,7 +163,7 @@ var Abschlussaufgabe;
                 regenwurm[i] = new Abschlussaufgabe.Regenwurm(120 + Math.random() * 600, 420 + Math.random() * 200, "#D76767", "#D76767");
             }
         }
-        //Regentropfen:
+        //random Regentropfen erzeugen, nachdem auf Icon geklickt wurde:
         function regnen() {
             for (i = 0; i < nRegentropfen; i++) {
                 let r = new Abschlussaufgabe.Regentropfen(Math.random() * 800, Math.random() * 600, 2.5, 0, 4 * Math.PI, "#2E9AFE");
@@ -139,42 +171,52 @@ var Abschlussaufgabe;
             }
             animate();
         }
-        //Alert Funktion    
+        //Infobox Funktionen
         function sonneAlert() {
-            alert("");
-        }
-        function bluetenblaetterAlert() {
-            alert("");
-        }
-        function bluetenkernAlert() {
-            alert("");
+            alert("Ich spende der Pflanze Energie, die sie fuer die Photosynthese benoetigt.");
         }
         function blaetterAlert() {
-            alert("");
+            alert("Wir Blaetter betreiben Photosynthese in unseren Chloroplasten. Hierfuer benoetigen wir Wasser, Sonnenenergie und CO2, welches wir aus der Luft aufnehmen. Als Gegenleistung stellen wir Sauerstoff und Traubenzucker her.");
+        }
+        function bluetenkernAlert() {
+            alert("Ich bin der Bluetenkern. Ich produziere Pollen und Nektar.");
+        }
+        function bluetenblaetterAlert() {
+            alert("Wir Bluetenblaetter schuetzen das Blueteninnere und locken durch unsere Farbe Insekten an.");
         }
         function staengelAlert() {
-            alert("");
+            alert("Ich bin der Staengel. Ich transportiere Naehrstoffe und Wasser und bringe die Bluete naeher ans Licht.");
         }
         function wurzelnAlert() {
-            alert("");
+            alert("Wir Wurzeln nehmen Wasser und Naehrstoffe aus unserer Umgebung auf und versorgen die Pflanze damit.");
+            alert("Ausserdem verhindern wir, dass die Pflanze umfaellt.");
         }
         function nestAlert() {
-            alert("");
+            alert("Wir Bienen sammeln Bluetenstaub und Nektar. Wir ernaehren uns davon und wandeln den Nektar in Honig um. Ausserdem bestaeuben wir andere Blueten, indem wir den Bluetenstaub verteilen.");
+            alert("Bei Regenwetter verstecken wir uns im Bienenstock.");
         }
         //Bienen zeichnen 
         for (let i = 0; i < biene.length; i++) {
             biene[i].drawBiene();
         }
-        //Animation der Regentropfen 
+        //Steine zeichnen
+        for (let i = 0; i < stein.length; i++) {
+            stein[i].drawStein();
+        }
+        //--------Animation der Regentropfen----------------- 
         function animate() {
             console.log("Timeout");
             Abschlussaufgabe.crc2.clearRect(0, 0, 800, 600);
             Abschlussaufgabe.crc2.putImageData(Background, 0, 0); //Hintergrund wird restauriert
             for (i = 0; i < objects.length; i++) {
-                let r = objects[i];
-                r.move();
+                let o = objects[i];
+                o.move();
             }
             window.setTimeout(animate, 20); //animate() wird alle 20ms aufgerufen
+            //Steine zeichnen (diese sollen bei Regenwetter da bleiben)
+            for (let i = 0; i < stein.length; i++) {
+                stein[i].drawStein();
+            }
         }
     } //Ende init
 })(Abschlussaufgabe || (Abschlussaufgabe = {}));

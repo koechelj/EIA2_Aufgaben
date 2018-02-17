@@ -5,8 +5,7 @@ namespace Abschlussaufgabe {
     export class Regentropfen extends AnimiertesObjekt { //extends: Subklassen können damit auf Inhalte der Superklasse zugreifen
 
 
-
-        //Attribute
+        //zusätzliche Attribute der Subklasse:
         radius: number;
         winkel: number;
         circle: number;
@@ -22,8 +21,7 @@ namespace Abschlussaufgabe {
         }
 
 
-        //Methoden Regentropfen zeichnen und bewegen
-        //Methoden greifen mit this direkt auf Objekteigenschaften zu. Die vererbten Attribute der Superklasse werden mit super gekennzeichnet 
+        //Methoden Regentropfen zeichnen und bewegen (Methoden greifen mit this direkt auf Objekteigenschaften zu) 
         draw(): void {
             crc2.beginPath();
             crc2.arc(this.x, this.y, this.radius, this.winkel, this.circle * Math.PI);
