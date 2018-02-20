@@ -10,6 +10,9 @@ h1 {
 	font-family: "Reenie Beanie";
 }
 
+body img {
+	cursor: pointer;
+}
 
 #Sonne {
 	position: absolute;
