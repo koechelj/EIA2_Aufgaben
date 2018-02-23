@@ -6,8 +6,10 @@ var Aufgabe13;
         //insert f�gt ein Dokument in die Collection ein
         let insertButton = document.getElementById("insert"); //insert f�gt ein Dokument in die Collection ein
         let refreshButton = document.getElementById("refresh");
+        let searchButton = document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        //   searchButton.addEventListener("click", search);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");

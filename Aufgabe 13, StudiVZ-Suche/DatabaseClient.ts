@@ -1,5 +1,6 @@
 namespace Aufgabe13 {
     window.addEventListener("load", init);
+    
 
     function init(_event: Event): void {
         console.log("Init");
@@ -7,8 +8,10 @@ namespace Aufgabe13 {
         //insert fügt ein Dokument in die Collection ein
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");  //insert fügt ein Dokument in die Collection ein
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
+        let searchButton = document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+     //   searchButton.addEventListener("click", search);
     }
 
     function insert(_event: Event): void {
@@ -50,4 +53,22 @@ namespace Aufgabe13 {
             console.log(responseAsJson);
         }
     }
-}
+    
+   // function search(event): void {
+      //  sendRequest("command=find", handleSearchResponse);
+    //}
+   // function handleSearchResponse(event) {
+     //   var xhr = _event.target;
+      //  if (xhr.readyState == XMLHttpRequest.DONE) {
+       //     var responseAsJson = JSON.parse(xhr.response);
+        //    array = JSON.parse(xhr.response);
+          //  console.log(responseAsJson);
+       // }
+      //  var matInput = document.getElementById("matrikelsearch");
+      //  var mat = matInput.value;
+      //  for (var i = 0; i < array.length; i++) {
+       //     console.log("Stelle " + i + array[i]);
+      //  }  
+//}
+    
+    }
